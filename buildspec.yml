@@ -1,21 +1,17 @@
 version: 0.2
-run-as: ubuntu
 phases:
     install:
-        run-as: ubuntu
         on-failure: ABORT
         commands:
             - echo installing nodejs@16
             - curl -fsSL https://deb.nodesource.com/setup_16.x | -E bash -
             - apt install -y nodejs
     pre_build:
-        run-as: ubuntu
         on-failure: ABORT
         commands:
             - echo installing node modules
             - npm install
     build:
-        run-as: ubuntu
         on-failure: ABORT
         commands:
             - echo installing node modules
