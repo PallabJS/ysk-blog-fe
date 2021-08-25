@@ -1,0 +1,38 @@
+{
+    "name": "ysk-blog-fe",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "env-cmd": "^10.1.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3",
+        "sass": "^1.38.1",
+        "web-vitals": "^1.0.1"
+    },
+    "scripts": {
+        "start": "env-cmd -f ./development.env react-scripts start",
+        "prod": "env-cmd -f ./production.env react-scripts start",
+        "builddev": "env-cmd -f ./development.env react-scripts build",
+        "buildprod": "env-cmd -f ./production.env react-scripts build",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
