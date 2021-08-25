@@ -4,8 +4,8 @@ phases:
         on-failure: ABORT
         commands:
             - echo installing nodejs@16
-            - curl -fsSL https://deb.nodesource.com/setup_16.x | -E bash -
-            - apt install -y nodejs
+            - sudo curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+            - sudo apt-get install -y nodejs
     pre_build:
         on-failure: ABORT
         commands:
