@@ -16,3 +16,8 @@ phases:
         commands:
             - echo installing node modules
             - npm run buildprod
+artifacts:
+    files:
+        - "**/*"
+    discard-paths: no
+    base-directory: build
