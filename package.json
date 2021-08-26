@@ -2,7 +2,6 @@
     "name": "ysk-blog-fe",
     "version": "0.1.0",
     "private": true,
-    "homepage": "/index.html",
     "dependencies": {
         "env-cmd": "^10.1.0",
         "react": "^17.0.2",
