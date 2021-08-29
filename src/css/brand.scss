@@ -1,0 +1,20 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
+
+* {
+    margin: 0px;
+    font-family: "Big Shoulders Display", cursive;
+    outline: none;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+:root {
+    /* COLORS */
+    --nav-bg: rgb(32, 32, 32);
+    --bg-color: rgb(245, 249, 250);
+}
