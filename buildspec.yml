@@ -10,7 +10,8 @@ phases:
         on-failure: ABORT
         commands:
             - echo installing node modules
-            - npm install
+            - npm i -g yarn
+            - yarn
     build:
         on-failure: ABORT
         commands:
