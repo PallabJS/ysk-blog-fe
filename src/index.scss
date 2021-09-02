@@ -1,1 +1,10 @@
 @import "./css/brand.scss";
+
+// COMMON STYLING
+a {
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}

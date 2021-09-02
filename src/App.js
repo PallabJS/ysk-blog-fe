@@ -6,7 +6,7 @@ import Version from "./components/version/Version";
 
 import Homepage from "./pages/Homepage";
 import Basepage from "./pages/basepage/Basepage";
-// import Postpage from "./pages/postpage/Postpage";
+import Footer from "./components/footer/Footer";
 
 const baseRoutes = [
     { title: "science", route: "/science" },
@@ -32,6 +32,7 @@ const App = () => {
                     })}
                 </Switch>
             </Router>
+            <Footer />
         </React.Fragment>
     );
 };

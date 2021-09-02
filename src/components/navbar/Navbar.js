@@ -52,10 +52,12 @@ const Navbar = () => {
             </div>
             <nav className="nav-bar">
                 <ul className="nav-list">
-                    <li className="nav-list-item">Science</li>
-                    <li className="nav-list-item">Technology</li>
-                    <li className="nav-list-item">Top 10s</li>
-                    <li className="nav-list-item">Forum</li>
+                    <li className="nav-list-item" onClick={() => (window.location.href = "/science")}>
+                        Science
+                    </li>
+                    <li className="nav-list-item" onClick={() => (window.location.href = "/tech")}>
+                        Technology
+                    </li>
                 </ul>
             </nav>
         </header>

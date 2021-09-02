@@ -1,0 +1,55 @@
+.basepage_container {
+    margin-top: 0px;
+    display: flex;
+    width: 80%;
+    min-height: 355px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 50px);
+    padding: 00px 10px;
+    background-color: rgba(246, 248, 236, 0.5);
+    // border: 100px solid rgb(235, 235, 235);
+    box-sizing: border-box;
+    & .post_container {
+        flex: 0.7;
+        border: 2px solid rgb(235, 235, 235);
+        margin-right: 10px;
+        padding: 30px;
+        background-color: white;
+        & .pagetitle {
+            font-family: monospace;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-family: var(--font-title);
+        }
+        & .meta_info {
+            display: block;
+            margin-left: 2px;
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--info-date);
+        }
+        & .content {
+            margin-bottom: 50px;
+            line-height: 25px;
+            text-align: justify;
+            color: var(--content-color);
+            font-family: var(--content-font);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .img_container {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+    & .sidecontent_container {
+        flex: 0.3;
+        padding: 10px;
+        background-color: white;
+        border: 2px solid rgb(235, 235, 235);
+    }
+}

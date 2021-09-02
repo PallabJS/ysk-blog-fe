@@ -3,10 +3,15 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Offside&family=Russo+One&display=swap");
+
 * {
     margin: 0px;
-    font-family: "Big Shoulders Display", cursive;
     outline: none;
+    font-family: "Big Shoulders Display", cursive;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -14,7 +19,15 @@ body {
 }
 
 :root {
-    /* COLORS */
+    // COLORS
     --nav-bg: rgb(32, 32, 32);
     --bg-color: rgb(245, 249, 250);
+    --title-color: rgb(20, 20, 20);
+    --info-date: rgb(82, 152, 218);
+    --content-color: rgb(85, 85, 85);
+    --footer-bg: rgb(63, 70, 75);
+
+    // FONTS
+    --title-font: "Offside", cursive;
+    --content-font: "Quicksand", sans-serif;
 }

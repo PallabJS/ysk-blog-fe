@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import Postpage from "../postpage/Postpage";
 import Page404 from "../Page404";
+import Sidecontent from "../../components/Sidecontent/Sidecontent";
 
 import { postApi } from "../../api/post/postapi";
+
+import "./basepage.scss";
 
 let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
 
 const Basepage = () => {
     const [postInfo, setPostInfo] = useState({
+        isPostPage: Boolean(postTitle),
         category: category,
         title: postTitle,
     });
@@ -37,9 +41,24 @@ const Basepage = () => {
 
     return (
         <React.Fragment>
-            <div style={{ width: "70%", border: "1px solid red", transform: "translate(20%, 50px)", padding: "20px" }}>
-                {post.show && post.valid ? <Postpage post={post} /> : post.show && !post.valid ? <Page404 /> : ""}
-            </div>
+            <main className="basepage_container">
+                {postInfo.isPostPage ? (
+                    <>
+                        {post.show && post.valid ? (
+                            <>
+                                <Postpage className="post_container" post={post} />
+                                <Sidecontent className="sidecontent_container" />
+                            </>
+                        ) : post.show && !post.valid ? (
+                            <Page404 />
+                        ) : null}
+                    </>
+                ) : (
+                    <>
+                        <div>THIS IS CATEGORY PAGE</div>
+                    </>
+                )}
+            </main>
         </React.Fragment>
     );
 };
