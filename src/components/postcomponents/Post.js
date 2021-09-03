@@ -1,6 +1,8 @@
 import React from "react";
 import parse from "html-react-parser";
 
+import { utils } from "../../utils";
+
 export const Posttitle = (props) => {
     const { title, subtitle, date, className } = props;
     return (
@@ -59,9 +61,17 @@ export const Postext = (props) => {
     return <>{text ? <p className={className}>{parse(text)}</p> : null}</>;
 };
 
-export const demo = (props) => {
-    const { title } = props;
-    return <></>;
+export const PostCard = (props) => {
+    const { className, post, onClick } = props;
+    return (
+        <div className={className} onClick={onClick}>
+            <a>
+                {post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}
+                <div> ({utils.getTimeDifference(new Date(post.date.replace("at", "")))} ago)</div>
+            </a>
+            <p>"{parse(post.text.slice(0, 100))}"</p>
+        </div>
+    );
 };
 
 // export const demo = (props) => {

@@ -35,7 +35,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <button className="submit_button" onClick={addToMailingList}>
-                Subscribe{" "}
+                Subscribe
             </button>
             <input
                 type="email"

@@ -2,7 +2,7 @@
     margin-top: 0px;
     display: flex;
     width: 1200px;
-    min-height: 355px;
+    min-height: 494px;
     position: relative;
     left: 50%;
     transform: translate(-50%, 50px);
@@ -63,5 +63,30 @@
         padding: 10px;
         background-color: white;
         border: 2px solid rgb(235, 235, 235);
+
+        .header {
+            padding: 5px 10px;
+            color: ghostwhite;
+            background-color: rgba(170, 20, 20, 0.733);
+            user-select: none;
+        }
+        & .post_card {
+            cursor: pointer;
+            margin: 5px 0px;
+            padding: 30px 10px;
+            padding-top: 10px;
+            border-bottom: 1px solid rgba(255, 0, 51, 0.157);
+            a > div {
+                font-size: 0.8rem;
+            }
+            p {
+                font-style: italic;
+                font-weight: 200;
+                font-size: 0.9rem;
+            }
+            &:hover {
+                background-color: rgba(0, 47, 255, 0.082);
+            }
+        }
     }
 }

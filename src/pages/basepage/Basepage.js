@@ -20,7 +20,7 @@ const Basepage = () => {
 
     const [post, setPost] = useState({
         show: false,
-        valid: true,
+        valid: false,
     });
 
     const getPostData = async () => {
@@ -30,7 +30,7 @@ const Basepage = () => {
             if (!res.error) {
                 setPost({ ...res.data, show: true, valid: true });
             } else {
-                setPost({ ...post, valid: false, show: true });
+                setPost({ valid: false, show: true });
             }
         } catch (e) {}
     };
@@ -47,7 +47,7 @@ const Basepage = () => {
                         {post.show && post.valid ? (
                             <>
                                 <Postpage className="post_container" post={post} />
-                                <Sidecontent className="sidecontent_container" />
+                                <Sidecontent className="sidecontent_container" category={postInfo.category} />
                             </>
                         ) : post.show && !post.valid ? (
                             <Page404 />

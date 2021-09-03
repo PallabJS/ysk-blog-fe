@@ -20,25 +20,34 @@ const Postpage = (props) => {
                     }}
                 />
             </section>
-            <section>
-                <Postsection
-                    type="bodyintro"
-                    post={{
-                        title: post.body.intro.title,
-                        date: post.body.intro.date,
-                        text: post.body.intro.text,
-                        image: post.body.intro.image,
-                    }}
-                />
-            </section>
-            <section className="post_body_wrapper">
-                {post.body.list.map((post, index) => {
-                    return <Postsection type="body" post={post} index={index + 1} key={index} />;
-                })}
-            </section>
-            <section className="post_climax_wrapper">
-                <Postsection type="climax" post={post.climax} />
-            </section>
+
+            {post.body && post.body.intro ? (
+                <section>
+                    <Postsection
+                        type="bodyintro"
+                        post={{
+                            title: post.body.intro.title,
+                            date: post.body.intro.date,
+                            text: post.body.intro.text,
+                            image: post.body.intro.image,
+                        }}
+                    />
+                </section>
+            ) : null}
+
+            {post.body && post.body.list ? (
+                <section className="post_body_wrapper">
+                    {post.body.list.map((post, index) => {
+                        return <Postsection type="body" post={post} index={index + 1} key={index} />;
+                    })}
+                </section>
+            ) : null}
+
+            {post.climax ? (
+                <section className="post_climax_wrapper">
+                    <Postsection type="climax" post={post.climax} />
+                </section>
+            ) : null}
         </article>
     );
 };

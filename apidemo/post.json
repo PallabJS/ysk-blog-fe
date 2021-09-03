@@ -1,0 +1,32 @@
+{
+    "title": "ola electric scooters towards the future of clean transport",
+    "image": "https://i.imgur.com/hpIoj9A.png",
+    "text": "Ola takes transportation a step ahead with their new <b>Electric Scooters</b> that has vibes to take challenges against the conventional fuel powered bikes. Pre-booking has started and Ola announced official sells to start from <b>8th Sept. 2021</b>. According to the oficial website, they pitch to start the delivery process in the month of <b>October</b>",
+    "list": [],
+    "body": {
+        "intro": {
+            "title": "Ola Electric Scooters variants",
+            "image": null,
+            "text": "Ola currently sells two variants of the scooter, <b>S1</b> and <b>S1 Pro</b>. Ola's has been successful in meeting the durability and keeping the mobility above the expected scale. The Ee-Showroom price starts from Rs. 99,999."
+        },
+        "list": [
+            {
+                "title": "Ola S1",
+                "image": "https://i.imgur.com/BFYT5XG.png",
+                "text": "The S1 is feautred by it's slim and sleek design weighs about 125Kgs with a seat height of 738mm. The Electric Scooter can gain 40 kmph in just 3.6 secs and reach upto 90 kmph. On full charge the scooter has a potential to travel 121 kms",
+                "list": []
+            },
+            {
+                "title": "Ola S1 Pro",
+                "image": "https://i.imgur.com/iARviNT.png",
+                "text": "The S1 Pro has the same physical dimentions as that of the S1. S1 Pro is, to put is short, the S1 in steroids. The Pro verion can gain 40 kmph in 3 secs and it's top speeds is tested to be 115 kmph which competes quite well to other average fuel engine vehicles"
+            }
+        ]
+    },
+    "climax": {
+        "title": "Specifications from Ola",
+        "image": "https://i.imgur.com/XY36eud.png",
+        "text": "Electric vehicles seems to the future of clean and safe transportation. Ola is not the alone in the act of making environment cleaner, other companies like Tesla, Uber, Waymo, etc... are also stepping over the fuel transportation vehicles.",
+        "quote": "Go green and go Safe, Go Electric!"
+    }
+}
