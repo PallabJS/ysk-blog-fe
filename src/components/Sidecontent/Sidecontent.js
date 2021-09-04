@@ -1,19 +1,19 @@
 import React from "react";
-import parse from "html-react-parser";
 import { useEffect, useState } from "react/cjs/react.development";
 
 import { postApi } from "../../api/post/postapi";
 import { PostCard } from "../postcomponents/Post";
 
 const Sidecontent = (props) => {
-    const { category } = props;
+    const { currentPostCategory, currentPostTitle, countToDisplay } = props;
     const [latestPosts, setLatestPosts] = useState([]);
 
     const getLatestPosts = async () => {
-        postApi.getLatestPosts(category).then((res) => {
-            console.log(res);
+        postApi.getLatestPosts(currentPostCategory).then((res) => {
             if (res.success) {
-                setLatestPosts(res.data.reverse());
+                let posts = res.data.filter((post) => post.title !== currentPostTitle);
+                posts = posts.reverse().slice(0, countToDisplay);
+                setLatestPosts(posts);
             }
         });
     };
@@ -24,13 +24,14 @@ const Sidecontent = (props) => {
 
     return (
         <div className={props.className}>
-            <h2 className="header">Most recent posts in '{category}'</h2>
+            <h2 className="header">Most recent posts in '{currentPostCategory}'</h2>
             {latestPosts.map((post, index) => {
                 return (
                     <PostCard
+                        key={index}
                         className={"post_card"}
                         post={post}
-                        onClick={() => (window.location.href = `/${post.meta.category}/${post.title}`)}
+                        onClick={() => (window.location.href = `/${currentPostCategory}/${post.title}`)}
                     />
                 );
             })}

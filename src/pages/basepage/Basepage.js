@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import Postpage from "../postpage/Postpage";
-import Page404 from "../Page404";
 import Sidecontent from "../../components/Sidecontent/Sidecontent";
+import Recommendation from "../../components/recommendation/Recommendation";
+import Page404 from "../Page404";
 
 import { postApi } from "../../api/post/postapi";
 
@@ -17,6 +18,8 @@ const Basepage = () => {
         category: category,
         title: postTitle,
     });
+
+    console.log("called");
 
     const [post, setPost] = useState({
         show: false,
@@ -42,22 +45,30 @@ const Basepage = () => {
     return (
         <React.Fragment>
             <main className="basepage_container">
-                {postInfo.isPostPage ? (
-                    <>
-                        {post.show && post.valid ? (
-                            <>
-                                <Postpage className="post_container" post={post} />
-                                <Sidecontent className="sidecontent_container" category={postInfo.category} />
-                            </>
-                        ) : post.show && !post.valid ? (
-                            <Page404 />
-                        ) : null}
-                    </>
-                ) : (
-                    <>
-                        <div>THIS IS CATEGORY PAGE</div>
-                    </>
-                )}
+                <div className="main_flexbox">
+                    {postInfo.isPostPage ? (
+                        <>
+                            {post.show && post.valid ? (
+                                <>
+                                    <Postpage className="post_container" post={post} />
+                                    <Sidecontent
+                                        className="sidecontent_container"
+                                        currentPostCategory={postInfo.category}
+                                        currentPostTitle={postInfo.title}
+                                        countToDisplay={10}
+                                    />
+                                </>
+                            ) : post.show && !post.valid ? (
+                                <Page404 />
+                            ) : null}
+                        </>
+                    ) : (
+                        <>
+                            <div>THIS IS CATEGORY PAGE</div>
+                        </>
+                    )}
+                </div>
+                <Recommendation className="post_recommandation" />
             </main>
         </React.Fragment>
     );

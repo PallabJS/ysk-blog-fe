@@ -8,10 +8,7 @@ import Homepage from "./pages/Homepage";
 import Basepage from "./pages/basepage/Basepage";
 import Footer from "./components/footer/Footer";
 
-const baseRoutes = [
-    { title: "science", route: "/science" },
-    { title: "tech", route: "/tech" },
-];
+import { categoryRoutes } from "./appspecs/routes";
 
 const App = () => {
     return (
@@ -23,7 +20,7 @@ const App = () => {
                     <Route exact path="/">
                         <Homepage />
                     </Route>
-                    {baseRoutes.map((page, index) => {
+                    {categoryRoutes.map((page, index) => {
                         return (
                             <Route path={page.route} key={index}>
                                 <Basepage />

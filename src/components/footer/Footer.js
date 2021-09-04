@@ -47,7 +47,7 @@ const Footer = () => {
             <div className="subscription_group">
                 {Object.keys(subscriptions).map((category, index) => {
                     return (
-                        <>
+                        <span key={index}>
                             <input
                                 id={category}
                                 type="checkbox"
@@ -56,7 +56,7 @@ const Footer = () => {
                                 onChange={handleSubsToggle}
                             />
                             <label htmlFor={category}>{category.toUpperCase()}</label>
-                        </>
+                        </span>
                     );
                 })}
             </div>

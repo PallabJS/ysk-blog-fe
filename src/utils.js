@@ -3,9 +3,6 @@ export const utils = {
         let from = fromDate.getTime();
         let to = toDate.getTime();
 
-        console.log(fromDate);
-        console.log(toDate);
-
         let secs = (to - from) / 1000;
         let minutes = secs / 60;
         let hours = minutes / 60;

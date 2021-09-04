@@ -1,92 +1,122 @@
 .basepage_container {
     margin-top: 0px;
-    display: flex;
     width: 1200px;
     min-height: 494px;
     position: relative;
     left: 50%;
     transform: translate(-50%, 50px);
-    padding: 00px 10px;
+    padding: 0px 10px;
     background-color: rgba(246, 248, 236, 0.5);
     box-sizing: border-box;
-    & .post_container {
-        flex: 0.7;
-        border: 2px solid rgb(235, 235, 235);
-        margin-right: 10px;
-        padding: 30px;
-        background-color: white;
-        & .pagetitle,
-        .section_title {
-            font-family: monospace;
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 30px;
-            margin-top: 20px;
-            font-family: var(--font-title);
-        }
-        & .section_title {
-            font-size: 1.2rem;
-            margin: 10px 0px;
-        }
+    .main_flexbox {
+        display: flex;
 
-        & .subtitle {
-            font-size: 1.1rem;
-            font-weight: 350;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
+        & .post_container {
+            flex: 0.7;
+            border: 2px solid rgb(235, 235, 235);
+            margin-right: 10px;
+            padding: 30px;
+            background-color: white;
+            & .pagetitle,
+            .section_title {
+                font-family: monospace;
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 30px;
+                margin-top: 20px;
+                font-family: var(--font-title);
+            }
+            & .section_title {
+                font-size: 1.2rem;
+                margin: 10px 0px;
+            }
 
-        & .meta_info {
-            display: block;
-            margin-left: 2px;
-            margin-top: 0px;
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--info-date);
+            & .subtitle {
+                font-size: 1.1rem;
+                font-weight: 350;
+                margin-bottom: 10px;
+                font-style: italic;
+            }
+
+            & .meta_info {
+                display: block;
+                margin-left: 2px;
+                margin-top: 0px;
+                font-size: 0.9rem;
+                font-weight: 400;
+                color: var(--info-date);
+            }
+            & .content {
+                line-height: 25px;
+                text-align: justify;
+                color: var(--content-color);
+                font-family: var(--content-font);
+                font-weight: 500;
+                font-size: 1rem;
+            }
+            .img_container {
+                width: 100%;
+                box-sizing: border-box;
+                margin: 30px 0px;
+            }
         }
-        & .content {
-            line-height: 25px;
-            text-align: justify;
-            color: var(--content-color);
-            font-family: var(--content-font);
-            font-weight: 500;
-            font-size: 1rem;
-        }
-        .img_container {
-            width: 100%;
-            box-sizing: border-box;
-            margin: 30px 0px;
+        & .sidecontent_container {
+            flex: 0.3;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid rgb(235, 235, 235);
+
+            .header {
+                padding: 5px 10px;
+                color: ghostwhite;
+                background-color: rgba(170, 20, 20, 0.733);
+                border-radius: 3px;
+                user-select: none;
+            }
+            & .post_card {
+                cursor: pointer;
+                margin: 5px 0px;
+                padding: 30px 10px;
+                padding-top: 10px;
+                border-bottom: 1px solid rgba(255, 0, 51, 0.157);
+                a > div {
+                    font-size: 0.8rem;
+                }
+                p {
+                    font-style: italic;
+                    font-weight: 200;
+                    font-size: 0.9rem;
+                }
+                &:hover {
+                    background-color: rgba(0, 47, 255, 0.082);
+                }
+            }
         }
     }
-    & .sidecontent_container {
-        flex: 0.3;
-        padding: 10px;
+    .post_recommandation {
+        position: relative;
+        margin: 10px 0px;
+        padding: 30px;
+        padding-bottom: 100px;
         background-color: white;
         border: 2px solid rgb(235, 235, 235);
-
-        .header {
-            padding: 5px 10px;
-            color: ghostwhite;
+        overflow: auto;
+        clear: both;
+        .recommandation_header {
+            font-weight: 500;
+            margin: 20px 5px;
+            border-radius: 3px;
+            color: white;
             background-color: rgba(170, 20, 20, 0.733);
-            user-select: none;
+            padding: 5px 10px;
         }
-        & .post_card {
-            cursor: pointer;
-            margin: 5px 0px;
-            padding: 30px 10px;
-            padding-top: 10px;
-            border-bottom: 1px solid rgba(255, 0, 51, 0.157);
-            a > div {
-                font-size: 0.8rem;
-            }
-            p {
-                font-style: italic;
-                font-weight: 200;
-                font-size: 0.9rem;
-            }
-            &:hover {
-                background-color: rgba(0, 47, 255, 0.082);
-            }
-        }
+    }
+    .bottom_line {
+        font-size: 0.8rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        bottom: 10px;
+        color: rgba(161, 12, 12, 0.541);
     }
 }

@@ -14,7 +14,7 @@ export const postApi = {
             if (r.ok) return await r.json();
             else throw new Error(r.statusText);
         } catch (e) {
-            window.log(e.message);
+            console.log(e);
             return { error: true, msg: e.message };
         }
     },
@@ -26,7 +26,24 @@ export const postApi = {
             if (r.ok) return await r.json();
             else throw new Error(r.statusText);
         } catch (e) {
-            window.log(e.message);
+            console.log(e);
+            return { error: true, msg: e.message };
+        }
+    },
+
+    getRecommendedPosts: async (category = null) => {
+        try {
+            let r = await fetch(`${serverUrl}/post/get_recommendations`, {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({ category: category }),
+            });
+            if (r.ok) return await r.json();
+            else throw new Error(r.statusText);
+        } catch (e) {
+            console.log(e);
             return { error: true, msg: e.message };
         }
     },

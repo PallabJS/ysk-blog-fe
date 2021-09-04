@@ -1,0 +1,59 @@
+.card_wrapper {
+    width: 360px;
+    height: 200px;
+    margin: 5px;
+    box-sizing: border-box;
+    float: left;
+}
+.card {
+    border: 1px solid rgba(168, 108, 108, 0.24);
+    box-shadow: 1px 1px 1px 1px rgba(105, 100, 100, 0.377);
+    border-radius: 3px;
+    width: 360px;
+    height: 200px;
+    max-height: 250px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    h3 {
+        font-weight: 600;
+        margin: 0px 0px;
+        .views {
+            font-size: 0.9rem;
+            font-weight: 100;
+        }
+    }
+    .subtitle {
+        font-size: 0.9rem;
+        font-family: "Segoe UI", sans-serif;
+        color: rgb(216, 63, 139);
+        font-weight: 600;
+    }
+    p {
+        margin-top: 5px;
+        font-weight: 300;
+        padding: 5px 2px;
+        transition: font-weight 0.1s ease-in-out;
+    }
+    img {
+        width: 100px;
+        height: auto;
+    }
+    &:hover {
+        background-color: rgba(124, 136, 17, 0.055);
+        cursor: pointer;
+        font-size: 16px;
+        border: 2px solid rgba(168, 108, 108, 0.24);
+        h3 {
+            .views {
+                text-decoration: none;
+                font-weight: 600;
+                color: green;
+            }
+        }
+        p {
+            font-weight: 400;
+        }
+    }
+}
