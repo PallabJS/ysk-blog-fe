@@ -6,15 +6,17 @@ import Card from "../card/Card";
 
 import { CATEGORY } from "../../appspecs/routes";
 
+import "./recommendation.scss";
+
 const Recommendation = (props) => {
-    const { className } = props;
+    const { className, category } = props;
 
     // These stores un-categorized posts
     const [latestPosts, setLatestPosts] = useState([]);
     const [popularPosts, setPopularPosts] = useState([]);
 
     const getRecommandations = () => {
-        postApi.getRecommendedPosts().then((res) => {
+        postApi.getRecommendedPosts(category).then((res) => {
             if (!res.error) {
                 let posts = [];
                 res.data.forEach((postItem) => {
@@ -30,12 +32,13 @@ const Recommendation = (props) => {
     }, []);
 
     return (
-        <div className={className || "post_recommandation"}>
-            <h2 className="recommandation_header"> Recommended posts by YouShouldKnow </h2>
+        <div className={className}>
+            <h2 className="recommandation_header"> Recommended posts </h2>
             {popularPosts.map((post, index) => {
                 return (
                     <Card
                         key={index}
+                        animation={true}
                         title={post.title}
                         subtitle={post.meta.category}
                         text={post.text.slice(0, 100) + " ..."}
@@ -48,7 +51,7 @@ const Recommendation = (props) => {
                     />
                 );
             })}
-            <footer className="bottom_line"> - - - &nbsp; Powered to you by ysk-algo &nbsp; - - - </footer>
+            {/* <footer className="bottom_line"> - - - &nbsp; Powered to you by ysk-algo &nbsp; - - - </footer> */}
         </div>
     );
 };

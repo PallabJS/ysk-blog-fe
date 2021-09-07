@@ -1,0 +1,29 @@
+.post_recommandation_category_page {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    .card_wrapper {
+        width: calc(100% - 10px);
+        height: 160px;
+    }
+    .card {
+        width: 100%;
+    }
+
+    position: relative;
+    margin: 0px 10px;
+    padding: 10px;
+    padding-bottom: 100px;
+    background-color: white;
+    border: 2px solid var(--wrapper-border-color);
+    overflow: auto;
+    clear: both;
+    .recommandation_header {
+        font-weight: 500;
+        margin: 20px 5px;
+        border-radius: 3px;
+        color: white;
+        background-color: var(--bg-red);
+        padding: 5px 10px;
+    }
+}

@@ -20,12 +20,22 @@ body {
 
 :root {
     // COLORS
+    --bg-red: rgba(170, 20, 20, 0.733);
+    --bg-blue: blue;
+    --bg-green: rgba(215, 245, 215, 0.342);
+
+    // SPECIFIC COLORS
     --nav-bg: rgb(32, 32, 32);
     --bg-color: rgb(245, 249, 250);
     --title-color: rgb(20, 20, 20);
     --info-date: rgb(82, 152, 218);
     --content-color: rgb(85, 85, 85);
     --footer-bg: rgb(63, 70, 75);
+    --wrapper-border-color: rgb(235, 235, 235);
+    --category-page-header: var(--bg-red);
+    --link-hover: rgba(7, 57, 165, 0.883);
+    --content-border-color: rgba(95, 180, 250, 0.37);
+    --content-hover-color: rgba(161, 78, 238, 0.493);
 
     // FONTS
     --title-font: "Offside", cursive;

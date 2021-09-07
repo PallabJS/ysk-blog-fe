@@ -10,7 +10,12 @@ const Postsection = (props) => {
             {/* ============ THIS SECTIONS RENDERS INTRO AND CONCLUSION OF THE POST ============ */}
             {type === "intro" || type === "climax" ? (
                 <>
-                    <Posttitle title={post.title} subtitle={post.subtitle} date={post.date} className="pagetitle" />
+                    <Posttitle
+                        title={post.title}
+                        subtitle={post.subtitle}
+                        date={post.date ? new Date(post.date) : null}
+                        className="pagetitle"
+                    />
                     <Postext text={post.text} className="content" />
                     <Postimage url={post.image} className="img_container" />
                 </>
@@ -19,7 +24,7 @@ const Postsection = (props) => {
             {/* ============ THIS SECTION RENDERS INTRO OF THE BODY ================== */}
             {type === "bodyintro" ? (
                 <>
-                    <Posttitle title={post.title} date={post.date} className="section_title" />
+                    <Posttitle title={post.title} className="section_title" />
                     <Postext text={post.text} className="content" />
                     <Postimage url={post.image} className="img_container" />
                 </>
@@ -28,7 +33,7 @@ const Postsection = (props) => {
             {/* ============ THIS SECTION RENDERS ITEMS OF THE BODY ================== */}
             {type === "body" ? (
                 <>
-                    <Posttitle title={`${index}. ${post.title}`} date={post.date} className="section_title" />
+                    <Posttitle title={`${index}. ${post.title}`} className="section_title" />
                     <Postext text={post.text} className="content" />
                     <Postimage url={post.image} className="img_container" />
                 </>

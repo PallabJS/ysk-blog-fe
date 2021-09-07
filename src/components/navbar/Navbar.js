@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {} from "@fortawesome/fontawesome-svg-core/";
+
+import Droplist from "../droplist/Droplist";
 
 import "./navbar.scss";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+import { postApi } from "../../api/post/postapi";
 
 const Navbar = () => {
     const [state, setState] = useState({
         searchText: "",
         searchTriggered: false,
+        droplist: [],
     });
 
-    const handleTextInput = (e) => {
+    const searchBox = useRef();
+
+    const handleTextInput = async (e) => {
         let value = e.target.value;
-        setState({ ...state, searchText: value });
+        if (!value) {
+            setState({ ...state, searchText: value, droplist: [] });
+        } else {
+            let posts = await getMatchingPosts(value);
+            console.log(posts.length);
+            setState({ ...state, searchText: value, droplist: posts });
+        }
     };
     const checkForEnterKey = (e) => {
         if (e.key === "Enter") {
@@ -21,8 +33,14 @@ const Navbar = () => {
         }
     };
 
+    const handleRouting = (path) => {
+        // Side effects
+        sessionStorage.setItem("currentpage", 1);
+
+        window.location.href = path;
+    };
+
     const searchButtonClick = () => {
-        console.log(state);
         if (!state.searchText) {
             // Take the focus to the search box
             document.getElementById("search-nav").focus();
@@ -33,34 +51,72 @@ const Navbar = () => {
         search.style.color = "red";
         setState({ ...state, searchTriggered: true });
     };
+
+    // Fetches the matching posts asynchronoulsy
+    const getMatchingPosts = async (searchText) => {
+        return postApi.getMatchingPosts(searchText).then((res) => {
+            if (!res.error) {
+                return res.data;
+            }
+        });
+    };
+
+    // Switch focus to searchbox when "/" is pressed
+    const switchFocusToSearch = (e) => {
+        if (e.key === "/") {
+            document.getElementById("search-nav").focus();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("keyup", switchFocusToSearch);
+        return () => {
+            window.removeEventListener("keyup", switchFocusToSearch);
+        };
+    }, []);
+
     return (
-        <header className="head-container">
-            <span className="logo">You Should Know</span>
-            <div className="search-box-container">
-                <div id="search-nav-label" onClick={searchButtonClick}>
-                    <FontAwesomeIcon icon={faSearch} size="lg" spin={state.searchTriggered} />
+        <>
+            <header className="head-container">
+                <span className="logo">You Should Know</span>
+                <div className="search-box-container" ref={searchBox}>
+                    <div id="search-nav-label" onClick={searchButtonClick}>
+                        <FontAwesomeIcon icon={faSearch} size="lg" spin={state.searchTriggered} />
+                    </div>
+                    <input
+                        id="search-nav"
+                        type="text"
+                        autoComplete={false}
+                        autoSave={false}
+                        spellCheck={false}
+                        placeholder={"Press '/'"}
+                        value={state.searchText}
+                        onChange={handleTextInput}
+                        onKeyUp={checkForEnterKey}
+                        onFocus={(e) => {
+                            e.target.setAttribute("placeholder", "Just give me the 'term' buddy");
+                        }}
+                        onBlur={(e) => {
+                            e.target.setAttribute("placeholder", "Press '/'");
+                            setTimeout(() => {
+                                setState({ ...setState, droplist: [] });
+                            }, 200);
+                        }}
+                    />
                 </div>
-                <input
-                    id="search-nav"
-                    type="text"
-                    spellCheck={false}
-                    placeholder={"Search 'what' you should know"}
-                    value={state.searchText}
-                    onChange={handleTextInput}
-                    onKeyUp={checkForEnterKey}
-                />
-            </div>
-            <nav className="nav-bar">
-                <ul className="nav-list">
-                    <li className="nav-list-item" onClick={() => (window.location.href = "/science")}>
-                        Science
-                    </li>
-                    <li className="nav-list-item" onClick={() => (window.location.href = "/tech")}>
-                        Technology
-                    </li>
-                </ul>
-            </nav>
-        </header>
+                <nav className="nav-bar">
+                    <ul className="nav-list">
+                        <li className="nav-list-item" onClick={() => handleRouting("/science")}>
+                            Science
+                        </li>
+                        <li className="nav-list-item" onClick={() => handleRouting("/tech")}>
+                            Technology
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <Droplist droplist={state.droplist} anchorElement={searchBox.current} />
+        </>
     );
 };
 

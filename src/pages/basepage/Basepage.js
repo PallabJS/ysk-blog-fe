@@ -8,6 +8,7 @@ import Page404 from "../Page404";
 import { postApi } from "../../api/post/postapi";
 
 import "./basepage.scss";
+import Category from "../../components/category/Category";
 
 let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
@@ -18,9 +19,6 @@ const Basepage = () => {
         category: category,
         title: postTitle,
     });
-
-    console.log("called");
-
     const [post, setPost] = useState({
         show: false,
         valid: false,
@@ -45,6 +43,12 @@ const Basepage = () => {
     return (
         <React.Fragment>
             <main className="basepage_container">
+                {!postInfo.isPostPage ? (
+                    <div className="main_flexbox">
+                        <Category className="category_page" category={postInfo.category} />
+                        <Recommendation className="post_recommandation_category_page" category={postInfo.category} />
+                    </div>
+                ) : null}
                 <div className="main_flexbox">
                     {postInfo.isPostPage ? (
                         <>
@@ -62,13 +66,11 @@ const Basepage = () => {
                                 <Page404 />
                             ) : null}
                         </>
-                    ) : (
-                        <>
-                            <div>THIS IS CATEGORY PAGE</div>
-                        </>
-                    )}
+                    ) : null}
                 </div>
-                <Recommendation className="post_recommandation" />
+                {postInfo.isPostPage ? (
+                    <Recommendation className="post_recommandation" category={postInfo.category} />
+                ) : null}
             </main>
         </React.Fragment>
     );

@@ -1,20 +1,45 @@
 .card_wrapper {
-    width: 360px;
-    height: 200px;
-    margin: 5px;
+    width: calc(33.25% - 8px);
+    height: 150px;
+    margin: 4px;
     box-sizing: border-box;
     float: left;
+}
+.card_animation {
+    p {
+        transition: font-weight 0.1s ease-in-out;
+    }
+    & h3 > .views {
+        transition: font-weight 0.1s ease-in-out;
+    }
+    &:hover {
+        background-color: rgba(124, 136, 17, 0.055);
+        cursor: pointer;
+        font-size: 16px;
+        // border: 2px solid rgba(168, 108, 108, 0.24);
+        h3 {
+            .views {
+                text-decoration: none;
+                font-weight: 500;
+                color: green;
+            }
+        }
+        p {
+            font-weight: 400;
+        }
+    }
 }
 .card {
     border: 1px solid rgba(168, 108, 108, 0.24);
     box-shadow: 1px 1px 1px 1px rgba(105, 100, 100, 0.377);
     border-radius: 3px;
-    width: 360px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     max-height: 250px;
     padding: 10px;
     box-sizing: border-box;
     overflow: hidden;
+    cursor: pointer;
 
     h3 {
         font-weight: 600;
@@ -22,6 +47,9 @@
         .views {
             font-size: 0.9rem;
             font-weight: 100;
+        }
+        &:hover {
+            color: var(--link-hover);
         }
     }
     .subtitle {
@@ -34,26 +62,10 @@
         margin-top: 5px;
         font-weight: 300;
         padding: 5px 2px;
-        transition: font-weight 0.1s ease-in-out;
+        font-size: 0.9rem;
     }
     img {
         width: 100px;
         height: auto;
-    }
-    &:hover {
-        background-color: rgba(124, 136, 17, 0.055);
-        cursor: pointer;
-        font-size: 16px;
-        border: 2px solid rgba(168, 108, 108, 0.24);
-        h3 {
-            .views {
-                text-decoration: none;
-                font-weight: 600;
-                color: green;
-            }
-        }
-        p {
-            font-weight: 400;
-        }
     }
 }

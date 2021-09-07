@@ -2,7 +2,6 @@ import { serverUrl } from "../../settings";
 
 export const postApi = {
     getPost: async (category, postTitle) => {
-        console.log(postTitle);
         try {
             let r = await fetch(`${serverUrl}/${category}/${postTitle}`, {
                 method: "get",
@@ -39,6 +38,22 @@ export const postApi = {
                     "content-type": "application/json",
                 },
                 body: JSON.stringify({ category: category }),
+            });
+            if (r.ok) return await r.json();
+            else throw new Error(r.statusText);
+        } catch (e) {
+            console.log(e);
+            return { error: true, msg: e.message };
+        }
+    },
+    getMatchingPosts: async (searchText) => {
+        try {
+            let r = await fetch(`${serverUrl}/post/search`, {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({ search_text: searchText }),
             });
             if (r.ok) return await r.json();
             else throw new Error(r.statusText);

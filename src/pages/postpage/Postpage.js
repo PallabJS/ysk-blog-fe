@@ -1,4 +1,5 @@
 import React from "react";
+import { CATEGORY } from "../../appspecs/routes";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import Postsection from "./Postsection";
 
@@ -7,7 +8,7 @@ const Postpage = (props) => {
 
     return (
         <article className={props.className}>
-            <Breadcrumb home="ysk" dirs={[post.meta.category, post.title]} />
+            <Breadcrumb home="ysk" dirs={[CATEGORY[post.meta.category], post.title]} />
             <section className="post_intro_wrapper">
                 <Postsection
                     type="intro"

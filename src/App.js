@@ -9,6 +9,7 @@ import Basepage from "./pages/basepage/Basepage";
 import Footer from "./components/footer/Footer";
 
 import { categoryRoutes } from "./appspecs/routes";
+import Category from "./components/category/Category";
 
 const App = () => {
     return (

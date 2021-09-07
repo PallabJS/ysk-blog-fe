@@ -1,6 +1,6 @@
 .basepage_container {
     margin-top: 0px;
-    width: 1200px;
+    width: 1000px;
     min-height: 494px;
     position: relative;
     left: 50%;
@@ -69,7 +69,7 @@
             .header {
                 padding: 5px 10px;
                 color: ghostwhite;
-                background-color: rgba(170, 20, 20, 0.733);
+                background-color: var(--bg-red);
                 border-radius: 3px;
                 user-select: none;
             }
@@ -79,16 +79,22 @@
                 padding: 30px 10px;
                 padding-top: 10px;
                 border-bottom: 1px solid rgba(255, 0, 51, 0.157);
-                a > div {
+                div {
                     font-size: 0.8rem;
+                }
+                h3 {
+                    margin: 0px !important;
                 }
                 p {
                     font-style: italic;
-                    font-weight: 200;
+                    font-weight: 350;
                     font-size: 0.9rem;
                 }
                 &:hover {
                     background-color: rgba(0, 47, 255, 0.082);
+                    h3 {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -99,7 +105,7 @@
         padding: 30px;
         padding-bottom: 100px;
         background-color: white;
-        border: 2px solid rgb(235, 235, 235);
+        border: 2px solid var(--wrapper-border-color);
         overflow: auto;
         clear: both;
         .recommandation_header {
@@ -107,16 +113,17 @@
             margin: 20px 5px;
             border-radius: 3px;
             color: white;
-            background-color: rgba(170, 20, 20, 0.733);
+            background-color: var(--bg-red);
             padding: 5px 10px;
         }
     }
     .bottom_line {
-        font-size: 0.8rem;
         position: absolute;
-        left: 50%;
-        transform: translate(-50%, 0%);
         bottom: 10px;
-        color: rgba(161, 12, 12, 0.541);
+        width: calc(100% - 60px);
+        color: var(--bg-red);
+        // border: 1px solid red;
+        font-size: 0.8rem;
+        text-align: center;
     }
 }

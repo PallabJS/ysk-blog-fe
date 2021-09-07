@@ -1,5 +1,13 @@
 @import "./css/brand.scss";
 
+* {
+    user-select: none;
+}
+
+p {
+    user-select: text;
+}
+
 // COMMON STYLING
 a {
     color: rgb(100, 100, 100);

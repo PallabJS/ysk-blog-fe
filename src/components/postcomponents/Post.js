@@ -36,7 +36,9 @@ export const Postdate = (props) => {
         <React.Fragment>
             {date ? (
                 <span className={className}>
-                    <span style={{ color: "gray" }}>Posted on</span> {date}
+                    <span style={{ color: "gray" }}> Posted on </span>
+                    {date.toDateString()}
+                    <span style={{ color: "gray" }}> ({utils.getTimeDifference(date)} ago)</span>
                 </span>
             ) : null}
         </React.Fragment>
@@ -65,10 +67,8 @@ export const PostCard = (props) => {
     const { className, post, onClick } = props;
     return (
         <div className={className} onClick={onClick}>
-            <a>
-                {post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}
-                <div> ({utils.getTimeDifference(new Date(post.date.replace("at", "")))} ago)</div>
-            </a>
+            <h3>{post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}</h3>
+            <div> ({utils.getTimeDifference(new Date(post.date.replace("at", "")))} ago)</div>
             <p>"{parse(post.text.slice(0, 100))}"</p>
         </div>
     );
