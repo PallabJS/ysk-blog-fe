@@ -14,7 +14,7 @@ const Postsection = (props) => {
                         title={post.title}
                         subtitle={post.subtitle}
                         date={post.date ? new Date(post.date) : null}
-                        className="pagetitle"
+                        className={`pagetitle ${type === "climax" ? "climax_title" : ""}`}
                     />
                     <Postext text={post.text} className="content" />
                     <Postimage url={post.image} className="img_container" />
@@ -33,7 +33,7 @@ const Postsection = (props) => {
             {/* ============ THIS SECTION RENDERS ITEMS OF THE BODY ================== */}
             {type === "body" ? (
                 <>
-                    <Posttitle title={`${index}. ${post.title}`} className="section_title" />
+                    <Posttitle title={`0${index}. ${post.title}`} className="section_title" />
                     <Postext text={post.text} className="content" />
                     <Postimage url={post.image} className="img_container" />
                 </>

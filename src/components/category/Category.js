@@ -9,7 +9,7 @@ import { postApi } from "../../api/post/postapi";
 
 import { utils } from "../../utils";
 
-let postPerPage = 3;
+let postPerPage = 10;
 
 const Category = (props) => {
     const { className, category } = props;
@@ -63,17 +63,16 @@ const Category = (props) => {
     };
 
     const getAllPostAndSetStartList = () => {
-        console.log("BOOOO");
-        console.log(!state.currentPage * postPerPage + postPerPage > state.entireList.length);
-        console.log("currentpage: ", state.currentPage, state.entireList.length);
-
         // getting entire list
         postApi.getLatestPosts(category).then((res) => {
             if (!res.error) {
+                let dateSortedList = res.data.sort((posta, postb) => {
+                    return new Date(postb.date) - new Date(posta.date);
+                });
                 // page initialization
                 setState({
                     ...state,
-                    entireList: res.data,
+                    entireList: dateSortedList,
                     hasNext: !(state.currentPage * postPerPage + postPerPage > res.data.length),
                     hasPrevious: !(state.currentPage === 1),
                 });

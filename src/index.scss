@@ -4,7 +4,10 @@
     user-select: none;
 }
 
-p {
+p,
+b,
+i,
+u {
     user-select: text;
 }
 

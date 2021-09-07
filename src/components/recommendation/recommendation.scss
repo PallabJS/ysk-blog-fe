@@ -1,26 +1,31 @@
 .post_recommandation_category_page {
     display: flex;
+    flex: 0.6;
     flex-direction: column;
-    width: 300px;
-    .card_wrapper {
-        width: calc(100% - 10px);
-        height: 160px;
-    }
-    .card {
-        width: 100%;
-    }
-
     position: relative;
     margin: 0px 10px;
+    margin-left: 5px;
     padding: 10px;
-    padding-bottom: 100px;
+    padding-bottom: 20px;
     background-color: white;
     border: 2px solid var(--wrapper-border-color);
     overflow: auto;
     clear: both;
+    .card_wrapper {
+        width: calc(100% - 10px);
+        height: 160px;
+        margin: 5px !important;
+    }
+    .card {
+        width: 100%;
+        .image_container {
+            display: none;
+        }
+    }
+
     .recommandation_header {
         font-weight: 500;
-        margin: 20px 5px;
+        margin: 10px 5px;
         border-radius: 3px;
         color: white;
         background-color: var(--bg-red);

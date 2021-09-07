@@ -1,0 +1,18 @@
+.offline {
+    width: 600px;
+    height: 100px;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: -10px 0px 5px 2px rgba(255, 0, 0, 0.247);
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-size: 2rem;
+    }
+}

@@ -4,7 +4,7 @@ import parse from "html-react-parser";
 import "./card.scss";
 
 const Card = (props) => {
-    const { style, title, subtitle, text, meta, onClick, animation } = props;
+    const { style, title, subtitle, image, text, meta, onClick, animation } = props;
     return (
         <div className="card_wrapper" onClick={onClick} style={style}>
             <div className={"card " + (animation ? "card_animation" : "")}>
@@ -13,6 +13,10 @@ const Card = (props) => {
                     {meta.views ? <span className="views"> ({meta.views} views)</span> : null}
                 </h3>
                 {subtitle ? <span className="subtitle">&nbsp;- {subtitle}</span> : null}
+
+                <div className="image_container">
+                    <img src={image} />
+                </div>
 
                 <p>{parse(text)}</p>
             </div>

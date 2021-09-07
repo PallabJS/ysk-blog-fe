@@ -41,6 +41,7 @@ const Recommendation = (props) => {
                         animation={true}
                         title={post.title}
                         subtitle={post.meta.category}
+                        image={post.image}
                         text={post.text.slice(0, 100) + " ..."}
                         meta={{
                             views: post.meta.views,

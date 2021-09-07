@@ -12,7 +12,8 @@ const Navbar = () => {
     const [state, setState] = useState({
         searchText: "",
         searchTriggered: false,
-        droplist: [],
+        droplist: null,
+        showDropList: false,
     });
 
     const searchBox = useRef();
@@ -20,11 +21,10 @@ const Navbar = () => {
     const handleTextInput = async (e) => {
         let value = e.target.value;
         if (!value) {
-            setState({ ...state, searchText: value, droplist: [] });
+            setState({ ...state, searchText: value, droplist: [], showDropList: false });
         } else {
             let posts = await getMatchingPosts(value);
-            console.log(posts.length);
-            setState({ ...state, searchText: value, droplist: posts });
+            setState({ ...state, searchText: value, droplist: posts, showDropList: true });
         }
     };
     const checkForEnterKey = (e) => {
@@ -36,7 +36,6 @@ const Navbar = () => {
     const handleRouting = (path) => {
         // Side effects
         sessionStorage.setItem("currentpage", 1);
-
         window.location.href = path;
     };
 
@@ -55,9 +54,8 @@ const Navbar = () => {
     // Fetches the matching posts asynchronoulsy
     const getMatchingPosts = async (searchText) => {
         return postApi.getMatchingPosts(searchText).then((res) => {
-            if (!res.error) {
-                return res.data;
-            }
+            if (!res.error) return res.data;
+            else return [];
         });
     };
 
@@ -86,8 +84,8 @@ const Navbar = () => {
                     <input
                         id="search-nav"
                         type="text"
-                        autoComplete={false}
-                        autoSave={false}
+                        autoComplete="false"
+                        autoSave="false"
                         spellCheck={false}
                         placeholder={"Press '/'"}
                         value={state.searchText}
@@ -99,7 +97,7 @@ const Navbar = () => {
                         onBlur={(e) => {
                             e.target.setAttribute("placeholder", "Press '/'");
                             setTimeout(() => {
-                                setState({ ...setState, droplist: [] });
+                                setState({ ...setState, droplist: [], showDropList: false });
                             }, 200);
                         }}
                     />
@@ -115,7 +113,12 @@ const Navbar = () => {
                     </ul>
                 </nav>
             </header>
-            <Droplist droplist={state.droplist} anchorElement={searchBox.current} />
+            <Droplist
+                show={state.showDropList}
+                droplist={state.droplist}
+                anchorElement={searchBox.current}
+                searchText={state.searchText}
+            />
         </>
     );
 };
