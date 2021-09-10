@@ -8,6 +8,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { postApi } from "../../api/post/postapi";
 
+import { categoryRoutes } from "../../appspecs/routes";
+
 const Navbar = () => {
     const [state, setState] = useState({
         searchText: "",
@@ -107,10 +109,10 @@ const Navbar = () => {
                         <li className="nav-list-item" onClick={() => handleRouting("/")}>
                             Home
                         </li>
-                        <li className="nav-list-item" onClick={() => handleRouting("/science")}>
+                        <li className="nav-list-item" onClick={() => handleRouting(categoryRoutes.science)}>
                             Science
                         </li>
-                        <li className="nav-list-item" onClick={() => handleRouting("/tech")}>
+                        <li className="nav-list-item" onClick={() => handleRouting(categoryRoutes.technology)}>
                             Technology
                         </li>
                     </ul>

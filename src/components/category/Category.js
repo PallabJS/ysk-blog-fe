@@ -124,7 +124,7 @@ const Category = (props) => {
                 })}
             </ul>
             <Pager
-                style={{ position: "absolute", width: "calc(100% - 70px)", bottom: "20px" }}
+                style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
                 currentPage={state.currentPage}
                 hasPrevious={state.hasPrevious}
                 hasNext={state.hasNext}

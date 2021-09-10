@@ -7,6 +7,7 @@ import Card from "../card/Card";
 import { CATEGORY } from "../../appspecs/routes";
 
 import "./recommendation.scss";
+import { utils } from "../../utils";
 
 const Recommendation = (props) => {
     const { className, category } = props;
@@ -22,7 +23,7 @@ const Recommendation = (props) => {
                 res.data.forEach((postItem) => {
                     posts = posts.concat(postItem.popular_posts);
                 });
-                setPopularPosts(posts);
+                setPopularPosts(utils.getRandomizedArray(posts));
             }
         });
     };

@@ -1,0 +1,26 @@
+.dashboard_context {
+    $header_bg: rgb(67, 140, 182);
+    $header_fg: rgb(238, 238, 238);
+    $main_bg: rgba(56, 81, 114, 0.288);
+
+    flex: 0.75;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding: 0px 10px;
+        color: $header_fg;
+        background-color: $header_bg;
+        margin-bottom: 5px;
+    }
+    .main {
+        height: calc(100% - 30px - 5px);
+        padding: 10px;
+        background-color: $main_bg;
+    }
+}

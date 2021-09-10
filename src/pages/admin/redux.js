@@ -4,10 +4,12 @@ import storage from "redux-persist/lib/storage";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
-import { postReducer } from "./reducer";
+import { postReducer } from "./reducers/addpost";
+import { dashboardReducer } from "./reducers/dashboard";
 
 const mainReducer = combineReducers({
     post: postReducer,
+    dashboard: dashboardReducer,
 });
 
 const persistedReducer = persistReducer({ key: "root", storage: storage }, mainReducer);

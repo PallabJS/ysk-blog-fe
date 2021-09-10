@@ -3,12 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Textfield } from "./components";
 
-import { action } from "../reducer";
+import { action } from "../reducers/addpost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBan, faPlusCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import { adminApi } from "../api";
 import { useSnackbar } from "notistack";
+
+import "./addpost.scss";
+import { CATEGORY } from "../../../appspecs/routes";
 
 const Addpost = () => {
     const postData = useSelector((state) => state.post);
@@ -245,8 +248,8 @@ const Addpost = () => {
                 <div className="category_select">
                     <label>Select a category</label>
                     <select type="category" value={postData.meta.category} onChange={updateMetadata}>
-                        <option value="TECHNOLOGY">tech</option>
-                        <option value="SCIENCE">science</option>
+                        <option value={CATEGORY.technology}>technology</option>
+                        <option value={CATEGORY.science}>science</option>
                     </select>
                 </div>
             </div>

@@ -1,13 +1,15 @@
 .basepage_container {
     margin-top: 0px;
-    width: 1100px;
-    min-height: 494px;
+    width: 1200px;
+    margin-top: 60px;
+    min-height: calc(100vh - 40px - 40px - 65px);
     position: relative;
     left: 50%;
-    transform: translate(-50%, 50px);
+    transform: translate(-50%, 0px);
     padding: 0px;
-    background-color: rgba(246, 248, 236, 0.5);
+    // background-color: rgba(246, 248, 236, 0.5);
     box-sizing: border-box;
+
     .main_flexbox {
         display: flex;
 
@@ -15,7 +17,7 @@
             flex: 0.7;
             border: 2px solid rgb(235, 235, 235);
             margin-right: 10px;
-            padding: 20px;
+            padding: 40px;
             background-color: white;
             & .pagetitle,
             .section_title {
@@ -54,12 +56,12 @@
                 color: var(--info-date);
             }
             & .content {
-                line-height: 25px;
+                line-height: 1.5rem;
                 text-align: justify;
                 color: var(--content-color);
                 font-family: var(--content-font);
-                font-weight: 200;
-                font-size: 1.1rem;
+                font-weight: 300;
+                font-size: 1.05rem;
             }
             .img_container {
                 width: 100%;

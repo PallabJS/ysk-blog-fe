@@ -1,0 +1,113 @@
+.dashboard_actions {
+    $header_bg: rgb(67, 140, 182);
+    $header_fg: rgb(238, 238, 238);
+
+    $main_bg: rgba(56, 81, 114, 0.288);
+
+    flex: 0.25;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    margin-right: 5px;
+    & > .header {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding: 0px 10px;
+        color: $header_fg;
+        background-color: $header_bg;
+        margin-bottom: 5px;
+    }
+    & .main {
+        height: calc(200% - 30px - 5px);
+        padding: 5px;
+        background-color: $main_bg;
+
+        & .category_selector {
+            background-color: rgb(41, 80, 102);
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 15vh;
+            .create_post_button {
+                width: 100%;
+                padding: 3px 10px;
+                background-color: rgb(50, 73, 43);
+                text-align: center;
+                color: rgb(199, 194, 194);
+                border-radius: 3px;
+                font-size: 1rem;
+                margin-bottom: 5px;
+                transition: background-color 0.2s ease;
+                &:hover {
+                    color: white;
+                    background-color: rgb(91, 119, 91);
+                    cursor: pointer;
+                }
+                &:active {
+                    background-color: rgb(69, 107, 69);
+                }
+            }
+            select {
+                padding: 2px 5px;
+                width: 200px;
+                font-size: 1rem;
+                border-radius: 3px;
+            }
+        }
+        & .posts_maps {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 78vh;
+            padding-bottom: 100px;
+            .post {
+                display: flex;
+                align-items: center;
+                background-color: white;
+                margin-bottom: 5px;
+                min-height: 60px;
+                padding: 10px 0px;
+
+                .content {
+                    & > .header {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        padding: 5px 10px;
+                        display: inline-block;
+                        color: red;
+                    }
+                    & > .date {
+                        padding: 0px 10px;
+                        font-size: 0.8rem;
+                    }
+                }
+
+                & > .controls {
+                    margin-left: auto;
+                    margin-right: 10px;
+                    display: flex;
+                    justify-content: flex-end;
+                    & > .icon_delete {
+                        color: rgb(231, 67, 38);
+                    }
+                    & > .icon_edit {
+                        color: rgb(20, 161, 204);
+                    }
+                    & > .icon_delete,
+                    .icon_edit {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 30px;
+                        height: 30px;
+                        font-size: 1.1rem;
+                        margin: 0px 2px;
+                        &:hover {
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

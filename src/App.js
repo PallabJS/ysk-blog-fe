@@ -84,9 +84,9 @@ const App = () => {
                                             <Route exact path="/">
                                                 <Homepage />
                                             </Route>
-                                            {categoryRoutes.map((page, index) => {
+                                            {Object.values(categoryRoutes).map((route, index) => {
                                                 return (
-                                                    <Route path={page.route} key={index}>
+                                                    <Route path={route} key={index}>
                                                         <Basepage />
                                                     </Route>
                                                 );

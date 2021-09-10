@@ -8,6 +8,16 @@ export const utils = {
     parseTitle: (title) => {
         return title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase());
     },
+
+    getRandomizedArray: (arr) => {
+        arr.forEach((item, index) => {
+            let value1 = Math.floor(Math.random() * arr.length);
+            let temp = arr[value1];
+            arr[value1] = arr[index];
+            arr[index] = temp;
+        });
+        return arr;
+    },
     getTimeDifference: (fromDate, toDate = new Date()) => {
         try {
             let from = fromDate.getTime();

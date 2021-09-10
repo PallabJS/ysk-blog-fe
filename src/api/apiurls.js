@@ -11,4 +11,5 @@ export const adminUrl = {
     add: `${serverUrl}${adminRoute}/post/add`,
     delete: `${serverUrl}${adminRoute}/post/delete`,
     edit: `${serverUrl}${adminRoute}/post/edit`,
+    getDashboard: `${serverUrl}${adminRoute}/get_dashboard_data`,
 };

@@ -23,22 +23,12 @@ const Breadcrumb = (props) => {
             </a>
             <span key={0}>
                 <GT />
-                <a onClick={() => handleRouting(`/${dirs.slice(0, 0).join("/")}`)}>{dirs[0].toUpperCase()}</a>
+                <a onClick={() => handleRouting(`/${dirs.slice(0, 0).join("/")}`)}>{dirs[0]}</a>
             </span>
             <span key={1}>
                 <GT />
                 <a onClick={() => handleRouting(`/${dirs.slice(0, 1).join("/")}`)}>{dirs[1].slice(0, 15) + "..."}</a>
             </span>
-            {/* {dirs.map((dir, index) => {
-                let route = dirs.slice(0, index + 1).join("/");
-                return (
-                    <span key={index}>
-                        <GT />
-                        <a onClick={() => handleRouting(`/${route}`)}>{dir.toUpperCase().slice(0, 40) + " . . ."}</a>
-                        <a onClick={() => handleRouting(`/${route}`)}>{dir.toUpperCase().slice(0, 40) + " . . ."}</a>
-                    </span>
-                );
-            })} */}
         </div>
     );
 };

@@ -19,4 +19,38 @@ export const adminApi = {
             };
         }
     },
+
+    deletePost: async (postToDlete) => {
+        try {
+            let res = await fetch(adminUrl.delete, {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(postToDlete),
+            });
+            if (res.ok) return await res.json();
+            else throw new Error(res.statusText);
+        } catch (e) {
+            return {
+                error: true,
+                msg: e.message,
+            };
+        }
+    },
+
+    getDashboardData: async () => {
+        try {
+            let res = await fetch(adminUrl.getDashboard, {
+                method: "get",
+            });
+            if (res.ok) return await res.json();
+            else throw new Error(res.statusText);
+        } catch (e) {
+            return {
+                error: true,
+                msg: e.message,
+            };
+        }
+    },
 };
