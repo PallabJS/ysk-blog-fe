@@ -104,6 +104,9 @@ const Navbar = () => {
                 </div>
                 <nav className="nav-bar">
                     <ul className="nav-list">
+                        <li className="nav-list-item" onClick={() => handleRouting("/")}>
+                            Home
+                        </li>
                         <li className="nav-list-item" onClick={() => handleRouting("/science")}>
                             Science
                         </li>

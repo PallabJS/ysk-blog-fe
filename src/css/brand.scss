@@ -21,8 +21,19 @@ body {
 :root {
     // COLORS
     --bg-red: rgba(170, 20, 20, 0.733);
-    --bg-blue: blue;
+    --bg-blue: rgb(92, 132, 206);
     --bg-green: rgba(215, 245, 215, 0.342);
+
+    --red-hl: rgba(230, 70, 70, 0.658);
+    --green-hl: rgb(13, 218, 13);
+    --blue-hl: rgb(20, 132, 238);
+
+    --red-shadow: rgba(7, 2, 2, 0.842);
+    --blue-shadow: rgba(90, 161, 241, 0.842);
+    --green-shadow: rgba(103, 238, 91, 0.541);
+    --white-shadow: rgb(204, 204, 204);
+    --white-text: rgb(255, 255, 255);
+    --glazing-black: rgb(95, 75, 45);
 
     // SPECIFIC COLORS
     --nav-bg: rgb(32, 32, 32);

@@ -1,5 +1,5 @@
 $list-bg-color: rgb(255, 255, 255);
-$droplist-bg-color: rgba(70, 130, 189, 0.548);
+$droplist-bg-color: rgb(70, 129, 189);
 $list-bottom-border: 1px solid rgb(238, 212, 212);
 $listitem-border: 2px solid rgba(127, 214, 241, 0.137);
 $listitem-bg-color-hover: rgb(67, 119, 150);
@@ -8,16 +8,16 @@ $listitem-bg-color-hover: rgb(67, 119, 150);
     width: 700px;
     margin-top: 5px;
     padding: 3px;
-    border-radius: 5px;
+    // border-radius: 5px;
     background-color: $droplist-bg-color;
-    box-shadow: 0 0 20px 2px $droplist-bg-color;
+    box-shadow: 0 0 10px 2px var(--blue-shadow);
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 
     .droplist_title {
         padding: 5px 10px;
         padding-bottom: 10;
-        color: rgb(8, 116, 13);
+        color: rgb(255, 255, 255);
         font-weight: 500;
         font-size: 1.2rem;
     }
@@ -39,10 +39,10 @@ $listitem-bg-color-hover: rgb(67, 119, 150);
             }
         }
         & > :first-child {
-            border-radius: 5px 5px 0px 0px;
+            border-radius: 3px 3px 0px 0px;
         }
         & > :last-child {
-            border-radius: 0px 0px 5px 5px;
+            border-radius: 0px 0px 3px 3px;
         }
     }
 }

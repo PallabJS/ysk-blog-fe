@@ -1,4 +1,13 @@
 export const utils = {
+    numerize: (pixel) => {
+        return parseInt(pixel.replace("px", ""));
+    },
+    pixelize: (value) => {
+        return value + "px";
+    },
+    parseTitle: (title) => {
+        return title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase());
+    },
     getTimeDifference: (fromDate, toDate = new Date()) => {
         try {
             let from = fromDate.getTime();
@@ -36,5 +45,43 @@ export const utils = {
         } catch (e) {
             return "";
         }
+    },
+
+    sliceParsedJSX: (text, length) => {
+        let output = "";
+        if (typeof text === "string") {
+            output = text.slice(0, length);
+        } else if (Array.isArray(text)) {
+            let count = 0;
+            text.forEach((t) => {
+                if (count >= length) {
+                    console.log("skip");
+                    return;
+                }
+                if (typeof t === "string") {
+                    let avalableLength = length - output.length;
+                    if (avalableLength <= t.length) {
+                        output = output + t.slice(0, avalableLength);
+                        count = count + avalableLength;
+                    } else {
+                        count = count + t.length;
+                        output = output + t;
+                    }
+                } else {
+                    let rawText = t.props.children;
+                    let availableLength = length - output.length;
+                    if (availableLength <= rawText.length) {
+                        output = output + rawText.slice(0, availableLength);
+                        count = count + availableLength;
+                    } else {
+                        output = output + rawText;
+                        count = count + rawText.length;
+                    }
+                }
+            });
+        } else {
+            output = text;
+        }
+        return output;
     },
 };

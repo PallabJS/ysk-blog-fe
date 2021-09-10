@@ -105,15 +105,19 @@ const Category = (props) => {
                                 window.location.href = `/${category}/${post.title}`;
                             }}
                         >
-                            <div className="img_container">
-                                <img src={post.image} alt="Post image" />
-                            </div>
-                            <div className="text">
-                                <h3>
-                                    {post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}{" "}
-                                </h3>
-                                <span className="text_meta">{utils.getTimeDifference(new Date(post.date))}</span>
-                                <p className="text_body">{parse(post.text.slice(0, 150))} ... </p>
+                            <div className="list_wrapper">
+                                <div className="img_container">
+                                    <img src={post.image} alt="Post image" />
+                                </div>
+                                <div className="text">
+                                    <h3>
+                                        {post.title
+                                            .replace(/-/g, " ")
+                                            .replace(post.title[0], post.title[0].toUpperCase())}{" "}
+                                    </h3>
+                                    <span className="text_meta">{utils.getTimeDifference(new Date(post.date))}</span>
+                                    <p className="text_body">{parse(post.text.slice(0, 150))} ... </p>
+                                </div>
                             </div>
                         </li>
                     );
