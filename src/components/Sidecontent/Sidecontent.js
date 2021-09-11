@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import React, { useEffect, useState } from "react";
 
 import { postApi } from "../../api/post/postapi";
 import { PostCard } from "../postcomponents/Post";
