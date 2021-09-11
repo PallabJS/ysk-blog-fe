@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { CATEGORY } from "../../../appspecs/routes";
 import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
 import Postsection from "../../../pages/postpage/Postsection";
 import Sidecontent from "../../../components/Sidecontent/Sidecontent";
@@ -28,7 +27,7 @@ const Postpreview = (props) => {
             <main className="basepage_container">
                 <div className="main_flexbox">
                     <article className={props.className}>
-                        <Breadcrumb home="ysk" dirs={[CATEGORY[post.meta.category], post.title]} />
+                        <Breadcrumb home="ysk" dirs={[post.meta.category, post.title]} />
                         <section className="post_intro_wrapper">
                             <Postsection
                                 type="intro"
@@ -72,7 +71,7 @@ const Postpreview = (props) => {
                     </article>
                     <Sidecontent
                         className="sidecontent_container"
-                        currentPostCategory={CATEGORY[post.meta.category]}
+                        currentPostCategory={post.meta.category}
                         currentPostTitle={post.title}
                         countToDisplay={10}
                     />
