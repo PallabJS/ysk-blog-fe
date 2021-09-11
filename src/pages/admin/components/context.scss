@@ -9,7 +9,7 @@
         display: none;
     }
 
-    .header {
+    & > .header {
         display: flex;
         align-items: center;
         height: 30px;
@@ -18,9 +18,24 @@
         background-color: $header_bg;
         margin-bottom: 5px;
     }
-    .main {
+    & > .main {
         height: calc(100% - 30px - 5px);
+        margin-bottom: 100px !important;
         padding: 10px;
         background-color: $main_bg;
+
+        & > .editpost {
+            & > .action_buttons {
+                margin-bottom: 10px;
+                & > .confirm {
+                    font-size: 1rem;
+                    margin-right: 10px;
+                }
+                & > .cancel {
+                    font-size: 1rem;
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 }

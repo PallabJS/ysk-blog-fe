@@ -8,9 +8,10 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { postApi } from "../../api/post/postapi";
 
-import { categoryRoutes } from "../../appspecs/routes";
+import { utils } from "../../utils";
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const { categories } = props;
     const [state, setState] = useState({
         searchText: "",
         searchTriggered: false,
@@ -106,15 +107,21 @@ const Navbar = () => {
                 </div>
                 <nav className="nav-bar">
                     <ul className="nav-list">
-                        <li className="nav-list-item" onClick={() => handleRouting("/")}>
+                        <li style={{ width: "80px" }} className="nav-list-item" onClick={() => handleRouting("/")}>
                             Home
                         </li>
-                        <li className="nav-list-item" onClick={() => handleRouting(categoryRoutes.science)}>
-                            Science
-                        </li>
-                        <li className="nav-list-item" onClick={() => handleRouting(categoryRoutes.technology)}>
-                            Technology
-                        </li>
+                        {categories.map((categoryName, index) => {
+                            return (
+                                <li
+                                    style={{ width: categoryName.length * 15 + "px" }}
+                                    key={index}
+                                    className="nav-list-item"
+                                    onClick={() => handleRouting(`/${categoryName}`)}
+                                >
+                                    {utils.parseTitle(categoryName)}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </nav>
             </header>

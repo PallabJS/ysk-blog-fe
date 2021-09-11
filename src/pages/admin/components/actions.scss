@@ -31,13 +31,13 @@
             height: 15vh;
             .create_post_button {
                 width: 100%;
+                margin-bottom: 10px;
                 padding: 3px 10px;
                 background-color: rgb(50, 73, 43);
                 text-align: center;
                 color: rgb(199, 194, 194);
                 border-radius: 3px;
                 font-size: 1rem;
-                margin-bottom: 5px;
                 transition: background-color 0.2s ease;
                 &:hover {
                     color: white;

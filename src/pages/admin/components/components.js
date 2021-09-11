@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { utils } from "../../../utils";
 
 export const Textfield = (props) => {
@@ -10,7 +10,7 @@ export const Textfield = (props) => {
         let letterCount = textArea.value.length;
         let incrmentalHeight = (letterCount / 82) * 20;
 
-        if ((e.ctrlKey && e.key == "v") || e.type === "focus") {
+        if ((e.ctrlKey && e.key === "v") || e.type === "focus") {
             incrementHeight(textArea);
         } else {
             if (parseInt(incrmentalHeight) % 20 === 0) {
@@ -26,13 +26,14 @@ export const Textfield = (props) => {
     };
 
     useEffect(() => {
+        let temp_textArea = null;
         if (textArea.current) {
             incrementHeight(textArea.current);
             textArea.current.addEventListener("keyup", handleTextareaHeight);
         }
         return () => {
             try {
-                textArea.current.removeEventListener("keyup", handleTextareaHeight);
+                temp_textArea.current.removeEventListener("keyup", handleTextareaHeight);
             } catch (e) {}
         };
     }, []);

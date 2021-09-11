@@ -15,7 +15,7 @@ const Card = (props) => {
                 {subtitle ? <span className="subtitle">&nbsp;- {subtitle}</span> : null}
 
                 <div className="image_container">
-                    <img src={image} />
+                    <img src={image} alt="" />
                 </div>
 
                 <p>{parse(text)}</p>

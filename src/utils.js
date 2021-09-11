@@ -6,7 +6,12 @@ export const utils = {
         return value + "px";
     },
     parseTitle: (title) => {
-        return title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase());
+        if (title) return title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase());
+        else return title;
+    },
+    urlizeTitle: (title) => {
+        if (title) return title.replace(/ /g, "-").toLowerCase();
+        else return title;
     },
 
     getRandomizedArray: (arr) => {

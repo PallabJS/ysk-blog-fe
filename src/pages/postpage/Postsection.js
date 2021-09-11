@@ -1,6 +1,4 @@
 import React from "react";
-import parse from "html-react-parser";
-
 import { Posttitle, Postimage, Postext } from "../../components/postcomponents/Post";
 
 const Postsection = (props) => {

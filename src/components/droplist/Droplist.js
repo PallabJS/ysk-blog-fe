@@ -79,6 +79,7 @@ const Droplist = (props) => {
                                 style={{ float: "right", color: "white", textDecoration: "none" }}
                                 href={`https://google.com/search?q=${searchText.replace(/ /g, "+")}`}
                                 target="_blank"
+                                rel="noreferrer"
                             >
                                 Use google
                             </a>

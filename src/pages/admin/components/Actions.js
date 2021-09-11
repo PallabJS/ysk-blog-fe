@@ -8,8 +8,11 @@ import { adminApi } from "../api";
 
 import { useSnackbar } from "notistack";
 import { useDispatch } from "react-redux";
-import { dashboardAction } from "../reducers/dashboard";
+import { dashboardAction } from "../../../redux/reducers/dashboard";
 import Nodata from "../../../components/Nodata";
+import Modal from "../../../components/modal/Modal";
+
+import { postAction } from "../../../redux/reducers/addpost";
 
 const Actions = (props) => {
     const { posts, dashboard, reloadDashboard } = props;
@@ -17,6 +20,11 @@ const Actions = (props) => {
     const [state, setState] = useState({
         category: dashboard.currentCategory,
         currentList: [],
+    });
+
+    const [modal, setModal] = useState({
+        active: false,
+        data: {},
     });
 
     const dispatch = useDispatch();
@@ -45,6 +53,10 @@ const Actions = (props) => {
         setState({ ...state, category: value });
     };
 
+    const promptConfirmation = (post) => {
+        setModal({ active: true, data: post });
+    };
+
     const handlePostDelete = (postToDelete) => {
         adminApi.deletePost(postToDelete).then((res) => {
             if (!res.error) {
@@ -55,7 +67,12 @@ const Actions = (props) => {
             }
         });
     };
-    const handlePostEdit = () => {};
+    const handlePostEdit = (post) => {
+        dispatch(postAction.setPost(post));
+        setTimeout(() => {
+            dispatch(dashboardAction.setPostOnEdit(post));
+        }, 100);
+    };
 
     useEffect(() => {
         if (Object.keys(posts).length > 0) {
@@ -64,51 +81,66 @@ const Actions = (props) => {
     }, [state.category, posts]);
 
     return (
-        <div className="dashboard_actions">
-            <h2 className="header">DASHBOARD ACTIONS</h2>
-            <div className="main">
-                <div className="category_selector">
-                    <div
-                        className="create_post_button"
-                        onClick={() => {
-                            window.location.href = "/admin/add_post";
-                        }}
-                    >
-                        Create a new post
+        <>
+            <Modal
+                active={modal.active}
+                setModal={setModal}
+                data={modal.data}
+                title="Delete confirmation"
+                text={` Do you want to proceed deleting `}
+                postText={modal.data.title + "?"}
+                confirmHandler={handlePostDelete}
+            />
+            <div className="dashboard_actions">
+                <h2 className="header">DASHBOARD ACTIONS</h2>
+                <div className="main">
+                    <div className="category_selector">
+                        <div
+                            className="create_post_button"
+                            onClick={() => {
+                                window.location.href = "/admin/add_post";
+                            }}
+                        >
+                            Create a new post
+                        </div>
+                        <select value={state.category} onChange={changeCategory}>
+                            <option value={"all"}>All</option>;
+                            {Object.keys(posts).map((category, index) => {
+                                return (
+                                    <option key={index} value={category}>
+                                        {utils.parseTitle(category)}
+                                    </option>
+                                );
+                            })}
+                        </select>
                     </div>
-                    <select value={state.category} onChange={changeCategory}>
-                        <option value={"all"}>All</option>;
-                        {Object.keys(posts).map((category, index) => {
-                            return <option value={category}>{utils.parseTitle(category)}</option>;
+                    <div className="posts_maps">
+                        {state.currentList.map((post, index) => {
+                            return (
+                                <div key={index} className="post">
+                                    <div className="content">
+                                        <h4 className="header">
+                                            {index + 1}. {post.title.slice(0, 30)} <br />[{post.meta.category}]
+                                        </h4>
+                                        <div className="date">Date: {new Date(post.date).toDateString()}</div>
+                                    </div>
+                                    <div className="controls">
+                                        <div className="icon_delete" onClick={() => promptConfirmation(post)}>
+                                            <FontAwesomeIcon icon={faTrash} />
+                                        </div>
+                                        <div className="icon_edit" onClick={() => handlePostEdit(post)}>
+                                            <FontAwesomeIcon icon={faEdit} />
+                                        </div>
+                                    </div>
+                                </div>
+                            );
                         })}
-                    </select>
-                </div>
-                <div className="posts_maps">
-                    {state.currentList.map((post, index) => {
-                        return (
-                            <div className="post">
-                                <div className="content">
-                                    <h4 className="header">
-                                        {index + 1}. {post.title.slice(0, 30)}
-                                    </h4>
-                                    <div className="date">Date: {new Date(post.date).toDateString()}</div>
-                                </div>
-                                <div className="controls">
-                                    <div className="icon_delete" onClick={() => handlePostDelete(post)}>
-                                        <FontAwesomeIcon icon={faTrash} />
-                                    </div>
-                                    <div className="icon_edit" onClick={() => handlePostEdit(post)}>
-                                        <FontAwesomeIcon icon={faEdit} />
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
 
-                    {state.currentList.length === 0 ? <Nodata text="No data to display" /> : null}
+                        {state.currentList.length === 0 ? <Nodata text="No data to display" /> : null}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -14,7 +14,7 @@ let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
 
 const Basepage = () => {
-    const [postInfo, setPostInfo] = useState({
+    const [postInfo] = useState({
         isPostPage: Boolean(postTitle),
         category: category,
         title: postTitle,

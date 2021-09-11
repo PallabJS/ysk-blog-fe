@@ -3,17 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { Textfield } from "./components";
 
-import { action } from "../reducers/addpost";
+import { postAction } from "../../../redux/reducers/addpost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBan, faPlusCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import { adminApi } from "../api";
 import { useSnackbar } from "notistack";
 
-import "./addpost.scss";
-import { CATEGORY } from "../../../appspecs/routes";
+import { utils } from "../../../utils";
 
-const Addpost = () => {
+import "./addpost.scss";
+
+const Addpost = (props) => {
+    const { categories, style = {}, disableButtons = false } = props;
+
     const postData = useSelector((state) => state.post);
     const dispatch = useDispatch();
 
@@ -43,18 +46,18 @@ const Addpost = () => {
 
     const updatePost = (parent, type, e, listIndex = null) => {
         let value = e.target.value;
-        dispatch(action.updatePost(parent, type, value, listIndex));
+        dispatch(postAction.updatePost(parent, type, value, listIndex));
     };
 
     const updateMetadata = (e) => {
         let type = e.target.getAttribute("type");
         let value = e.target.value;
-        dispatch(action.updateMeta(type, value));
+        dispatch(postAction.updateMeta(type, value));
     };
 
     const addNewBodyListItem = () => {
         dispatch(
-            action.addListItem({
+            postAction.addListItem({
                 title: "",
                 image: "",
                 text: "",
@@ -63,7 +66,7 @@ const Addpost = () => {
     };
 
     const popNewBodyListItem = () => {
-        dispatch(action.popListItem());
+        dispatch(postAction.popListItem());
         let newList = [...post.body.list];
         newList.pop();
         setPost({
@@ -76,7 +79,7 @@ const Addpost = () => {
     };
 
     const emptyBodyListItem = () => {
-        dispatch(action.emptyList());
+        dispatch(postAction.emptyList());
         setPost({
             ...post,
             body: {
@@ -89,7 +92,13 @@ const Addpost = () => {
     const composeUIFields = () => {
         let template = {
             title: (
-                <Textfield value={postData.title} parent="post" type="title" className="title" onChange={updatePost} />
+                <Textfield
+                    value={utils.parseTitle(postData.title)}
+                    parent="post"
+                    type="title"
+                    className="title"
+                    onChange={updatePost}
+                />
             ),
             subtitle: (
                 <Textfield
@@ -217,7 +226,7 @@ const Addpost = () => {
                 enqueueSnackbar("Post was added successfully", { variant: "success" });
                 setTimeout(() => {
                     window.location.href = "/admin";
-                }, 4000);
+                }, 3000);
             } else {
                 enqueueSnackbar(res.msg, { variant: "error" });
             }
@@ -242,15 +251,28 @@ const Addpost = () => {
     }, [postData]);
 
     return (
-        <div className="addpost_wrapper">
+        <div className="addpost_wrapper" style={{ ...style }}>
             <header> Let's Create a New Fantastic Post</header>
             <div className="metadata">
                 <div className="category_select">
                     <label>Select a category</label>
                     <select type="category" value={postData.meta.category} onChange={updateMetadata}>
-                        <option value={CATEGORY.technology}>technology</option>
-                        <option value={CATEGORY.science}>science</option>
+                        {categories.map((category, index) => {
+                            return (
+                                <option key={index} value={category}>
+                                    {utils.parseTitle(category)}
+                                </option>
+                            );
+                        })}
                     </select>
+                    <button
+                        className="resetall_button"
+                        onClick={() => {
+                            dispatch(postAction.resetPost());
+                        }}
+                    >
+                        Clear all
+                    </button>
                 </div>
             </div>
             <div className="post_title_section">
@@ -290,7 +312,7 @@ const Addpost = () => {
                     {post.body.list.map((section, index) => {
                         return (
                             <div className="post_body_list_item" key={index}>
-                                <h3 className="header_list_item"> ITEM {index}</h3>
+                                <h3 className="header_list_item"> ITEM {index + 1}</h3>
                                 <div className="content">
                                     {section.title}
                                     {section.text}
@@ -335,18 +357,20 @@ const Addpost = () => {
                 </div>
             </div>
 
-            <div className="controls">
-                <input type="submit" value="Create" className="submit" onClick={handleCreatePost} />
-                <input
-                    type="button"
-                    value="Preview"
-                    className="preview"
-                    onClick={() => {
-                        window.location.href = "/admin/preview_post";
-                    }}
-                />
-                <input type="button" value="Cancel" className="cancel" onClick={handleCancel} />
-            </div>
+            {disableButtons ? null : (
+                <div className="controls">
+                    <input type="submit" value="Create" className="submit" onClick={handleCreatePost} />
+                    <input
+                        type="button"
+                        value="Preview"
+                        className="preview"
+                        onClick={() => {
+                            window.location.href = "/admin/preview_post";
+                        }}
+                    />
+                    <input type="button" value="Cancel" className="cancel" onClick={handleCancel} />
+                </div>
+            )}
         </div>
     );
 };

@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import NotiProvider, { SnackbarProvider } from "notistack";
+import { SnackbarProvider } from "notistack";
 
 import Navbar from "./components/navbar/Navbar";
 import Homepage from "./pages/homepage/Homepage";
 import Basepage from "./pages/basepage/Basepage";
 import Footer from "./components/footer/Footer";
 import Version from "./components/version/Version";
+import Errormsg from "./components/offline/Errormsg";
 
 import Admin from "./pages/admin/Admin";
 
-import { categoryRoutes } from "./appspecs/routes";
-import Offline from "./components/offline/Offline";
+import { categoryAction } from "./redux/reducers/category";
+
 import { serverUrl } from "./settings";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
     const [showApp, setShowApp] = useState(false);
@@ -22,6 +24,16 @@ const App = () => {
         platform: "desktop",
         clientIP: null,
     });
+    const categories = useSelector((state) => state.category.categories);
+    const dispatch = useDispatch();
+
+    const getCategories = async () => {
+        let res = await fetch(serverUrl + "/get_categories", { method: "get" });
+        if (res.ok) {
+            res = await res.json();
+            dispatch(categoryAction.setCategories(res.data));
+        }
+    };
 
     // Manage app state
     const initializeAppState = async () => {
@@ -46,6 +58,7 @@ const App = () => {
 
     useEffect(() => {
         initializeAppState();
+        getCategories();
         window.addEventListener("online", initializeAppState);
         return () => {
             window.removeEventListener("online", initializeAppState);
@@ -69,24 +82,26 @@ const App = () => {
                 {showApp ? (
                     <React.Fragment>
                         <Version />
-                        <Navbar />
                         {!appState.internetConnected ? (
-                            <Offline />
+                            <Errormsg title="Oops!" text="Looks like you're offline" />
                         ) : appState.serverActive ? null : (
-                            <div>Our server is under maintainence, please come after 24 hrs</div>
+                            <Errormsg title="" text="Server is under maintainence, it will be back online soon!" />
                         )}
-                        {!appState.internetConnected ? <Offline /> : null}
+                        {!appState.internetConnected ? (
+                            <Errormsg title="Oops!" text="Looks like you're offline" />
+                        ) : null}
                         <React.Fragment>
                             {appState.internetConnected && appState.serverActive ? (
                                 <>
                                     <Router>
+                                        <Navbar categories={categories} />
                                         <Switch>
                                             <Route exact path="/">
                                                 <Homepage />
                                             </Route>
-                                            {Object.values(categoryRoutes).map((route, index) => {
+                                            {categories.map((route, index) => {
                                                 return (
-                                                    <Route path={route} key={index}>
+                                                    <Route path={`/${route}`} key={index}>
                                                         <Basepage />
                                                     </Route>
                                                 );

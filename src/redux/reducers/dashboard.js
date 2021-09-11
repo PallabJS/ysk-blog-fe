@@ -1,5 +1,3 @@
-import loadash from "lodash";
-
 export const dashboardAction = {
     setCurrentCategory: (category) => {
         return {
@@ -7,10 +5,17 @@ export const dashboardAction = {
             payload: category,
         };
     },
+    setPostOnEdit: (post) => {
+        return {
+            type: "SET_POST_ON_EDIT",
+            payload: post,
+        };
+    },
 };
 
 const initialState = {
     currentCategory: "",
+    postOnEdit: null,
 };
 
 export const dashboardReducer = (state = initialState, action) => {
@@ -19,6 +24,12 @@ export const dashboardReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentCategory: action.payload,
+            };
+        }
+        case "SET_POST_ON_EDIT": {
+            return {
+                ...state,
+                postOnEdit: action.payload,
             };
         }
         default: {

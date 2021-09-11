@@ -1,18 +1,19 @@
 .offline {
     width: 600px;
-    height: 100px;
+    height: 150px;
     text-align: center;
     border: 1px solid red;
     border-radius: 5px;
     box-shadow: -10px 0px 5px 2px rgba(255, 0, 0, 0.247);
     position: absolute;
-    top: 100px;
+    top: calc(50% - 150px);
     left: 50%;
     transform: translate(-50%, 0%);
     display: flex;
     justify-content: center;
     align-items: center;
     p {
+        padding: 20px;
         font-size: 2rem;
     }
 }

@@ -107,7 +107,7 @@ const Category = (props) => {
                         >
                             <div className="list_wrapper">
                                 <div className="img_container">
-                                    <img src={post.image} alt="Post image" />
+                                    <img src={post.image} alt="" />
                                 </div>
                                 <div className="text">
                                     <h3>

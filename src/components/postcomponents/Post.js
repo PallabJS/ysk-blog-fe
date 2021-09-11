@@ -51,7 +51,7 @@ export const Postimage = (props) => {
         <>
             {url ? (
                 <div className={className}>
-                    <img src={url} style={{ width: "100%", height: "auto" }} />
+                    <img src={url} alt="" style={{ width: "100%", height: "auto" }} />
                 </div>
             ) : null}
         </>

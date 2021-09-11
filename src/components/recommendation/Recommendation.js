@@ -13,7 +13,6 @@ const Recommendation = (props) => {
     const { className, category } = props;
 
     // These stores un-categorized posts
-    const [latestPosts, setLatestPosts] = useState([]);
     const [popularPosts, setPopularPosts] = useState([]);
 
     const getRecommandations = () => {

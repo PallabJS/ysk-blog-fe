@@ -1,4 +1,4 @@
-import { Store, combineReducers, createStore, applyMiddleware } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -6,10 +6,12 @@ import thunk from "redux-thunk";
 
 import { postReducer } from "./reducers/addpost";
 import { dashboardReducer } from "./reducers/dashboard";
+import { caregoryReducer } from "./reducers/category";
 
 const mainReducer = combineReducers({
     post: postReducer,
     dashboard: dashboardReducer,
+    category: caregoryReducer,
 });
 
 const persistedReducer = persistReducer({ key: "root", storage: storage }, mainReducer);

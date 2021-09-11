@@ -52,6 +52,7 @@ $header-bg: rgb(87, 87, 190);
     background-color: $bg;
     margin-bottom: 30px;
     .category_select {
+        overflow: auto;
         label {
             margin: 5px 10px;
         }
@@ -60,6 +61,21 @@ $header-bg: rgb(87, 87, 190);
             min-width: 100px;
             font-size: 1rem;
             padding: 0px 10px;
+        }
+        & > .resetall_button {
+            float: right;
+            margin-right: 10px;
+            padding: 1px 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 400;
+            border: 1px solid white;
+            &:hover {
+                color: white;
+                border: 1px solid red;
+                background-color: rgb(211, 54, 54);
+            }
         }
     }
 }

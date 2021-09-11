@@ -8,9 +8,9 @@ import Context from "./Context";
 
 import "./dashboard.scss";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    const { categories } = props;
     const [posts, setPosts] = useState({});
-
     const dashboard = useSelector((state) => state.dashboard);
 
     const initializeDashboard = () => {
@@ -26,7 +26,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
             <Actions posts={posts} dashboard={dashboard} reloadDashboard={initializeDashboard} />
-            <Context />
+            <Context categories={categories} reloadDashboard={initializeDashboard} />
         </div>
     );
 };

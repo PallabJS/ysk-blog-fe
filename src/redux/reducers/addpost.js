@@ -1,4 +1,5 @@
 import loadash from "lodash";
+import { utils } from "../../utils";
 
 const initialState = {
     title: "",
@@ -23,7 +24,18 @@ const initialState = {
     },
 };
 
-export const action = {
+export const postAction = {
+    setPost: (post) => {
+        return {
+            type: "SET_POST",
+            payload: post,
+        };
+    },
+    resetPost: () => {
+        return {
+            type: "RESET",
+        };
+    },
     updatePost: (parent, target, data, listIndex) => {
         return {
             type: "UPDATE_POST",
@@ -65,11 +77,15 @@ export const action = {
 
 export const postReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "SET_POST": {
+            return action.payload;
+        }
         case "UPDATE_POST": {
-            console.log(action);
-
             if (action.parent === "post") {
                 let post = loadash.cloneDeepWith(state);
+                if (action.target === "title") {
+                    action.payload = utils.parseTitle(action.payload);
+                }
                 post[action.target] = action.payload;
                 return post;
             } else if (action.parent === "body/intro") {
@@ -112,6 +128,10 @@ export const postReducer = (state = initialState, action) => {
             let post = loadash.cloneDeepWith(state);
             post.body.list = [];
             return post;
+        }
+
+        case "RESET": {
+            return initialState;
         }
 
         default:
