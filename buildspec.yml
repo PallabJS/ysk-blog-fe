@@ -16,7 +16,7 @@ phases:
         on-failure: ABORT
         commands:
             - echo installing node modules
-            - npm run buildprod
+            - yarn buildprod
 artifacts:
     files:
         - "**/*"
