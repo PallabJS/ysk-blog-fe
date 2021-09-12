@@ -4,6 +4,8 @@ import { utils } from "../../utils";
 export const adminApi = {
     createPost: async (postData) => {
         try {
+            postData.date = undefined;
+            postData._id = undefined;
             let res = await fetch(adminUrl.add, {
                 method: "post",
                 headers: {

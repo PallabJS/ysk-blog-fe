@@ -12,14 +12,16 @@ const Homepage = (props) => {
     const [data, setData] = useState({});
 
     const loadHomepage = async () => {
-        let res = await postApi.getHomepageData(7);
+        let res = await postApi.getHomepageData(6);
         if (!res.error) {
             setData(res.data);
         }
     };
 
     useEffect(() => {
-        loadHomepage();
+        setTimeout(() => {
+            loadHomepage();
+        }, 1000);
     }, []);
 
     return (

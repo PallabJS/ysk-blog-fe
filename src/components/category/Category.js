@@ -14,6 +14,8 @@ let postPerPage = 10;
 const Category = (props) => {
     const { className, category } = props;
 
+    const [show, setShow] = useState(false);
+
     const categoryPage = useRef();
 
     const [state, setState] = useState({
@@ -30,19 +32,17 @@ const Category = (props) => {
             let remainingPost = state.entireList.length - state.currentPage * postPerPage;
             if (remainingPost <= 0) {
                 setState({ ...state, hasNext: false });
-                return;
+                return false;
             }
         }
         if (action === "previous") {
             if (state.currentPage === 1) {
                 setState({ ...state, hasPrevious: false });
-                return;
+                return false;
             }
         }
         let updatedCurrentPage = action === "next" ? parseInt(state.currentPage) + 1 : parseInt(state.currentPage) - 1;
-
         let remainingPostOnNextPage = state.entireList.length - updatedCurrentPage * postPerPage;
-
         setState({
             ...state,
             currentPage: updatedCurrentPage,
@@ -64,20 +64,24 @@ const Category = (props) => {
 
     const getAllPostAndSetStartList = () => {
         // getting entire list
-        postApi.getLatestPosts(category).then((res) => {
-            if (!res.error) {
-                let dateSortedList = res.data.sort((posta, postb) => {
-                    return new Date(postb.date) - new Date(posta.date);
-                });
-                // page initialization
-                setState({
-                    ...state,
-                    entireList: dateSortedList,
-                    hasNext: !(state.currentPage * postPerPage + postPerPage > res.data.length),
-                    hasPrevious: !(state.currentPage === 1),
-                });
-            }
-        });
+
+        setTimeout(() => {
+            postApi.getLatestPosts(category).then((res) => {
+                if (!res.error) {
+                    let dateSortedList = res.data.sort((posta, postb) => {
+                        return new Date(postb.date) - new Date(posta.date);
+                    });
+                    // page initialization
+                    setState({
+                        ...state,
+                        entireList: dateSortedList,
+                        hasNext: !(state.currentPage * postPerPage + postPerPage > res.data.length),
+                        hasPrevious: !(state.currentPage === 1),
+                    });
+                    setShow(true);
+                }
+            });
+        }, 1000);
     };
 
     useEffect(() => {
@@ -89,47 +93,53 @@ const Category = (props) => {
             <h3 className="header"> Latest topics on {category} </h3>
             <br />
 
-            <Pager
-                currentPage={state.currentPage}
-                hasPrevious={state.hasPrevious}
-                hasNext={state.hasNext}
-                onClick={clickHandler}
-            />
+            {show ? (
+                <>
+                    <Pager
+                        currentPage={state.currentPage}
+                        hasPrevious={state.hasPrevious}
+                        hasNext={state.hasNext}
+                        onClick={clickHandler}
+                    />
 
-            <ul className="main-ul">
-                {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
-                    return (
-                        <li
-                            key={index}
-                            onClick={() => {
-                                window.location.href = `/${category}/${post.title}`;
-                            }}
-                        >
-                            <div className="list_wrapper">
-                                <div className="img_container">
-                                    <img src={post.image} alt="" />
-                                </div>
-                                <div className="text">
-                                    <h3>
-                                        {post.title
-                                            .replace(/-/g, " ")
-                                            .replace(post.title[0], post.title[0].toUpperCase())}{" "}
-                                    </h3>
-                                    <span className="text_meta">{utils.getTimeDifference(new Date(post.date))}</span>
-                                    <p className="text_body">{parse(post.text.slice(0, 150))} ... </p>
-                                </div>
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
-            <Pager
-                style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
-                currentPage={state.currentPage}
-                hasPrevious={state.hasPrevious}
-                hasNext={state.hasNext}
-                onClick={clickHandler}
-            />
+                    <ul className="main-ul">
+                        {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
+                            return (
+                                <li
+                                    key={index}
+                                    onClick={() => {
+                                        window.location.href = `/${category}/${post.title}`;
+                                    }}
+                                >
+                                    <div className="list_wrapper">
+                                        <div className="img_container">
+                                            <img src={post.image} alt="" />
+                                        </div>
+                                        <div className="text">
+                                            <h3>
+                                                {post.title
+                                                    .replace(/-/g, " ")
+                                                    .replace(post.title[0], post.title[0].toUpperCase())}{" "}
+                                            </h3>
+                                            <span className="text_meta">
+                                                {utils.getTimeDifference(new Date(post.date))}
+                                            </span>
+                                            <p className="text_body">{parse(post.text.slice(0, 150))} ... </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <Pager
+                        style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
+                        currentPage={state.currentPage}
+                        hasPrevious={state.hasPrevious}
+                        hasNext={state.hasNext}
+                        onClick={clickHandler}
+                    />
+                </>
+            ) : null}
         </div>
     );
 };

@@ -69,7 +69,7 @@ const App = () => {
         <React.Fragment>
             <SnackbarProvider
                 maxSnack={1}
-                autoHideDuration={4000}
+                autoHideDuration={3000}
                 style={{
                     fontSize: "1rem",
                     padding: "0px 10px",

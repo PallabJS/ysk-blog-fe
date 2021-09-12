@@ -221,7 +221,6 @@ const Addpost = (props) => {
 
     const handleCreatePost = () => {
         adminApi.createPost(postData).then((res) => {
-            console.log(res);
             if (!res.error) {
                 enqueueSnackbar("Post was added successfully", { variant: "success" });
                 setTimeout(() => {
@@ -236,10 +235,10 @@ const Addpost = (props) => {
     const handleCancel = () => {
         let affirm = window.confirm("Are you sure you are not posting now?");
         if (affirm) {
-            enqueueSnackbar("Post has been cancelled, going back to Admin panel", { variant: "info" });
+            enqueueSnackbar("Create post was cancelled", { variant: "info" });
             setTimeout(() => {
                 window.location.href = "/admin";
-            });
+            }, 2000);
         }
     };
 

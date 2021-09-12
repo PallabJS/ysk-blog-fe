@@ -46,7 +46,7 @@ const Recommendation = (props) => {
                             views: post.meta.views,
                         }}
                         onClick={() => {
-                            window.location.href = `/${CATEGORY[post.meta.category]}/${post.title}`;
+                            window.location.href = `/${post.meta.category}/${post.title}`;
                         }}
                     />
                 );
