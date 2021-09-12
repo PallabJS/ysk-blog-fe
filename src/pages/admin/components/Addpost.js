@@ -243,9 +243,6 @@ const Addpost = (props) => {
     };
 
     useEffect(() => {
-        // Remove footer margin
-        document.getElementsByClassName("footer")[0].style.marginTop = "0px";
-
         composeUIFields();
     }, [postData]);
 
