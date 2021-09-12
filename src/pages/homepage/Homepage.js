@@ -5,6 +5,8 @@ import "./homepage.scss";
 
 import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
+import Footer from "../../components/footer/Footer";
+import Navbar from "../../components/navbar/Navbar";
 
 const Homepage = (props) => {
     const { categories } = props;
@@ -19,50 +21,52 @@ const Homepage = (props) => {
     };
 
     useEffect(() => {
-        setTimeout(() => {
-            loadHomepage();
-        }, 1000);
+        loadHomepage();
     }, []);
 
     return (
-        <div className="homepage">
-            <div className="main">
-                {Object.keys(data).map((category, index) => {
-                    return (
-                        <section key={index} className="homepage_category_section">
-                            <h2 className="header">{category.toUpperCase()}</h2>
-                            <div className="content">
-                                {data[category].map((post, index) => {
-                                    return (
-                                        <div key={index} className="homepage_category_post_section_container">
-                                            <section
-                                                className="homepage_category_post_section"
-                                                onClick={() => {
-                                                    window.location.href = `/${post.meta.category}/${post.title}`;
-                                                }}
-                                            >
-                                                <div className="image_container">
-                                                    {index % 2 === 0 ? (
-                                                        <img src={post.image} alt="" />
-                                                    ) : (
-                                                        <img src="https://i.imgur.com/szEUmhE.png" alt="" />
-                                                    )}
-                                                </div>
-                                                <h3 className="title">{utils.parseTitle(post.title)}</h3>
-                                                <p className="text">
-                                                    {utils.sliceParsedJSX(parse(post.text), 80)}. . .
-                                                </p>
-                                            </section>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </section>
-                    );
-                })}
+        <>
+            <Navbar categories={categories} />
+            <div className="homepage">
+                <div className="main">
+                    {Object.keys(data).map((category, index) => {
+                        return (
+                            <section key={index} className="homepage_category_section">
+                                <h2 className="header">{category.toUpperCase()}</h2>
+                                <div className="content">
+                                    {data[category].map((post, index) => {
+                                        return (
+                                            <div key={index} className="homepage_category_post_section_container">
+                                                <section
+                                                    className="homepage_category_post_section"
+                                                    onClick={() => {
+                                                        window.location.href = `/${post.meta.category}/${post.title}`;
+                                                    }}
+                                                >
+                                                    <div className="image_container">
+                                                        {index % 2 === 0 ? (
+                                                            <img src={post.image} alt="" />
+                                                        ) : (
+                                                            <img src="https://i.imgur.com/szEUmhE.png" alt="" />
+                                                        )}
+                                                    </div>
+                                                    <h3 className="title">{utils.parseTitle(post.title)}</h3>
+                                                    <p className="text">
+                                                        {utils.sliceParsedJSX(parse(post.text), 80)}. . .
+                                                    </p>
+                                                </section>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </section>
+                        );
+                    })}
+                </div>
+                <div className="homepage_aside_section"> Adds </div>
             </div>
-            <div className="homepage_aside_section"> Adds </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 

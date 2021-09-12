@@ -8,6 +8,7 @@ export const userServices = {
 
 const adminRoute = "/admin";
 export const adminUrl = {
+    login: `${serverUrl}${adminRoute}/login`,
     add: `${serverUrl}${adminRoute}/post/add`,
     delete: `${serverUrl}${adminRoute}/post/delete`,
     edit: `${serverUrl}${adminRoute}/post/edit`,

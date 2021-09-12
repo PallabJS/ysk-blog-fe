@@ -7,11 +7,13 @@ import thunk from "redux-thunk";
 import { postReducer } from "./reducers/addpost";
 import { dashboardReducer } from "./reducers/dashboard";
 import { caregoryReducer } from "./reducers/category";
+import { adminReducer } from "./reducers/admin";
 
 const mainReducer = combineReducers({
     post: postReducer,
     dashboard: dashboardReducer,
     category: caregoryReducer,
+    admin: adminReducer,
 });
 
 const persistedReducer = persistReducer({ key: "root", storage: storage }, mainReducer);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { adminAction } from "../../../redux/reducers/admin";
 import { adminApi } from "../api";
 
 import Actions from "./Actions";
@@ -12,11 +13,14 @@ const Dashboard = (props) => {
     const { categories } = props;
     const [posts, setPosts] = useState({});
     const dashboard = useSelector((state) => state.dashboard);
+    const dispatch = useDispatch();
 
     const initializeDashboard = () => {
         adminApi.getDashboardData().then((res) => {
             if (!res.error) {
                 setPosts(res.data);
+            } else if (res.msg === "Unauthorized") {
+                dispatch(adminAction.setToken(""));
             }
         });
     };

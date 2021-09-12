@@ -1,7 +1,32 @@
+import { store } from "../../redux/redux";
+
 import { adminUrl } from "../../api/apiurls";
 import { utils } from "../../utils";
 
+const getAuthHeader = () => {
+    return store.getState().admin.token;
+};
+
 export const adminApi = {
+    login: async (credentials) => {
+        try {
+            let res = await fetch(adminUrl.login, {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(credentials),
+            });
+            if (res.ok) return await res.json();
+            else throw new Error(res.statusText);
+        } catch (e) {
+            return {
+                error: true,
+                msg: e.message,
+            };
+        }
+    },
+
     createPost: async (postData) => {
         try {
             postData.date = undefined;
@@ -10,6 +35,7 @@ export const adminApi = {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
+                    authorization: getAuthHeader(),
                 },
                 body: JSON.stringify(postData),
             });
@@ -32,6 +58,7 @@ export const adminApi = {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
+                    authorization: getAuthHeader(),
                 },
                 body: JSON.stringify(postData),
             });
@@ -51,6 +78,7 @@ export const adminApi = {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
+                    authorization: getAuthHeader(),
                 },
                 body: JSON.stringify(postToDlete),
             });
@@ -68,6 +96,9 @@ export const adminApi = {
         try {
             let res = await fetch(adminUrl.getDashboard, {
                 method: "get",
+                headers: {
+                    authorization: getAuthHeader(),
+                },
             });
             if (res.ok) return await res.json();
             else throw new Error(res.statusText);

@@ -1,16 +1,10 @@
 .basepage_container {
-    margin-top: 0px;
     width: 1200px;
-    margin-top: 60px;
-    margin-bottom: 200px;
+    margin: 30px auto;
     min-height: calc(100vh - 40px - 40px - 65px);
     position: relative;
-    left: 50%;
-    transform: translate(-50%, 0px);
     padding: 0px;
-    // background-color: rgba(246, 248, 236, 0.5);
     box-sizing: border-box;
-
     .main_flexbox {
         display: flex;
 

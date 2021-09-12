@@ -1,24 +1,55 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./modal.scss";
 
 const types = ["alert", "confirm", "prompt"];
 
 const Modal = (props) => {
-    const { className, style, active, data, setModal, title, text, postText, type, confirmHandler } = props;
+    const {
+        className,
+        style,
+        active,
+        data,
+        setModal,
+        title,
+        text,
+        postText,
+        type = "confirm",
+        promptValue,
+        setPromptValue,
+        confirmHandler,
+    } = props;
 
     const modal = useRef();
 
-    const handleConfirm = (action) => {
+    const [error, setError] = useState("");
+
+    const handleConfirm = async (action) => {
         if (action === "confirm") {
-            confirmHandler(data);
+            if (type === "confirm") {
+                confirmHandler(data);
+                setTimeout(() => {
+                    setModal({ active: false, data: {} });
+                }, 300);
+            } else if (type === "prompt") {
+                let res = await confirmHandler(data);
+                if (res.success) {
+                    setTimeout(() => {
+                        setModal({ active: false, data: {} });
+                    }, 300);
+                    modal.current.classList.remove("modal_anim");
+                } else {
+                    setError(res.msg);
+                }
+            } else {
+                setModal({ active: false, data: {} });
+                modal.current.classList.remove("modal_anim");
+            }
+        } else {
+            setTimeout(() => {
+                setModal({ active: false, data: {} });
+            }, 300);
         }
-
-        setTimeout(() => {
-            setModal({ active: false, data: {} });
-        }, 300);
-
-        modal.current.classList.remove("modal_anim");
     };
 
     useEffect(() => {
@@ -37,11 +68,30 @@ const Modal = (props) => {
                         ...style,
                     }}
                 >
-                    <h2 className="title">{title}</h2>
-                    <p className="text">
-                        {text}
-                        <b>{postText}</b>
-                    </p>
+                    <p className="error_text">{error}</p>
+                    {type === "confirm" || type === "alert" ? (
+                        <>
+                            <h2 className="title">{title}</h2>
+                            <p className="text">
+                                {text}
+                                <b>{postText}</b>
+                            </p>
+                        </>
+                    ) : null}
+
+                    {type === "prompt" ? (
+                        <>
+                            <div className="prompt_text">{text}</div>
+                            <input
+                                className="prompt_input"
+                                type="password"
+                                value={promptValue}
+                                onChange={(e) => {
+                                    setPromptValue(e.target.value);
+                                }}
+                            />
+                        </>
+                    ) : null}
 
                     <div className="action_buttons">
                         <button className="confirm" onClick={() => handleConfirm("confirm")}>

@@ -1,18 +1,23 @@
 .homepage {
     display: flex;
     width: 1200px;
-    min-height: 620px;
+    align-items: stretch;
+    min-height: calc(100vh - 60px - 40px - 45px);
     margin: 30px auto;
     background-color: var(--bg-color);
     .main {
         flex: 0.75;
-        .homepage_category_section {
+
+        & > .homepage_category_section {
             flex: 1;
+
+            margin-bottom: 50px;
 
             &:last-child {
                 margin-bottom: 0px;
             }
-            .header {
+
+            & > .header {
                 padding: 5px 20px;
                 // border-top: 2px solid var(--red-hl);
                 border-left: 4px solid var(--red-hl);
@@ -23,8 +28,8 @@
                 background-color: var(--bg-blue);
                 font-size: 1.5em;
             }
-            .content {
-                margin-bottom: 50px;
+
+            & > .content {
                 // display: flex;
                 padding: 20px;
                 padding-bottom: 50px;
@@ -89,7 +94,6 @@
     .homepage_aside_section {
         flex: 0.25;
         margin-left: 20px;
-        margin-bottom: 50px;
         padding: 10px;
         border: 1px solid rgb(201, 218, 223);
         border-radius: 2px;

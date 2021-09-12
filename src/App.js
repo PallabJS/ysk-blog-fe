@@ -59,6 +59,7 @@ const App = () => {
     useEffect(() => {
         initializeAppState();
         getCategories();
+
         window.addEventListener("online", initializeAppState);
         return () => {
             window.removeEventListener("online", initializeAppState);
@@ -94,15 +95,14 @@ const App = () => {
                             {appState.internetConnected && appState.serverActive ? (
                                 <>
                                     <Router>
-                                        <Navbar categories={categories} />
                                         <Switch>
                                             <Route exact path="/">
-                                                <Homepage />
+                                                <Homepage categories={categories} />
                                             </Route>
                                             {categories.map((route, index) => {
                                                 return (
                                                     <Route path={`/${route}`} key={index}>
-                                                        <Basepage />
+                                                        <Basepage categories={categories} />
                                                     </Route>
                                                 );
                                             })}
@@ -114,7 +114,6 @@ const App = () => {
                                             </Route>
                                         </Switch>
                                     </Router>
-                                    <Footer />
                                 </>
                             ) : null}
                         </React.Fragment>

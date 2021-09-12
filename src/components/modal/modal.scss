@@ -1,6 +1,6 @@
 .modal {
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     z-index: 5;
     opacity: 0;
@@ -14,6 +14,12 @@
     box-shadow: 0px 0px 50px 5px rgba(36, 34, 34, 0.452);
     border-radius: 3px;
     transition: width 0.3s ease-in-out, height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+    & > .error_text {
+        color: red;
+        text-align: center;
+    }
+
     & > .title {
         opacity: 0;
         padding: 5px 10px;
@@ -22,13 +28,28 @@
         font-size: 1.4rem;
         transition: opacity 0.5s ease-in;
     }
-    & > .text {
+    & > .text,
+    .prompt_text {
         opacity: 0;
         font-size: 1.1rem;
         padding: 5px 20px;
         font-weight: 400;
         text-align: center;
         transition: opacity 0.5s ease-in-out;
+    }
+
+    & > .prompt_text {
+        font-size: 1.3rem;
+    }
+    & > .prompt_input {
+        display: flex;
+        align-items: center;
+        width: 60%;
+        height: 30px;
+        margin: auto;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 1.5rem;
     }
 
     .action_buttons {
@@ -61,7 +82,8 @@
     width: 500px;
     height: 200px;
     & > .title,
-    .text {
+    .text,
+    .prompt_text {
         opacity: 1;
     }
     & > .action_buttons {

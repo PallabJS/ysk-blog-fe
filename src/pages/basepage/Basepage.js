@@ -9,11 +9,15 @@ import { postApi } from "../../api/post/postapi";
 
 import "./basepage.scss";
 import Category from "../../components/category/Category";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
 
-const Basepage = () => {
+const Basepage = (props) => {
+    const { categories } = props;
+
     const [postInfo] = useState({
         isPostPage: Boolean(postTitle),
         category: category,
@@ -42,6 +46,7 @@ const Basepage = () => {
 
     return (
         <React.Fragment>
+            <Navbar categories={categories} />
             <main className="basepage_container">
                 {!postInfo.isPostPage ? (
                     <div className="main_flexbox">
@@ -72,6 +77,7 @@ const Basepage = () => {
                     <Recommendation className="post_recommandation" category={postInfo.category} />
                 ) : null}
             </main>
+            <Footer />
         </React.Fragment>
     );
 };
