@@ -8,12 +8,14 @@ import { postReducer } from "./reducers/addpost";
 import { dashboardReducer } from "./reducers/dashboard";
 import { caregoryReducer } from "./reducers/category";
 import { adminReducer } from "./reducers/admin";
+import { appReducer } from "./reducers/app";
 
 const mainReducer = combineReducers({
     post: postReducer,
     dashboard: dashboardReducer,
     category: caregoryReducer,
     admin: adminReducer,
+    appState: appReducer,
 });
 
 const persistedReducer = persistReducer({ key: "root", storage: storage }, mainReducer);

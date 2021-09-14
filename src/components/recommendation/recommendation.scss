@@ -11,10 +11,15 @@
     border: 2px solid var(--wrapper-border-color);
     overflow: auto;
     clear: both;
-    .card_wrapper {
+    & > .card_wrapper {
         width: calc(100% - 10px);
-        height: 160px;
+        height: 140px;
         margin: 5px !important;
+        padding-left: 10px;
+        transition: padding-left 0.1s ease-in-out;
+        &:hover {
+            padding-left: 0px;
+        }
     }
     .card {
         width: 100%;
@@ -30,5 +35,15 @@
         color: white;
         background-color: var(--bg-red);
         padding: 5px 10px;
+    }
+}
+
+// SCREEN SIZE 1024px
+@media screen and (max-width: 1024px) {
+    .post_recommandation_category_page {
+        & > .card_wrapper {
+            width: calc(100% - 10px);
+            height: fit-content;
+        }
     }
 }

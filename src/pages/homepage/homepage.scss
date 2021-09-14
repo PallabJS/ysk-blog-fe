@@ -1,11 +1,12 @@
 .homepage {
     display: flex;
-    width: 1200px;
+    width: 90%;
     align-items: stretch;
     min-height: calc(100vh - 60px - 40px - 45px);
     margin: 30px auto;
+    margin-top: 60px;
     background-color: var(--bg-color);
-    .main {
+    & > .main {
         flex: 0.75;
 
         & > .homepage_category_section {
@@ -19,32 +20,26 @@
 
             & > .header {
                 padding: 5px 20px;
-                // border-top: 2px solid var(--red-hl);
                 border-left: 4px solid var(--red-hl);
-                // border-top-left-radius: 5px;
-                // border-bottom-left-radius: 5px;
-                // border-top-right-radius: 10px;
                 color: var(--white-text);
                 background-color: var(--bg-blue);
-                font-size: 1.5em;
+                font-size: 1em;
             }
 
             & > .content {
-                // display: flex;
                 padding: 20px;
                 padding-bottom: 50px;
                 background-color: white;
                 border: 1px solid rgb(201, 218, 223);
                 overflow: auto;
 
-                .homepage_category_post_section_container {
-                    // flex: 1;
+                & > .homepage_category_post_section_container {
                     width: 30.5%;
                     float: left;
                     height: 320px;
                     margin: 10px;
                     border: 1px solid rgb(240, 218, 218);
-                    .homepage_category_post_section {
+                    & > .homepage_category_post_section {
                         background-color: white;
                         width: 100%;
                         height: 100%;
@@ -53,13 +48,14 @@
                         font-size: 1rem;
                         transition: box-shadow 0.3s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out,
                             margin-left 0.2s ease-in-out, font-size 0.1s ease-in-out;
-                        .title {
+                        & > .title {
                             font-size: 1.2rem;
                             transition: font-size 0.2s ease-in-out;
                             font-weight: 500;
                             color: var(--glazing-black);
+                            padding-bottom: 10px;
                         }
-                        .image_container {
+                        & > .image_container {
                             width: 100%;
                             height: 50%;
                             overflow: hidden;
@@ -68,7 +64,7 @@
                                 height: auto;
                             }
                         }
-                        .text {
+                        & > .text {
                             color: rgb(100, 100, 100);
                         }
 
@@ -82,7 +78,7 @@
                             height: 110%;
                             font-size: 1.1rem;
                             margin-left: -8px;
-                            .title {
+                            & > .title {
                                 font-size: 1.34rem;
                             }
                         }
@@ -91,12 +87,27 @@
             }
         }
     }
-    .homepage_aside_section {
+    & > .homepage_aside_section {
         flex: 0.25;
         margin-left: 20px;
         padding: 10px;
         border: 1px solid rgb(201, 218, 223);
         border-radius: 2px;
         background-color: white;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .homepage {
+        width: 98%;
+        & > .main {
+            & > .homepage_category_section {
+                & > .content {
+                    & > .homepage_category_post_section_container {
+                        width: 45%;
+                    }
+                }
+            }
+        }
     }
 }

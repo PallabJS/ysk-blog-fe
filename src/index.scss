@@ -1,5 +1,10 @@
 @import "./css/brand.scss";
 
+body {
+    overflow-x: hidden;
+    scroll-behavior: auto !important;
+}
+
 * {
     user-select: none;
     box-sizing: border-box;

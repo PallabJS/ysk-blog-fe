@@ -1,14 +1,14 @@
 .basepage_container {
-    width: 1200px;
+    width: 1100px;
     margin: 30px auto;
+    margin-top: 60px;
     min-height: calc(100vh - 40px - 40px - 65px);
     position: relative;
-    padding: 0px;
     box-sizing: border-box;
     .main_flexbox {
         display: flex;
 
-        & .post_container {
+        & > .post_container {
             flex: 0.7;
             border: 2px solid rgb(235, 235, 235);
             margin-right: 10px;
@@ -121,13 +121,132 @@
             padding: 5px 10px;
         }
     }
-    .bottom_line {
-        position: absolute;
-        bottom: 10px;
-        width: calc(100% - 60px);
-        color: var(--bg-red);
-        // border: 1px solid red;
-        font-size: 0.8rem;
-        text-align: center;
+}
+
+// SCREEN SIZE 1024px
+@media screen and (max-width: 1024px) {
+    .basepage_container {
+        width: 98%;
+        margin: 30px auto;
+        margin-top: 60px;
+        min-height: calc(100vh - 40px - 40px - 65px);
+        position: relative;
+        box-sizing: border-box;
+        .main_flexbox {
+            display: flex;
+
+            & > .post_container {
+                flex: 0.7;
+                border: 2px solid rgb(235, 235, 235);
+                margin-right: 10px;
+                padding: 40px;
+                background-color: white;
+                & .pagetitle,
+                .section_title {
+                    font-family: monospace;
+                    font-size: 2.5rem;
+                    font-weight: 500;
+                    margin-bottom: 30px;
+                    margin-top: 20px;
+                    font-family: var(--font-title);
+                }
+                & .section_title {
+                    color: var(--info-date);
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin: 10px 0px;
+                }
+                .climax_title {
+                    font-size: 1.5rem;
+                    margin: 10px 0px;
+                    margin-top: 20px;
+                }
+
+                & .subtitle {
+                    font-size: 1.1rem;
+                    font-weight: 350;
+                    margin-bottom: 10px;
+                    font-style: italic;
+                }
+
+                & .meta_info {
+                    display: block;
+                    margin-left: 2px;
+                    margin-top: 0px;
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    color: var(--info-date);
+                }
+                & .content {
+                    line-height: 1.5rem;
+                    text-align: justify;
+                    color: var(--content-color);
+                    font-family: var(--content-font);
+                    font-weight: 300;
+                    font-size: 1.05rem;
+                }
+                .img_container {
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin: 30px 0px;
+                }
+            }
+            & .sidecontent_container {
+                flex: 0.4;
+                padding: 10px;
+                background-color: white;
+                border: 2px solid rgb(235, 235, 235);
+
+                .header {
+                    padding: 5px 10px;
+                    color: ghostwhite;
+                    background-color: var(--bg-red);
+                    border-radius: 3px;
+                    user-select: none;
+                }
+                & .post_card {
+                    cursor: pointer;
+                    margin: 5px 0px;
+                    padding: 30px 10px;
+                    padding-top: 10px;
+                    border-bottom: 1px solid rgba(255, 0, 51, 0.157);
+                    div {
+                        font-size: 0.8rem;
+                    }
+                    h3 {
+                        margin: 0px !important;
+                    }
+                    p {
+                        font-style: italic;
+                        font-weight: 350;
+                        font-size: 0.9rem;
+                    }
+                    &:hover {
+                        background-color: rgba(0, 47, 255, 0.082);
+                        h3 {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .post_recommandation {
+            position: relative;
+            margin: 10px 0px;
+            padding: 30px;
+            padding-bottom: 100px;
+            background-color: white;
+            border: 2px solid var(--wrapper-border-color);
+            overflow: auto;
+            clear: both;
+            .recommandation_header {
+                font-weight: 500;
+                margin: 20px 5px;
+                border-radius: 3px;
+                color: white;
+                background-color: var(--bg-red);
+                padding: 5px 10px;
+            }
+        }
     }
 }

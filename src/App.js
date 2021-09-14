@@ -15,6 +15,7 @@ import { categoryAction } from "./redux/reducers/category";
 
 import { serverUrl } from "./settings";
 import { useDispatch, useSelector } from "react-redux";
+import { appAction } from "./redux/reducers/app";
 
 const App = () => {
     const [showApp, setShowApp] = useState(false);
@@ -24,6 +25,7 @@ const App = () => {
         platform: "desktop",
         clientIP: null,
     });
+    const app = useSelector((state) => state.appState);
     const categories = useSelector((state) => state.category.categories);
     const dispatch = useDispatch();
 
@@ -56,12 +58,25 @@ const App = () => {
         }
     };
 
+    const updateScreenSize = (e) => {
+        if (window.innerWidth <= 1024) dispatch(appAction.setScreenSizeMedium(true));
+        else dispatch(appAction.setScreenSizeMedium(false));
+    };
+
     useEffect(() => {
         initializeAppState();
         getCategories();
 
+        // // detect mobile/desktop
+        if (window.navigator.userAgent.search(/\biphone\b|\bandroid\b/gim) != -1) {
+            console.log("mobile");
+            dispatch(appAction.setMobile());
+        } else dispatch(appAction.setDesktop());
+
+        window.addEventListener("resize", updateScreenSize);
         window.addEventListener("online", initializeAppState);
         return () => {
+            window.removeEventListener("resize", updateScreenSize);
             window.removeEventListener("online", initializeAppState);
         };
     }, []);
@@ -97,12 +112,12 @@ const App = () => {
                                     <Router>
                                         <Switch>
                                             <Route exact path="/">
-                                                <Homepage categories={categories} />
+                                                <Homepage app={app} categories={categories} />
                                             </Route>
                                             {categories.map((route, index) => {
                                                 return (
                                                     <Route path={`/${route}`} key={index}>
-                                                        <Basepage categories={categories} />
+                                                        <Basepage app={app} categories={categories} />
                                                     </Route>
                                                 );
                                             })}

@@ -51,7 +51,6 @@ const Recommendation = (props) => {
                     />
                 );
             })}
-            {/* <footer className="bottom_line"> - - - &nbsp; Powered to you by ysk-algo &nbsp; - - - </footer> */}
         </div>
     );
 };

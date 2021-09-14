@@ -9,7 +9,7 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 
 const Homepage = (props) => {
-    const { categories } = props;
+    const { app, categories } = props;
 
     const [data, setData] = useState({});
 
@@ -26,7 +26,7 @@ const Homepage = (props) => {
 
     return (
         <>
-            <Navbar categories={categories} />
+            <Navbar app={app} categories={categories} />
             <div className="homepage">
                 <div className="main">
                     {Object.keys(data).map((category, index) => {

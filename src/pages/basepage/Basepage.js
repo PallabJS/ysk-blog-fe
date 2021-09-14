@@ -16,7 +16,7 @@ let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
 
 const Basepage = (props) => {
-    const { categories } = props;
+    const { app, categories } = props;
 
     const [postInfo] = useState({
         isPostPage: Boolean(postTitle),
@@ -46,7 +46,7 @@ const Basepage = (props) => {
 
     return (
         <React.Fragment>
-            <Navbar categories={categories} />
+            <Navbar app={app} categories={categories} />
             <main className="basepage_container">
                 {!postInfo.isPostPage ? (
                     <div className="main_flexbox">

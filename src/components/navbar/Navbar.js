@@ -9,9 +9,10 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { postApi } from "../../api/post/postapi";
 
 import { utils } from "../../utils";
+import Navbarmobile from "./Navbarmobile";
 
 const Navbar = (props) => {
-    const { categories } = props;
+    const { app, categories } = props;
     const [state, setState] = useState({
         searchText: "",
         searchTriggered: false,
@@ -79,7 +80,7 @@ const Navbar = (props) => {
     return (
         <>
             <header className="head-container">
-                <span className="logo">You Should Know</span>
+                {app.isMobile ? <span className="logo">YSK</span> : <span className="logo">You Should Know</span>}
                 <div className="search-box-container" ref={searchBox}>
                     <div id="search-nav-label" onClick={searchButtonClick}>
                         <FontAwesomeIcon icon={faSearch} size="lg" spin={state.searchTriggered} />
@@ -105,25 +106,29 @@ const Navbar = (props) => {
                         }}
                     />
                 </div>
-                <nav className="nav-bar">
-                    <ul className="nav-list">
-                        <li style={{ width: "80px" }} className="nav-list-item" onClick={() => handleRouting("/")}>
-                            Home
-                        </li>
-                        {categories.map((categoryName, index) => {
-                            return (
-                                <li
-                                    style={{ width: categoryName.length * 15 + "px" }}
-                                    key={index}
-                                    className="nav-list-item"
-                                    onClick={() => handleRouting(`/${categoryName}`)}
-                                >
-                                    {utils.parseTitle(categoryName)}
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </nav>
+                {app.screenSizeMedium ? (
+                    <Navbarmobile categories={categories} handleRouting={handleRouting} />
+                ) : (
+                    <nav className="navbar">
+                        <ul className="navlist">
+                            <li style={{ width: "80px" }} className="nav-list-item" onClick={() => handleRouting("/")}>
+                                Home
+                            </li>
+                            {categories.map((categoryName, index) => {
+                                return (
+                                    <li
+                                        style={{ width: categoryName.length * 15 + "px" }}
+                                        key={index}
+                                        className="nav-list-item"
+                                        onClick={() => handleRouting(`/${categoryName}`)}
+                                    >
+                                        {utils.parseTitle(categoryName)}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
+                )}
             </header>
             <Droplist
                 show={state.showDropList}

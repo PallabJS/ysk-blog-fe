@@ -1,75 +1,154 @@
 .card_wrapper {
-    width: calc(50% - 40px);
+    width: 30%;
     height: 300px;
-    margin: 20px 20px;
+    margin: 16px;
     box-sizing: border-box;
     float: left;
+
+    & > .card {
+        border: 1px solid rgba(168, 108, 108, 0.24);
+        box-shadow: 1px 1px 1px 1px rgba(105, 100, 100, 0.377);
+        border-radius: 3px;
+        width: 100%;
+        height: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        cursor: pointer;
+
+        .card_content {
+            & > h3 {
+                font-weight: 600;
+                margin: 0px 0px;
+                .views {
+                    font-size: 0.9rem;
+                    font-weight: 100;
+                }
+            }
+            & > .subtitle {
+                font-size: 0.9rem;
+                font-family: "Segoe UI", sans-serif;
+                color: rgb(216, 63, 139);
+                font-weight: 600;
+            }
+            & > p {
+                margin-top: 5px;
+                font-weight: 300;
+                padding: 5px 2px;
+                font-size: 0.9rem;
+            }
+        }
+
+        & > .image_container {
+            width: 100%;
+            height: 150px;
+            margin: 10px 0px;
+            & > img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }
+
 .card_animation {
-    p {
+    & > p {
         transition: font-weight 0.1s ease-in-out;
     }
-    & h3 > .views {
+    & > h3 > .views {
         transition: font-weight 0.1s ease-in-out;
     }
     &:hover {
         background-color: rgba(124, 136, 17, 0.055);
         cursor: pointer;
         font-size: 16px;
-        // border: 2px solid rgba(168, 108, 108, 0.24);
-        h3 {
+        & > h3 {
+            color: var(--link-hover);
             .views {
                 text-decoration: none;
                 font-weight: 500;
                 color: green;
             }
         }
-        p {
-            font-weight: 400;
-        }
     }
 }
-.card {
-    border: 1px solid rgba(168, 108, 108, 0.24);
-    box-shadow: 1px 1px 1px 1px rgba(105, 100, 100, 0.377);
-    border-radius: 3px;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow: hidden;
-    cursor: pointer;
 
-    h3 {
-        font-weight: 600;
-        margin: 0px 0px;
-        .views {
-            font-size: 0.9rem;
-            font-weight: 100;
+// SCREEN SIZE 1024px
+@media screen and (max-width: 1024px) {
+    .card_wrapper {
+        width: 100%;
+        height: 170px;
+        margin: 6px;
+        box-sizing: border-box;
+        & > .card {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(168, 108, 108, 0.24);
+            box-shadow: 1px 1px 1px 1px rgba(105, 100, 100, 0.377);
+            border-radius: 3px;
+            width: 100%;
+            height: 100%;
+            padding: 0px 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            cursor: pointer;
+            .card_content {
+                flex: 1;
+                & > h3 {
+                    font-weight: 600;
+                    margin: 0px 0px;
+                    .views {
+                        font-size: 0.9rem;
+                        font-weight: 100;
+                    }
+                }
+                & > .subtitle {
+                    font-size: 0.9rem;
+                    font-family: "Segoe UI", sans-serif;
+                    color: rgb(216, 63, 139);
+                    font-weight: 600;
+                }
+                & > p {
+                    margin-top: 5px;
+                    font-weight: 300;
+                    padding: 5px 2px;
+                    font-size: 0.9rem;
+                }
+            }
+            & > .image_container {
+                width: 30%;
+                margin: 10px 0px;
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+
+                & > img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .card_animation {
+        & > p {
+            transition: font-weight 0.1s ease-in-out;
+        }
+        & > h3 > .views {
+            transition: font-weight 0.1s ease-in-out;
         }
         &:hover {
-            color: var(--link-hover);
-        }
-    }
-    .subtitle {
-        font-size: 0.9rem;
-        font-family: "Segoe UI", sans-serif;
-        color: rgb(216, 63, 139);
-        font-weight: 600;
-    }
-    p {
-        margin-top: 5px;
-        font-weight: 300;
-        padding: 5px 2px;
-        font-size: 0.9rem;
-    }
-    .image_container {
-        width: 100%;
-        height: 150px;
-        margin: 10px 0px;
-        img {
-            width: auto;
-            height: 100%;
+            background-color: rgba(124, 136, 17, 0.055);
+            cursor: pointer;
+            font-size: 16px;
+            & > h3 {
+                color: var(--link-hover);
+                .views {
+                    text-decoration: none;
+                    font-weight: 500;
+                    color: green;
+                }
+            }
         }
     }
 }
