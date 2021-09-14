@@ -2,8 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 50px !important;
     color: white;
-    font-size: 0.9rem;
+    font-size: 2rem;
     font-weight: 400;
     background-color: var(--footer-bg);
     box-shadow: 0 0 100px 2px rgb(87, 85, 85);
@@ -22,6 +23,36 @@
         font-size: 0.9rem;
         i {
             color: rgb(212, 212, 205);
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 400;
+        background-color: var(--footer-bg);
+        box-shadow: 0 0 100px 2px rgb(87, 85, 85);
+        border: 2px solid var(--footer-bg);
+        padding: 5px;
+
+        & > .contact_us {
+            color: whitesmoke;
+            &:hover {
+                color: rgb(84, 195, 246);
+                text-decoration: none;
+            }
+        }
+
+        & > .footer_copyright {
+            font-size: 1.1rem;
+            i {
+                color: rgb(212, 212, 205);
+            }
         }
     }
 }

@@ -105,6 +105,9 @@
 
 // MAX WIDTH 900px
 @media screen and (max-width: 900px) {
+    .head-container {
+        height: 54px;
+    }
     .search-box-container {
         margin-left: 0px;
         display: flex;

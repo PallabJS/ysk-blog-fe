@@ -96,7 +96,7 @@ const App = () => {
             >
                 {showApp ? (
                     <React.Fragment>
-                        <Version />
+                        {!app.isMobile && <Version />}
                         {!appState.internetConnected ? (
                             <Errormsg title="Oops!" text="Looks like you're offline" />
                         ) : appState.serverActive ? null : (
