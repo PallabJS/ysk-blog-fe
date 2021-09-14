@@ -1,7 +1,7 @@
 .footer {
-    display: none !important;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: white;
     font-size: 0.9rem;
     font-weight: 400;
@@ -9,53 +9,19 @@
     box-shadow: 0 0 100px 2px rgb(87, 85, 85);
     border: 2px solid var(--footer-bg);
     padding: 5px;
-    & > :nth-child(1) {
-        margin-left: 30px !important;
-    }
-    & > :nth-child(n) {
-        margin: 0px 5px;
-    }
-    a {
+
+    & > .contact_us {
         color: whitesmoke;
         &:hover {
             color: rgb(84, 195, 246);
             text-decoration: none;
         }
     }
-    input[type="email"] {
-        width: 300px;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 0.8rem;
-    }
-    .subscription_group {
-        label {
-            margin-left: 5px;
-            margin-right: 10px;
+
+    & > .footer_copyright {
+        font-size: 0.9rem;
+        i {
+            color: rgb(212, 212, 205);
         }
-    }
-    .submit_button {
-        min-width: 80px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 5px;
-        border: none;
-        color: gray;
-        font-size: small;
-        transition: background-color 0.2s ease-in, color 0.2s ease-in;
-        &:hover {
-            color: white;
-            background-color: green;
-        }
-        &:active {
-            font-size: smaller;
-        }
-    }
-}
-.footer_copyright {
-    margin-left: auto !important;
-    font-size: 0.9rem;
-    i {
-        color: rgb(212, 212, 205);
     }
 }

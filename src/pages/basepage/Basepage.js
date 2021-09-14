@@ -50,7 +50,7 @@ const Basepage = (props) => {
             <main className="basepage_container">
                 {!postInfo.isPostPage ? (
                     <div className="main_flexbox">
-                        <Category className="category_page" category={postInfo.category} />
+                        <Category app={app} className="category_page" category={postInfo.category} />
                         <Recommendation className="post_recommandation_category_page" category={postInfo.category} />
                     </div>
                 ) : null}
@@ -77,7 +77,7 @@ const Basepage = (props) => {
                     <Recommendation className="post_recommandation" category={postInfo.category} />
                 ) : null}
             </main>
-            <Footer />
+            <Footer app={app} />
         </React.Fragment>
     );
 };

@@ -46,8 +46,8 @@
                         box-sizing: border-box;
                         padding: 10px;
                         font-size: 1rem;
-                        transition: box-shadow 0.3s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out,
-                            margin-left 0.2s ease-in-out, font-size 0.1s ease-in-out;
+                        transition: box-shadow 0.5s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out,
+                            margin-left 0.2s ease-in-out, font-size 0.2s ease-in-out, border-width 2s ease-in-out;
                         & > .title {
                             font-size: 1.2rem;
                             transition: font-size 0.2s ease-in-out;
@@ -99,7 +99,7 @@
 
 @media screen and (max-width: 1024px) {
     .homepage {
-        width: 98%;
+        width: 100%;
         & > .main {
             & > .homepage_category_section {
                 & > .content {
@@ -108,6 +108,108 @@
                     }
                 }
             }
+        }
+    }
+}
+
+// PHONE SCREEN
+@media screen and (max-width: 900px) {
+    .homepage {
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+        margin: 45px 0px;
+        background-color: var(--bg-color);
+        & > .main {
+            flex: 1;
+
+            & > .homepage_category_section {
+                flex: 1;
+                margin-bottom: 5px;
+                &:last-child {
+                    margin-bottom: 0px !important;
+                }
+                & > .header {
+                    padding: 5px 20px;
+                    border-left: 4px solid var(--red-hl);
+                    color: var(--white-text);
+                    background-color: var(--bg-blue);
+                    font-size: 1.5rem;
+                }
+
+                & > .content {
+                    padding: 0px;
+                    background-color: white;
+                    border: 1px solid rgb(201, 218, 223);
+                    overflow: auto;
+
+                    & > .homepage_category_post_section_container {
+                        width: 100%;
+                        height: 400px;
+                        margin: 0px;
+                        border: 1px solid rgb(240, 218, 218);
+                        margin-bottom: 5px !important;
+                        border: 2px solid rgba(143, 138, 138, 0.247);
+                        & > .homepage_category_post_section {
+                            background-color: white;
+                            width: 100%;
+                            height: 100%;
+                            box-sizing: border-box;
+                            padding: 10px 20px;
+                            font-size: 1rem;
+                            transition: box-shadow 0.3s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out,
+                                margin-left 0.2s ease-in-out, font-size 0.1s ease-in-out;
+                            & > .title {
+                                font-size: 1.5rem;
+                                text-decoration: underline 1px rgb(184, 180, 180);
+                                transition: none !important;
+                                font-weight: 600;
+                                color: rgb(60, 119, 197);
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                            }
+                            & > .image_container {
+                                width: 100%;
+                                height: 50%;
+                                overflow: hidden;
+                                & > img {
+                                    width: 100%;
+                                    height: auto;
+                                }
+                            }
+                            & > .text {
+                                color: rgb(21, 62, 116);
+                                text-indent: 10px;
+                                text-align: justify;
+                            }
+
+                            &:hover {
+                                position: relative;
+                                z-index: 2;
+                                cursor: pointer;
+                                box-shadow: none;
+                                border: none;
+                                width: 100%;
+                                height: 100%;
+                                font-size: 1rem;
+                                margin-left: 0px;
+                                & > .title {
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & > .homepage_aside_section {
+            display: none;
+            flex: 0.25;
+            margin-left: 20px;
+            padding: 10px;
+            border: 1px solid rgb(201, 218, 223);
+            border-radius: 2px;
+            background-color: white;
         }
     }
 }

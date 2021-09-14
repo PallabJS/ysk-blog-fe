@@ -5,10 +5,11 @@ $listitem-border: 2px solid rgba(127, 214, 241, 0.137);
 $listitem-bg-color-hover: rgb(67, 119, 150);
 
 .droplist {
+    position: fixed !important;
+    z-index: 10 !important;
     width: 700px;
     margin-top: 5px;
     padding: 3px;
-    // border-radius: 5px;
     background-color: $droplist-bg-color;
     box-shadow: 0 0 10px 2px var(--blue-shadow);
     opacity: 0;
@@ -43,6 +44,98 @@ $listitem-bg-color-hover: rgb(67, 119, 150);
         }
         & > :last-child {
             border-radius: 0px 0px 3px 3px;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .droplist {
+        width: 500px;
+        margin-top: 5px;
+        padding: 3px;
+        left: 50% !important;
+        transform: translate(-50%, 0%) !important;
+        background-color: $droplist-bg-color;
+        box-shadow: 0 0 10px 2px var(--blue-shadow);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+
+        .droplist_title {
+            padding: 5px 10px;
+            padding-bottom: 10;
+            color: rgb(255, 255, 255);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0px;
+            li {
+                overflow: auto;
+                border-bottom: $list-bottom-border;
+                padding: 5px 20px;
+                font-size: 1rem;
+                font-weight: 400;
+                color: black;
+                background-color: $list-bg-color;
+                &:hover {
+                    color: white;
+                    background-color: $listitem-bg-color-hover;
+                    cursor: pointer;
+                }
+            }
+            & > :first-child {
+                border-radius: 3px 3px 0px 0px;
+            }
+            & > :last-child {
+                border-radius: 0px 0px 3px 3px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .droplist {
+        position: fixed !important;
+        z-index: 10 !important;
+        width: 100%;
+        margin-top: 5px;
+        padding: 3px;
+        background-color: $droplist-bg-color;
+        box-shadow: 0 0 10px 2px var(--blue-shadow);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+
+        .droplist_title {
+            padding: 5px 10px;
+            padding-bottom: 10;
+            color: rgb(255, 255, 255);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0px;
+            li {
+                overflow: auto;
+                border-bottom: $list-bottom-border;
+                padding: 5px 20px;
+                font-size: 1rem;
+                font-weight: 400;
+                color: black;
+                background-color: $list-bg-color;
+                &:hover {
+                    color: white;
+                    background-color: $listitem-bg-color-hover;
+                    cursor: pointer;
+                }
+            }
+            & > :first-child {
+                border-radius: 3px 3px 0px 0px;
+            }
+            & > :last-child {
+                border-radius: 0px 0px 3px 3px;
+            }
         }
     }
 }

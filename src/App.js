@@ -69,7 +69,6 @@ const App = () => {
 
         // // detect mobile/desktop
         if (window.navigator.userAgent.search(/\biphone\b|\bandroid\b/gim) != -1) {
-            console.log("mobile");
             dispatch(appAction.setMobile());
         } else dispatch(appAction.setDesktop());
 

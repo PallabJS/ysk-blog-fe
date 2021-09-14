@@ -68,6 +68,10 @@ const Navbar = (props) => {
         if (e.key === "/") {
             document.getElementById("search-nav").focus();
         }
+        if (e.key == "Escape") {
+            document.getElementById("search-nav").blur();
+            setState({ ...state, droplist: [], searchText: "" });
+        }
     };
 
     useEffect(() => {

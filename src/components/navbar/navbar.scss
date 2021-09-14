@@ -104,5 +104,33 @@
 }
 
 // MAX WIDTH 900px
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 900px) {
+    .search-box-container {
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+
+        & > #search-nav-label {
+            display: none;
+        }
+
+        & > #search-nav {
+            height: 100%;
+            width: 100px;
+            padding: 0px 20px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            text-align: center;
+            transition: width 0.2s ease-in-out;
+            &::placeholder {
+                font-size: 0.9rem;
+            }
+            &:focus {
+                width: 200px;
+                border-radius: 10px;
+            }
+        }
+    }
 }

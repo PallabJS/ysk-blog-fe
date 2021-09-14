@@ -30,3 +30,39 @@
         margin: 0px 10px;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .pager {
+        background-color: rgb(80, 77, 77);
+        padding: 5px;
+        overflow: auto;
+        border-radius: 3px;
+        width: 99% !important;
+        button {
+            $bgcolor: rgba(75, 138, 240, 0.698);
+            $bgcolorhover: rgb(75, 138, 240);
+            background-color: $bgcolor;
+            color: white;
+            border: none;
+            padding: 2px 10px;
+            &:hover {
+                background-color: $bgcolorhover;
+            }
+        }
+        .previous_button {
+            float: right;
+            margin: 0px 10px;
+        }
+        .current_page {
+            float: right;
+            color: white;
+            margin: 0px 5px;
+            width: 20px;
+            text-align: center;
+        }
+        .next_button {
+            float: right;
+            margin: 0px 10px;
+        }
+    }
+}

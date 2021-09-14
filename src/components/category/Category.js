@@ -12,7 +12,7 @@ import { utils } from "../../utils";
 let postPerPage = 10;
 
 const Category = (props) => {
-    const { className, category } = props;
+    const { app, className, category } = props;
 
     const [show, setShow] = useState(false);
 
@@ -30,6 +30,7 @@ const Category = (props) => {
 
         if (action === "next") {
             let remainingPost = state.entireList.length - state.currentPage * postPerPage;
+            console.log(remainingPost);
             if (remainingPost <= 0) {
                 setState({ ...state, hasNext: false });
                 return false;
@@ -107,6 +108,13 @@ const Category = (props) => {
                             return (
                                 <li
                                     key={index}
+                                    style={
+                                        app.isMobile
+                                            ? {
+                                                  height: "140px",
+                                              }
+                                            : {}
+                                    }
                                     onClick={() => {
                                         window.location.href = `/${category}/${post.title}`;
                                     }}
@@ -124,7 +132,12 @@ const Category = (props) => {
                                             <span className="text_meta">
                                                 {utils.getTimeDifference(new Date(post.date))}
                                             </span>
-                                            <p className="text_body">{parse(post.text.slice(0, 150))} ... </p>
+                                            <p className="text_body">
+                                                {app.isMobile
+                                                    ? parse(post.text.slice(0, 50))
+                                                    : parse(post.text.slice(0, 150))}
+                                                ...
+                                            </p>
                                         </div>
                                     </div>
                                 </li>

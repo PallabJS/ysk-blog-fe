@@ -47,3 +47,44 @@
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .post_recommandation_category_page {
+        display: flex;
+        flex: 0.5;
+        flex-direction: column;
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+        padding-bottom: 20px;
+        background-color: white;
+        border: none;
+        overflow: auto;
+        clear: both;
+        & > .card_wrapper {
+            width: 100%;
+            height: 160px;
+            margin: 5px 0px !important;
+            padding: 0px 10px;
+            transition: padding-left 0.1s ease-in-out;
+            &:hover {
+                padding-left: 0px;
+            }
+        }
+        .card {
+            width: 100%;
+            .image_container {
+                display: none;
+            }
+        }
+
+        .recommandation_header {
+            font-weight: 500;
+            margin: 10px 5px;
+            border-radius: 3px;
+            color: white;
+            background-color: var(--bg-red);
+            padding: 5px 10px;
+        }
+    }
+}

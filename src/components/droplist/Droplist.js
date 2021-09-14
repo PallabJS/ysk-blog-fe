@@ -57,7 +57,7 @@ const Droplist = (props) => {
                                         <li
                                             key={index}
                                             onClick={() => {
-                                                window.location.href = `/${CATEGORY[post.meta.category]}/${post.title}`;
+                                                window.location.href = `/${post.meta.category}/${post.title}`;
                                             }}
                                         >
                                             {post.title

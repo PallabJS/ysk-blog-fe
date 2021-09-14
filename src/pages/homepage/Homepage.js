@@ -52,7 +52,10 @@ const Homepage = (props) => {
                                                     </div>
                                                     <h3 className="title">{utils.parseTitle(post.title)}</h3>
                                                     <p className="text">
-                                                        {utils.sliceParsedJSX(parse(post.text), 80)}. . .
+                                                        {app.isMobile
+                                                            ? utils.sliceParsedJSX(parse(post.text), 200)
+                                                            : utils.sliceParsedJSX(parse(post.text), 80)}
+                                                        . . .
                                                     </p>
                                                 </section>
                                             </div>
@@ -63,7 +66,7 @@ const Homepage = (props) => {
                         );
                     })}
                 </div>
-                <div className="homepage_aside_section"> Adds </div>
+                <div className="homepage_aside_section">Adds</div>
             </div>
             <Footer />
         </>
