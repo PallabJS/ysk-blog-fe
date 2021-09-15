@@ -27,9 +27,10 @@ export const utils = {
         let app = getApp();
         console.log("compose:", app);
         if (app.isMobile) {
-            let thumbNailLink = link.replace(".png", "m.png");
-            return thumbNailLink;
-        } else return link;
+            return link.replace(".png", "m.png");
+        } else {
+            return link.replace(".png", "l.png");
+        }
     },
 
     getRandomizedArray: (arr) => {
