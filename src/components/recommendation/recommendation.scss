@@ -36,6 +36,20 @@
         background-color: var(--bg-red);
         padding: 5px 10px;
     }
+
+    & > .recommandation_ad_container {
+        & > .header {
+            background-color: rgb(228, 181, 29);
+            padding: 5px 0px;
+            margin-top: 50px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        & > .ad_container {
+            width: 80%;
+            margin: 0px auto;
+        }
+    }
 }
 
 // SCREEN SIZE 1024px
@@ -85,6 +99,20 @@
             color: white;
             background-color: var(--bg-red);
             padding: 5px 10px;
+        }
+        & > .recommandation_ad_container {
+            & > .header {
+                background-color: rgb(228, 181, 29);
+                padding: 10px 0px;
+                margin-top: 50px;
+                margin-bottom: 10px;
+                text-align: center;
+                font-size: 1.5rem;
+            }
+            & > .ad_container {
+                width: 80%;
+                margin: 0px auto;
+            }
         }
     }
 }

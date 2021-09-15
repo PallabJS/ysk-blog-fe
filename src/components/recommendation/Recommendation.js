@@ -35,22 +35,28 @@ const Recommendation = (props) => {
             <h2 className="recommandation_header"> Recommended posts </h2>
             {popularPosts.map((post, index) => {
                 return (
-                    <Card
-                        key={index}
-                        animation={true}
-                        title={post.title}
-                        subtitle={post.meta.category}
-                        image={post.image}
-                        text={post.text.slice(0, 100) + " ..."}
-                        meta={{
-                            views: post.meta.views,
-                        }}
-                        onClick={() => {
-                            window.location.href = `/${post.meta.category}/${post.title}`;
-                        }}
-                    />
+                    <>
+                        <Card
+                            key={index}
+                            animation={true}
+                            title={post.title}
+                            subtitle={post.meta.category}
+                            image={post.image}
+                            text={post.text.slice(0, 100) + " ..."}
+                            meta={{
+                                views: post.meta.views,
+                            }}
+                            onClick={() => {
+                                window.location.href = `/${post.meta.category}/${post.title}`;
+                            }}
+                        />
+                    </>
                 );
             })}
+            <div className="recommandation_ad_container">
+                <h3 className="header">Advertisements</h3>
+                <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
+            </div>
         </div>
     );
 };
