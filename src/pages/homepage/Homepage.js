@@ -65,7 +65,10 @@ const Homepage = (props) => {
                         );
                     })}
                 </div>
-                <div className="homepage_aside_section">Adds</div>
+                <div className="homepage_aside_section">
+                    <h3 className="homepage_ad_header">Advertisements</h3>
+                    <div className="homepage_ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
+                </div>
             </div>
             <Footer />
         </>
