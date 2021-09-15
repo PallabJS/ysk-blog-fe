@@ -121,7 +121,7 @@ const Category = (props) => {
                                 >
                                     <div className="list_wrapper">
                                         <div className="img_container">
-                                            <img src={post.image} alt="" />
+                                            <img src={utils.compostImageLink(post.image)} alt={utils.noImageLink} />
                                         </div>
                                         <div className="text">
                                             <h3>

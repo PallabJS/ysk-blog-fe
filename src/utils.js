@@ -1,4 +1,13 @@
+import { store } from "./redux/redux";
+
+const getApp = () => {
+    return store.getState().appState;
+};
+
 export const utils = {
+    // URLS
+    noImageLink: "https://i.imgur.com/TZ2rh2Qt.png",
+
     numerize: (pixel) => {
         return parseInt(pixel.replace("px", ""));
     },
@@ -12,6 +21,15 @@ export const utils = {
     urlizeTitle: (title) => {
         if (title) return title.replace(/ /g, "-").toLowerCase();
         else return title;
+    },
+
+    compostImageLink: (link) => {
+        let app = getApp();
+        console.log("compose:", app);
+        if (app.isMobile) {
+            let thumbNailLink = link.replace(".png", "m.png");
+            return thumbNailLink;
+        } else return link;
     },
 
     getRandomizedArray: (arr) => {

@@ -44,11 +44,10 @@ const Homepage = (props) => {
                                                     }}
                                                 >
                                                     <div className="image_container">
-                                                        {index % 2 === 0 ? (
-                                                            <img src={post.image} alt="" />
-                                                        ) : (
-                                                            <img src="https://i.imgur.com/szEUmhE.png" alt="" />
-                                                        )}
+                                                        <img
+                                                            src={utils.compostImageLink(post.image)}
+                                                            alt={utils.noImageLink}
+                                                        />
                                                     </div>
                                                     <h3 className="title">{utils.parseTitle(post.title)}</h3>
                                                     <p className="text">
