@@ -25,7 +25,8 @@ export const utils = {
 
     compostImageLink: (link) => {
         let app = getApp();
-        console.log("compose:", app);
+        return link.replace(".png", "l.png");
+
         if (app.isMobile) {
             return link.replace(".png", "m.png");
         } else {
