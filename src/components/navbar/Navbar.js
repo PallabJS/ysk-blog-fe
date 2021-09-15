@@ -20,15 +20,18 @@ const Navbar = (props) => {
         showDropList: false,
     });
 
+    const [searchText, setSearchText] = useState("");
+
     const searchBox = useRef();
 
     const handleTextInput = async (e) => {
         let value = e.target.value;
+        setSearchText(value);
         if (!value) {
-            setState({ ...state, searchText: value, droplist: [], showDropList: false });
+            setState({ ...state, droplist: [], showDropList: false });
         } else {
             let posts = await getMatchingPosts(value);
-            setState({ ...state, searchText: value, droplist: posts, showDropList: true });
+            setState({ ...state, droplist: posts, showDropList: true });
         }
     };
     const checkForEnterKey = (e) => {
@@ -96,7 +99,7 @@ const Navbar = (props) => {
                         autoSave="false"
                         spellCheck={false}
                         placeholder={"Press '/'"}
-                        value={state.searchText}
+                        value={searchText}
                         onChange={handleTextInput}
                         onKeyUp={checkForEnterKey}
                         onFocus={(e) => {
@@ -138,7 +141,7 @@ const Navbar = (props) => {
                 show={state.showDropList}
                 droplist={state.droplist}
                 anchorElement={searchBox.current}
-                searchText={state.searchText}
+                searchText={searchText}
             />
         </>
     );

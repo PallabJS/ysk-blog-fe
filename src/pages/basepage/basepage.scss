@@ -256,7 +256,7 @@
     .basepage_container {
         width: 100%;
         margin: 30px auto;
-        margin-top: 60px;
+        margin-top: 50px;
         min-height: calc(100vh - 40px - 40px - 20px);
         position: relative;
         box-sizing: border-box;
@@ -267,13 +267,14 @@
             & > .post_container {
                 flex: 0.7;
                 border: 2px solid rgb(235, 235, 235);
-                margin-right: 10px;
-                padding: 40px;
+                margin-right: 00px;
+                padding: 10px;
+                padding-top: 30px;
                 background-color: white;
                 & .pagetitle,
                 .section_title {
                     font-family: monospace;
-                    font-size: 2.5rem;
+                    font-size: 2.2rem;
                     font-weight: 500;
                     margin-bottom: 30px;
                     margin-top: 20px;

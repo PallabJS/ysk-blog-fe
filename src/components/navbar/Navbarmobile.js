@@ -14,11 +14,12 @@ const Navbarmobile = (props) => {
 
     // Screen click handler
     const clickEvent = (e) => {
-        console.log(e.currentTarget.id);
         if (e.currentTarget.id === "navbar_mobile_expander") {
+            document.body.style.overflowY = navbar.expanded ? "unset" : "hidden";
             setNavbar({ ...navbar, expanded: !navbar.expanded });
         } else {
             setNavbar({ ...navbar, expanded: false });
+            document.body.style.overflowY = "unset";
         }
 
         e.stopPropagation();
