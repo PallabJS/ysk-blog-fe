@@ -4,12 +4,12 @@
 
     $main_bg: rgba(56, 81, 114, 0.288);
 
-    flex: 0.25;
+    flex: 0.2;
     overflow-y: hidden;
     &::-webkit-scrollbar {
         display: none;
     }
-    margin-right: 5px;
+    border-right: 4px solid rgb(171, 180, 156);
     & > .header {
         display: flex;
         align-items: center;
