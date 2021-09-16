@@ -1,9 +1,13 @@
 @import "./css/brand.scss";
 
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     overflow-x: hidden;
     scroll-behavior: auto !important;
-    background-color: rgb(235, 233, 222);
 }
 
 * {

@@ -1,6 +1,8 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBox, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+
+import Version from "../version/Version";
 import { utils } from "../../utils";
 
 import "./navbarmobile.scss";
@@ -36,7 +38,11 @@ const Navbarmobile = (props) => {
     return (
         <nav className="navbar_mobile">
             <div id="navbar_mobile_expander" onClick={clickEvent}>
-                <FontAwesomeIcon icon={faBars} size="2x" style={{ fontSize: "33px" }} />
+                {navbar.expanded ? (
+                    <FontAwesomeIcon icon={faBoxOpen} size="2x" style={{ fontSize: "33px" }} />
+                ) : (
+                    <FontAwesomeIcon icon={faBox} size="2x" style={{ fontSize: "33px" }} />
+                )}
             </div>
 
             <ul className="navbar_mobile_list" style={navbar.expanded ? { opacity: 1, marginRight: "0px" } : {}}>
@@ -55,6 +61,7 @@ const Navbarmobile = (props) => {
                         </li>
                     );
                 })}
+                <Version />
             </ul>
         </nav>
     );

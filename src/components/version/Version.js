@@ -8,13 +8,16 @@ const Version = () => {
             {appVersion ? (
                 <div
                     style={{
-                        position: "fixed",
-                        bottom: "5px",
-                        left: "10px",
+                        position: "absolute",
+                        zIndex: 100,
+                        left: "50%",
+                        transform: "translate(-50%)",
+                        bottom: "20px",
                         letterSpacing: "1.5px",
+                        fontSize: "0.67rem",
                         width: "fit-content",
-                        backgroundColor: "gray",
                         padding: "2px 20px",
+                        opacity: 0.8,
                         color: "wheat",
                     }}
                 >

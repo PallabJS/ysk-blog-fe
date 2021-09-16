@@ -2,6 +2,7 @@ import { faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 
 import { postApi } from "../../api/post/postapi";
+import { isProd } from "../../settings";
 import { PostCard } from "../postcomponents/Post";
 
 let atOptions = {
@@ -49,10 +50,12 @@ const Sidecontent = (props) => {
                     );
                 })}
             </div>
-            <div className="ads_container">
-                <h3 className="header">Advertisements</h3>
-                <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
-            </div>
+            {isProd && (
+                <div className="ads_container">
+                    <h3 className="header">Advertisements</h3>
+                    <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
+                </div>
+            )}
         </div>
     );
 };

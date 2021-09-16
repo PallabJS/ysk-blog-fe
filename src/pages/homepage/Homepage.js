@@ -7,6 +7,7 @@ import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+import { isProd } from "../../settings";
 
 const Homepage = (props) => {
     const { app, categories } = props;
@@ -69,10 +70,15 @@ const Homepage = (props) => {
                     })}
                 </div>
                 <div className="homepage_aside_section">
-                    <div className="ad_container">
-                        <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
-                        <div className="homepage_ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
-                    </div>
+                    {isProd && (
+                        <div className="ad_container">
+                            <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
+                            <div
+                                className="homepage_ad_container"
+                                id="container-2aa8bbc42b63894dc8eb1f9ca5478995"
+                            ></div>
+                        </div>
+                    )}
                 </div>
             </div>
             <Footer />

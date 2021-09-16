@@ -23,7 +23,6 @@ const initialState = {
 };
 
 export const appReducer = (state = initialState, action) => {
-    console.log(action.type);
     switch (action.type) {
         case "SET_PLATFORM_TYPE_MOBILE": {
             return {

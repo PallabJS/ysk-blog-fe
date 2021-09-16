@@ -90,7 +90,6 @@ export const utils = {
             let count = 0;
             text.forEach((t) => {
                 if (count >= length) {
-                    console.log("skip");
                     return;
                 }
                 if (typeof t === "string") {

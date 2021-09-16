@@ -2,13 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px !important;
+    height: 40px !important;
     color: white;
-    font-size: 2rem;
     font-weight: 400;
     background-color: var(--footer-bg);
     box-shadow: 0 0 100px 2px rgb(87, 85, 85);
-    border: 2px solid var(--footer-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.137);
     padding: 5px;
 
     & > .contact_us {
@@ -20,7 +19,7 @@
     }
 
     & > .footer_copyright {
-        font-size: 0.9rem;
+        font-size: 1rem;
         i {
             color: rgb(212, 212, 205);
         }

@@ -6,7 +6,6 @@ import Navbar from "./components/navbar/Navbar";
 import Homepage from "./pages/homepage/Homepage";
 import Basepage from "./pages/basepage/Basepage";
 import Footer from "./components/footer/Footer";
-import Version from "./components/version/Version";
 import Errormsg from "./components/offline/Errormsg";
 
 import Admin from "./pages/admin/Admin";
@@ -96,7 +95,6 @@ const App = () => {
             >
                 {showApp ? (
                     <React.Fragment>
-                        {!app.isMobile && <Version />}
                         {!appState.internetConnected ? (
                             <Errormsg title="Oops!" text="Looks like you're offline" />
                         ) : appState.serverActive ? null : (

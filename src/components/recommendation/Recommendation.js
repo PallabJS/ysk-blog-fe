@@ -7,6 +7,7 @@ import { CATEGORY } from "../../appspecs/routes";
 
 import "./recommendation.scss";
 import { utils } from "../../utils";
+import { isProd } from "../../settings";
 
 const Recommendation = (props) => {
     const { className, category, isPostPage } = props;
@@ -35,9 +36,8 @@ const Recommendation = (props) => {
             <h2 className="recommandation_header"> Recommended posts </h2>
             {popularPosts.map((post, index) => {
                 return (
-                    <>
+                    <React.Fragment key={index}>
                         <Card
-                            key={index}
                             animation={true}
                             title={post.title}
                             subtitle={post.meta.category}
@@ -50,11 +50,11 @@ const Recommendation = (props) => {
                                 window.location.href = `/${post.meta.category}/${post.title}`;
                             }}
                         />
-                    </>
+                    </React.Fragment>
                 );
             })}
 
-            {!isPostPage && (
+            {isProd && !isPostPage && (
                 <div className="ads_container" style={{ marginTop: "50px" }}>
                     <h3 className="header">Advertisements</h3>
                     <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>

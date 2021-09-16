@@ -4,9 +4,6 @@ import "./breadcrumb.scss";
 
 const Breadcrumb = (props) => {
     const { home, dirs } = props;
-
-    console.log(dirs);
-
     const GT = () => {
         return <span style={{ color: "gray" }}>&nbsp;&gt;&nbsp;</span>;
     };

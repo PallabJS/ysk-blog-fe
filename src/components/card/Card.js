@@ -8,9 +8,9 @@ import { useSelector } from "react-redux";
 const Card = (props) => {
     const app = useSelector((state) => state.appState);
 
-    const { style, title, subtitle, image, text, meta, onClick, animation, key } = props;
+    const { style, title, subtitle, image, text, meta, onClick, animation } = props;
     return (
-        <div key={key} className="card_wrapper" onClick={onClick} style={style}>
+        <div className="card_wrapper" onClick={onClick} style={style}>
             <div className={"card " + (animation ? "card_animation" : "")}>
                 {!app.isMobile && (
                     <div className="image_container">
