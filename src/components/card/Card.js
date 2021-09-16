@@ -20,7 +20,7 @@ const Card = (props) => {
                 <div className="card_content">
                     <h3>
                         {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
-                        {meta.views ? <span className="views"> ({meta.views} views)</span> : null}
+                        {!isNaN(meta.views) ? <span className="views"> ({meta.views} views)</span> : null}
                     </h3>
                     {subtitle ? <span className="subtitle">&nbsp;- {subtitle}</span> : null}
 
