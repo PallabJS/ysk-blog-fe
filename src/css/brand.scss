@@ -7,6 +7,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Offside&family=Russo+One&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
 * {
     margin: 0px;
     outline: none;
@@ -23,6 +27,8 @@ body {
     --bg-red: rgba(170, 20, 20, 0.733);
     --bg-blue: rgb(92, 132, 206);
     --bg-green: rgba(215, 245, 215, 0.342);
+    --bg-header: rgba(226, 186, 52, 0.774);
+    --bg-header-black: rgb(114, 100, 73);
 
     --red-hl: rgba(230, 70, 70, 0.658);
     --green-hl: rgb(13, 218, 13);
@@ -31,14 +37,13 @@ body {
     --red-shadow: rgba(7, 2, 2, 0.842);
     --blue-shadow: rgba(90, 161, 241, 0.842);
     --green-shadow: rgba(103, 238, 91, 0.541);
-    --white-shadow: rgba(204, 204, 204, 0.514);
+    --white-shadow: rgba(184, 184, 184, 0.664);
     --white-text: rgb(255, 255, 255);
     --glazing-black: rgb(95, 75, 45);
 
     // SPECIFIC COLORS
     --nav-bg: rgb(32, 32, 32);
     --bg-color: rgb(245, 249, 250);
-    --title-color: rgb(20, 20, 20);
     --info-date: rgb(82, 152, 218);
     --content-color: rgb(85, 85, 85);
     --footer-bg: rgb(63, 70, 75);
@@ -47,8 +52,22 @@ body {
     --link-hover: rgba(7, 57, 165, 0.883);
     --content-border-color: rgba(95, 180, 250, 0.37);
     --content-hover-color: rgba(161, 78, 238, 0.493);
+    --card-bg-color: rgba(219, 219, 219, 0.644);
 
     // FONTS
     --title-font: "Offside", cursive;
     --content-font: "Quicksand", sans-serif;
+    --funky-header: "Architects Daughter", cursive;
+    --post-title: "Oswald", sans-serif;
+
+    // FONT COLORS
+    --title-color: rgb(207, 81, 7);
+    --card-text-color: rgb(116, 96, 33);
+    --category-text-color: rgb(97, 141, 107);
+
+    // FONTS SIZES
+    --header-font-size: 1.4rem;
+    --title-font-size: 1.2rem;
+    --text-font-size: 1rem;
+    --meta-font-size: 0.9rem;
 }

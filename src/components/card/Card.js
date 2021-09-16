@@ -2,15 +2,21 @@ import React from "react";
 import parse from "html-react-parser";
 
 import "./card.scss";
+import { utils } from "../../utils";
+import { useSelector } from "react-redux";
 
 const Card = (props) => {
-    const { style, title, subtitle, image, text, meta, onClick, animation } = props;
+    const app = useSelector((state) => state.appState);
+
+    const { style, title, subtitle, image, text, meta, onClick, animation, key } = props;
     return (
-        <div className="card_wrapper" onClick={onClick} style={style}>
+        <div key={key} className="card_wrapper" onClick={onClick} style={style}>
             <div className={"card " + (animation ? "card_animation" : "")}>
-                <div className="image_container">
-                    <img src={image} alt="" />
-                </div>
+                {!app.isMobile && (
+                    <div className="image_container">
+                        <img src={image} alt="" />
+                    </div>
+                )}
                 <div className="card_content">
                     <h3>
                         {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
@@ -18,7 +24,7 @@ const Card = (props) => {
                     </h3>
                     {subtitle ? <span className="subtitle">&nbsp;- {subtitle}</span> : null}
 
-                    <p>{parse(text)}</p>
+                    <p>{utils.sliceParsedJSX(parse(text), 100)}. . .</p>
                 </div>
             </div>
         </div>

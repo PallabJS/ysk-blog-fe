@@ -3,61 +3,58 @@
     flex: 0.5;
     flex-direction: column;
     position: relative;
-    margin: 0px 10px;
-    margin-left: 5px;
-    padding: 10px;
+    margin-left: 10px;
+    padding: 20px;
     padding-bottom: 20px;
     background-color: white;
     border: 2px solid var(--wrapper-border-color);
     overflow: auto;
     clear: both;
-    & > .card_wrapper {
-        width: calc(100% - 10px);
-        height: 140px;
-        margin: 5px !important;
-        padding-left: 10px;
-        transition: padding-left 0.1s ease-in-out;
-        &:hover {
-            padding-left: 0px;
-        }
-    }
-    .card {
-        width: 100%;
-        .image_container {
-            display: none;
-        }
-    }
-
     .recommandation_header {
         font-weight: 500;
-        margin: 10px 5px;
+        margin-bottom: 10px;
         border-radius: 3px;
         color: white;
         background-color: var(--bg-red);
         padding: 5px 10px;
     }
 
-    & > .recommandation_ad_container {
+    & > .card_wrapper {
+        width: 100%;
+        height: fit-content;
+        margin: 0px !important;
+        margin-bottom: 5px !important;
+        background-color: var(--card-bg-color);
+    }
+    .card {
+        width: 100%;
+        padding: 20px;
+        .card_content {
+            & > h3 {
+                margin: 0px;
+            }
+        }
+        .image_container {
+            display: none;
+        }
+    }
+
+    & > .ads_container {
+        border: 1px solid rgba(196, 192, 192, 0.685);
+        border-radius: 5px;
         & > .header {
-            background-color: rgb(228, 181, 29);
+            font-size: var(--title-font-size);
+            font-weight: 300;
+            font-family: var(--funky-header);
+            color: white;
+            background-color: var(--bg-header-black);
             padding: 5px 0px;
-            margin-top: 50px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             text-align: center;
         }
         & > .ad_container {
             width: 80%;
             margin: 0px auto;
-        }
-    }
-}
-
-// SCREEN SIZE 1024px
-@media screen and (max-width: 1024px) {
-    .post_recommandation_category_page {
-        & > .card_wrapper {
-            width: calc(100% - 10px);
-            height: fit-content;
         }
     }
 }
@@ -94,10 +91,10 @@
 
         .recommandation_header {
             font-weight: 500;
+            text-align: center;
             margin: 10px 5px;
             border-radius: 3px;
             color: white;
-            background-color: var(--bg-red);
             padding: 5px 10px;
         }
         & > .recommandation_ad_container {

@@ -5,8 +5,9 @@
     padding: 20px;
     flex: 1;
     .header {
+        margin-bottom: 10px;
         color: rgb(255, 255, 255);
-        font-size: 1.6rem;
+        font-size: var(--header-font-size);
         font-weight: 500;
         padding: 5px 10px;
         border-radius: 3px;
@@ -38,6 +39,7 @@
             border-radius: 2px;
             transition: box-shadow 0.2s ease-in-out, margin-left 0.2s ease-in-out, margin-top 0.2s ease-in-out,
                 height 0.2s ease-in-out;
+            background-color: var(--card-bg-color);
             // border: 1px solid red;
 
             & .img_container {
@@ -58,29 +60,31 @@
                 padding: 10px 20px;
                 padding-left: 20px;
                 border-left: 2px solid var(--wrapper-border-color);
-                // border: 1px solid red;
 
-                h3 {
-                    font-weight: 500;
+                & > .post_title {
                     font-size: 1.2rem;
+                    font-family: var(--post-title);
+                    font-weight: 100;
+                    color: var(--title-color);
+                    font-size: var(--title-font-size);
                 }
                 .text_meta {
                     font-weight: 300;
-                    font-size: 0.9rem;
+                    font-size: var(--meta-font-size);
                 }
                 .text_body {
                     padding-top: 10px;
                     font-weight: 400;
-                    color: rgb(100, 100, 100);
+                    color: var(--card-text-color);
                     text-align: justify;
-                    font-size: 0.9rem;
+                    font-size: var(--text-font-size);
                 }
             }
 
             &:hover {
                 z-index: 2;
-                background-color: rgb(241, 240, 240);
-                box-shadow: -20px -5px 10px 2px var(--white-shadow);
+                background-color: white;
+                box-shadow: -5px -5px 20px 2px var(--white-shadow);
                 cursor: pointer;
                 margin-left: 10px;
                 margin-top: 5px !important;
@@ -92,41 +96,22 @@
 
 @media screen and (max-width: 900px) {
     .category_page {
-        position: relative;
-        border: 2px solid var(--wrapper-border-color);
-        background-color: white;
-        padding: 2px;
-        flex: 1;
         margin-top: 5px !important;
-        padding-top: 0px !important;
+        padding: 5px;
+        border: none !important;
         .header {
-            color: rgb(255, 255, 255);
-            font-size: 1.6rem;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 3px;
-            background-color: var(--category-page-header);
+            text-align: center;
         }
     }
 
     .main-ul {
-        list-style: none;
         margin: 0px;
-        margin-top: 20px;
-        padding: 0px;
-        & > :last-child {
-            margin-bottom: 100px;
-        }
         & > li {
-            width: 100%;
-            min-height: 300px;
             margin: 2px 0px;
-            border: 1px solid white;
+            height: 400px;
             & > .list_wrapper {
-                position: relative;
-                display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
                 width: 100%;
                 height: 100%;
@@ -140,10 +125,10 @@
                 & .img_container {
                     position: relative;
                     display: flex;
+                    justify-content: flex-start;
                     align-items: center;
-                    justify-content: center;
                     box-sizing: border-box;
-                    width: 100%;
+                    width: 50%;
                     padding: 2px;
                     height: 80%;
                     img {

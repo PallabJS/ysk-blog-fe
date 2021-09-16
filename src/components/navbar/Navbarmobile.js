@@ -36,7 +36,7 @@ const Navbarmobile = (props) => {
     return (
         <nav className="navbar_mobile">
             <div id="navbar_mobile_expander" onClick={clickEvent}>
-                <FontAwesomeIcon icon={faBars} size="3x" />
+                <FontAwesomeIcon icon={faBars} size="2x" style={{ fontSize: "33px" }} />
             </div>
 
             <ul className="navbar_mobile_list" style={navbar.expanded ? { opacity: 1, marginRight: "0px" } : {}}>

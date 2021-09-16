@@ -1,12 +1,11 @@
 .card_wrapper {
     width: 30%;
-    height: 300px;
-    margin: 16px;
+    height: 350px;
     box-sizing: border-box;
     float: left;
 
     & > .card {
-        border: 1px solid rgba(168, 108, 108, 0.24);
+        border: 1px white solid;
         border-radius: 3px;
         width: 100%;
         height: 100%;
@@ -15,26 +14,34 @@
         overflow: hidden;
         cursor: pointer;
 
+        transition: background-color 0.1s ease-in-out;
+
         .card_content {
             & > h3 {
-                font-weight: 600;
-                margin: 0px 0px;
+                font-weight: 200;
+                margin: 0px;
+                margin-top: 30px;
+                font-family: var(--post-title);
+                font-size: var(--title-font-size);
+                color: var(--title-color);
                 .views {
                     font-size: 0.9rem;
                     font-weight: 100;
+                    font-size: var(--meta-font-size);
                 }
             }
             & > .subtitle {
-                font-size: 0.9rem;
-                font-family: "Segoe UI", sans-serif;
-                color: rgb(216, 63, 139);
+                font-size: var(--meta-font-size);
+                color: var(--category-text-color);
                 font-weight: 600;
             }
             & > p {
                 margin-top: 5px;
                 font-weight: 300;
                 padding: 5px 2px;
-                font-size: 0.9rem;
+                font-weight: 400;
+                font-size: var(--text-font-size);
+                color: var(--card-text-color);
             }
         }
 
@@ -51,6 +58,7 @@
 }
 
 .card_animation {
+    height: 100% !important;
     & > p {
         transition: font-weight 0.1s ease-in-out;
     }
@@ -58,9 +66,10 @@
         transition: font-weight 0.1s ease-in-out;
     }
     &:hover {
-        background-color: rgba(124, 136, 17, 0.055);
+        background-color: rgb(255, 255, 255);
         cursor: pointer;
         font-size: 16px;
+        border: 1px solid rgb(218, 213, 213);
         & > h3 {
             color: var(--link-hover);
             .views {
@@ -76,42 +85,28 @@
 @media screen and (max-width: 1024px) {
     .card_wrapper {
         width: 100%;
-        height: 170px;
-        margin: 5px 0px;
+        height: fit-content;
+        margin-bottom: 10px;
+        padding: 0px 10px !important;
         box-sizing: border-box;
+        background-color: white !important;
         & > .card {
             display: flex;
             align-items: center;
             border: 1px solid rgba(168, 108, 108, 0.24);
+            background-color: rgb(235, 235, 235) !important;
             box-shadow: none;
             border-radius: 3px;
             width: 100%;
             height: 100%;
-            padding: 0px 20px;
+            min-height: 180px;
             box-sizing: border-box;
             overflow: hidden;
             cursor: pointer;
             .card_content {
                 flex: 1;
                 & > h3 {
-                    font-weight: 600;
-                    margin: 0px 0px;
-                    .views {
-                        font-size: 0.9rem;
-                        font-weight: 100;
-                    }
-                }
-                & > .subtitle {
-                    font-size: 0.9rem;
-                    font-family: "Segoe UI", sans-serif;
-                    color: rgb(216, 63, 139);
-                    font-weight: 600;
-                }
-                & > p {
-                    margin-top: 5px;
-                    font-weight: 300;
-                    padding: 5px 2px;
-                    font-size: 0.9rem;
+                    margin-top: 0px;
                 }
             }
             & > .image_container {
@@ -137,7 +132,7 @@
             transition: font-weight 0.1s ease-in-out;
         }
         &:hover {
-            background-color: rgba(124, 136, 17, 0.055);
+            background-color: rgb(255, 255, 255);
             cursor: pointer;
             font-size: 16px;
             & > h3 {

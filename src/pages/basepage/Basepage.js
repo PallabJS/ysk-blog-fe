@@ -51,7 +51,11 @@ const Basepage = (props) => {
                 {!postInfo.isPostPage ? (
                     <div className="main_flexbox">
                         <Category app={app} className="category_page" category={postInfo.category} />
-                        <Recommendation className="post_recommandation_category_page" category={postInfo.category} />
+                        <Recommendation
+                            className="post_recommandation_category_page"
+                            category={postInfo.category}
+                            isPostPage={postInfo.isPostPage}
+                        />
                     </div>
                 ) : null}
                 <div className="main_flexbox">
@@ -74,7 +78,11 @@ const Basepage = (props) => {
                     ) : null}
                 </div>
                 {postInfo.isPostPage ? (
-                    <Recommendation className="post_recommandation" category={postInfo.category} />
+                    <Recommendation
+                        className="post_recommandation"
+                        category={postInfo.category}
+                        isPostPage={postInfo.isPostPage}
+                    />
                 ) : null}
             </main>
             <Footer app={app} />

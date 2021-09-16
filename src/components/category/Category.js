@@ -92,7 +92,6 @@ const Category = (props) => {
     return (
         <div className={className} ref={categoryPage}>
             <h3 className="header"> Latest topics on {category} </h3>
-            <br />
 
             {show ? (
                 <>
@@ -111,7 +110,7 @@ const Category = (props) => {
                                     style={
                                         app.isMobile
                                             ? {
-                                                  height: "140px",
+                                                  minHeight: "400px",
                                               }
                                             : {}
                                     }
@@ -120,21 +119,29 @@ const Category = (props) => {
                                     }}
                                 >
                                     <div className="list_wrapper">
-                                        <div className="img_container">
+                                        <div
+                                            className="img_container"
+                                            style={
+                                                (app.isMobile && {
+                                                    width: "100%",
+                                                }) ||
+                                                {}
+                                            }
+                                        >
                                             <img src={utils.compostImageLink(post.image)} alt={utils.noImageLink} />
                                         </div>
                                         <div className="text">
-                                            <h3>
+                                            <h3 className="post_title">
                                                 {post.title
                                                     .replace(/-/g, " ")
-                                                    .replace(post.title[0], post.title[0].toUpperCase())}{" "}
+                                                    .replace(post.title[0], post.title[0].toUpperCase())}
                                             </h3>
                                             <span className="text_meta">
-                                                {utils.getTimeDifference(new Date(post.date))}
+                                                Posted {utils.getTimeDifference(new Date(post.date))} ago
                                             </span>
                                             <p className="text_body">
                                                 {app.isMobile
-                                                    ? parse(post.text.slice(0, 50))
+                                                    ? parse(post.text.slice(0, 100))
                                                     : parse(post.text.slice(0, 150))}
                                                 ...
                                             </p>

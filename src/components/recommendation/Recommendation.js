@@ -9,7 +9,7 @@ import "./recommendation.scss";
 import { utils } from "../../utils";
 
 const Recommendation = (props) => {
-    const { className, category } = props;
+    const { className, category, isPostPage } = props;
 
     // These stores un-categorized posts
     const [popularPosts, setPopularPosts] = useState([]);
@@ -42,7 +42,7 @@ const Recommendation = (props) => {
                             title={post.title}
                             subtitle={post.meta.category}
                             image={post.image}
-                            text={post.text.slice(0, 100) + " ..."}
+                            text={post.text}
                             meta={{
                                 views: post.meta.views,
                             }}
@@ -53,10 +53,13 @@ const Recommendation = (props) => {
                     </>
                 );
             })}
-            <div className="recommandation_ad_container">
-                <h3 className="header">Advertisements</h3>
-                <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
-            </div>
+
+            {!isPostPage && (
+                <div className="ads_container" style={{ marginTop: "50px" }}>
+                    <h3 className="header">Advertisements</h3>
+                    <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
+                </div>
+            )}
         </div>
     );
 };

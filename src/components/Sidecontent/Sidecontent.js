@@ -32,19 +32,27 @@ const Sidecontent = (props) => {
 
     return (
         <div className={props.className}>
-            <h2 className="header">Most recent posts in '{currentPostCategory}'</h2>
-            {latestPosts.map((post, index) => {
-                return (
-                    <>
-                        <PostCard
-                            key={index}
-                            className={"post_card"}
-                            post={post}
-                            onClick={() => (window.location.href = `/${currentPostCategory}/${post.title}`)}
-                        />
-                    </>
-                );
-            })}
+            <h2 className="header">
+                Recent posts in <i>{currentPostCategory}</i>
+            </h2>
+            <div className="side_cards">
+                {latestPosts.map((post, index) => {
+                    return (
+                        <>
+                            <PostCard
+                                key={index}
+                                className={"post_card"}
+                                post={post}
+                                onClick={() => (window.location.href = `/${currentPostCategory}/${post.title}`)}
+                            />
+                        </>
+                    );
+                })}
+            </div>
+            <div className="ads_container">
+                <h3 className="header">Advertisements</h3>
+                <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
+            </div>
         </div>
     );
 };

@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import "./pager.scss";
 
 const Pager = (props) => {
+    const app = useSelector((state) => state.appState);
     const { className, style, currentPage, hasPrevious, hasNext, onClick } = props;
 
     const buttonClickHandler = (e, action) => {
@@ -10,7 +12,15 @@ const Pager = (props) => {
         onClick(e);
     };
     return (
-        <div className={`pager ${className}`} style={style}>
+        <div
+            className={`pager ${className}`}
+            style={
+                (app.isMobile && {
+                    width: "calc(100% - 1px)",
+                    ...style,
+                }) || { ...style }
+            }
+        >
             <button
                 className="previous_button"
                 onClick={(e) => buttonClickHandler(e, "next")}
