@@ -26,6 +26,8 @@ const Addpost = (props) => {
         title: "",
         text: "",
         image: "",
+        subtitle: "",
+        description: "",
         body: {
             intro: {
                 title: "",
@@ -106,6 +108,15 @@ const Addpost = (props) => {
                     parent="post"
                     type="subtitle"
                     className="subtitle"
+                    onChange={updatePost}
+                />
+            ),
+            description: (
+                <Textfield
+                    value={postData.description}
+                    parent="post"
+                    type="description"
+                    className="description"
                     onChange={updatePost}
                 />
             ),
@@ -276,6 +287,7 @@ const Addpost = (props) => {
                 <div className="content">
                     {post.title}
                     {post.subtitle}
+                    {post.description}
                     {post.text}
                     {post.image}
                 </div>

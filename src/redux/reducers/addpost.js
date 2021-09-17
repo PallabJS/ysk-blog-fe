@@ -6,6 +6,7 @@ const initialState = {
     subtitle: "",
     text: "",
     image: "",
+    description: "",
     body: {
         intro: {
             title: "",

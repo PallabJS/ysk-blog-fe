@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import parse from "html-react-parser";
+import Helmet from "react-helmet";
 
 import Pager from "../pager/Pager";
 
@@ -8,6 +9,7 @@ import "./category.scss";
 import { postApi } from "../../api/post/postapi";
 
 import { utils } from "../../utils";
+import { appDomain } from "../../settings";
 
 let postPerPage = 10;
 
@@ -90,77 +92,84 @@ const Category = (props) => {
     }, []);
 
     return (
-        <div className={className} ref={categoryPage}>
-            <h3 className="header"> Latest topics on {category} </h3>
+        <>
+            <Helmet>
+                <title>{utils.getPageTitle(category)}</title>
+                <link rel="canonical" href={`${appDomain}/${category}`} />
+            </Helmet>
 
-            {show ? (
-                <>
-                    <Pager
-                        currentPage={state.currentPage}
-                        hasPrevious={state.hasPrevious}
-                        hasNext={state.hasNext}
-                        onClick={clickHandler}
-                    />
+            <div className={className} ref={categoryPage}>
+                <h3 className="header"> Latest topics on {category} </h3>
 
-                    <ul className="main-ul">
-                        {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
-                            return (
-                                <li
-                                    key={index}
-                                    style={
-                                        app.isMobile
-                                            ? {
-                                                  minHeight: "400px",
-                                              }
-                                            : {}
-                                    }
-                                    onClick={() => {
-                                        window.location.href = `/${category}/${post.title}`;
-                                    }}
-                                >
-                                    <div className="list_wrapper">
-                                        <div
-                                            className="img_container"
-                                            style={
-                                                (app.isMobile && {
-                                                    width: "100%",
-                                                }) ||
-                                                {}
-                                            }
-                                        >
-                                            <img src={utils.compostImageLink(post.image)} alt={utils.noImageLink} />
+                {show ? (
+                    <>
+                        <Pager
+                            currentPage={state.currentPage}
+                            hasPrevious={state.hasPrevious}
+                            hasNext={state.hasNext}
+                            onClick={clickHandler}
+                        />
+
+                        <ul className="main-ul">
+                            {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
+                                return (
+                                    <li
+                                        key={index}
+                                        style={
+                                            app.isMobile
+                                                ? {
+                                                      minHeight: "400px",
+                                                  }
+                                                : {}
+                                        }
+                                        onClick={() => {
+                                            window.location.href = `/${category}/${post.title}`;
+                                        }}
+                                    >
+                                        <div className="list_wrapper">
+                                            <div
+                                                className="img_container"
+                                                style={
+                                                    (app.isMobile && {
+                                                        width: "100%",
+                                                    }) ||
+                                                    {}
+                                                }
+                                            >
+                                                <img src={utils.compostImageLink(post.image)} alt={utils.noImageLink} />
+                                            </div>
+                                            <div className="text">
+                                                <h3 className="post_title">
+                                                    {post.title
+                                                        .replace(/-/g, " ")
+                                                        .replace(post.title[0], post.title[0].toUpperCase())}
+                                                </h3>
+                                                <span className="text_meta">
+                                                    Posted {utils.getTimeDifference(new Date(post.date))} ago
+                                                </span>
+                                                <p className="text_body">
+                                                    {app.isMobile
+                                                        ? parse(post.text.slice(0, 100))
+                                                        : parse(post.text.slice(0, 150))}
+                                                    ...
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className="text">
-                                            <h3 className="post_title">
-                                                {post.title
-                                                    .replace(/-/g, " ")
-                                                    .replace(post.title[0], post.title[0].toUpperCase())}
-                                            </h3>
-                                            <span className="text_meta">
-                                                Posted {utils.getTimeDifference(new Date(post.date))} ago
-                                            </span>
-                                            <p className="text_body">
-                                                {app.isMobile
-                                                    ? parse(post.text.slice(0, 100))
-                                                    : parse(post.text.slice(0, 150))}
-                                                ...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                    <Pager
-                        style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
-                        currentPage={state.currentPage}
-                        hasPrevious={state.hasPrevious}
-                        hasNext={state.hasNext}
-                        onClick={clickHandler}
-                    />
-                </>
-            ) : null}
-        </div>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                        <Pager
+                            style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
+                            currentPage={state.currentPage}
+                            hasPrevious={state.hasPrevious}
+                            hasNext={state.hasNext}
+                            onClick={clickHandler}
+                        />
+                    </>
+                ) : null}
+            </div>
+        </>
     );
 };
 

@@ -23,6 +23,29 @@ export const utils = {
         else return title;
     },
 
+    setPageTitle: (title) => {
+        let composedTitle = "YSK";
+        if (title) {
+            let parsedTitle = utils.parseTitle(title);
+            parsedTitle = parsedTitle.split(":")[0];
+            composedTitle = composedTitle + " | " + parsedTitle;
+        } else {
+            composedTitle = composedTitle + " | Homepage";
+        }
+        document.title = composedTitle;
+    },
+    getPageTitle: (title) => {
+        let composedTitle = "YSK";
+        if (title) {
+            let parsedTitle = utils.parseTitle(title);
+            parsedTitle = parsedTitle.split(":")[0];
+            composedTitle = composedTitle + " | " + parsedTitle;
+        } else {
+            composedTitle = composedTitle + " | Homepage";
+        }
+        return composedTitle;
+    },
+
     compostImageLink: (link) => {
         let app = getApp();
         return link.replace(".png", "l.png");

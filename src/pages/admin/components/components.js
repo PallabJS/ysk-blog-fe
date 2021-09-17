@@ -44,6 +44,7 @@ export const Textfield = (props) => {
                     ref={textArea}
                     className={className}
                     placeholder={`Add a ${type}`}
+                    spellCheck={false}
                     style={{
                         width: "100%",
                         height: "100px",
@@ -57,6 +58,7 @@ export const Textfield = (props) => {
                 <input
                     type="text"
                     className={className}
+                    spellCheck={false}
                     placeholder={`Add a ${type}`}
                     style={{ ...style, width: "100%" }}
                     value={value}

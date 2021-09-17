@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import parse from "html-react-parser";
 
 import "./homepage.scss";
@@ -7,7 +8,7 @@ import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
-import { isProd } from "../../settings";
+import { appDomain, isProd, serverUrl } from "../../settings";
 
 const Homepage = (props) => {
     const { app, categories } = props;
@@ -27,6 +28,11 @@ const Homepage = (props) => {
 
     return (
         <>
+            <Helmet>
+                <title>{utils.getPageTitle()}</title>
+                <link rel="canonical" href={appDomain} />
+            </Helmet>
+
             <Navbar app={app} categories={categories} />
             <div className="homepage">
                 <div className="main">
