@@ -16,6 +16,8 @@
 
         <link rel="stylesheet" href="%PUBLIC_URL%/main.css" />
 
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
         <script src="https://kit.fontawesome.com/558839332e.js" crossorigin="anonymous"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -46,6 +48,29 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div style="position: static" id="root"></div>
+
+        <!-- INSTALL SERVICE WORKER -->
+        <script>
+            if ("serviceWorker" in window.navigator) {
+                window.addEventListener("load", function () {
+                    window.navigator.serviceWorker
+                        .register("worker.js")
+                        .then(
+                            (registration) => {
+                                console.log("Worker registration successful", registration.scope);
+                            },
+                            (err) => {
+                                console.log("Worker registration failed", err);
+                            }
+                        )
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                });
+            } else {
+                console.log("Service Worker is not supported by browser.");
+            }
+        </script>
 
         <script src="%PUBLIC_URL%/adinjector.js"></script>
     </body>

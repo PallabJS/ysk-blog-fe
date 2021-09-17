@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
+import * as sw from "./serviceWorkerRegistration";
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -15,3 +16,5 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("root")
 );
+
+sw.register();
