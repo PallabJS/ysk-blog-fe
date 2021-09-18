@@ -9,8 +9,9 @@
             "purpose": "any maskable"
         }
     ],
-    "start_url": ".",
+    "start_url": "https://youshouldknow.live",
     "display": "standalone",
     "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "background_color": "#ffffff",
+    "app_version": "0.1.8"
 }
