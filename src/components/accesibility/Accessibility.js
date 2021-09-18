@@ -77,7 +77,7 @@ const Accessibility = () => {
                     className="access_button"
                     style={
                         (state.showOptions && {
-                            fontSize: "45px",
+                            fontSize: "40px",
                             width: "100px",
                             transform: "rotate(-90deg)",
                         }) ||

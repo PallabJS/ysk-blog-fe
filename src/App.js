@@ -12,7 +12,7 @@ import Admin from "./pages/admin/Admin";
 
 import { categoryAction } from "./redux/reducers/category";
 
-import { serverUrl } from "./settings";
+import { appDomain, serverUrl } from "./settings";
 import { useDispatch, useSelector } from "react-redux";
 import { appAction } from "./redux/reducers/app";
 import Accessibility from "./components/accesibility/Accessibility";
@@ -77,6 +77,19 @@ const App = () => {
         return () => {
             window.removeEventListener("resize", updateScreenSize);
             window.removeEventListener("online", initializeAppState);
+        };
+    }, []);
+
+    const openAdminPage = (e) => {
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 1) {
+            window.location.href = appDomain + "/admin";
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("keypress", openAdminPage);
+        return () => {
+            window.removeEventListener("keypress", openAdminPage);
         };
     }, []);
 

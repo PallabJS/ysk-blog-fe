@@ -18,6 +18,7 @@ const Modal = (props) => {
         promptValue,
         setPromptValue,
         confirmHandler,
+        cancelHandler,
     } = props;
 
     const modal = useRef();
@@ -48,6 +49,7 @@ const Modal = (props) => {
         } else {
             setTimeout(() => {
                 setModal({ active: false, data: {} });
+                cancelHandler();
             }, 300);
         }
     };
@@ -55,6 +57,9 @@ const Modal = (props) => {
     useEffect(() => {
         if (active && modal.current) {
             modal.current.classList.add("modal_anim");
+
+            let input = document.getElementById("prompt_input");
+            console.log(input);
         }
     }, [active]);
 
@@ -83,6 +88,7 @@ const Modal = (props) => {
                         <>
                             <div className="prompt_text">{text}</div>
                             <input
+                                id="prompt_input"
                                 className="prompt_input"
                                 type="password"
                                 value={promptValue}

@@ -9,6 +9,7 @@ import Modal from "../../components/modal/Modal";
 import { adminApi } from "./api";
 
 import { adminAction } from "../../redux/reducers/admin";
+import { appDomain } from "../../settings";
 
 const Admin = () => {
     const categories = useSelector((state) => state.category.categories);
@@ -30,6 +31,10 @@ const Admin = () => {
             dispatch(adminAction.setToken(res.data.token));
         }
         return res;
+    };
+
+    const redirectToHomepage = () => {
+        window.location.href = appDomain;
     };
 
     useEffect(() => {
@@ -54,6 +59,7 @@ const Admin = () => {
                 promptValue={password}
                 setPromptValue={setPassword}
                 confirmHandler={handleLogin}
+                cancelHandler={redirectToHomepage}
             />
             {admin.token ? (
                 <Router>
