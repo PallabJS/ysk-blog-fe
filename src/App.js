@@ -81,8 +81,13 @@ const App = () => {
     }, []);
 
     const openAdminPage = (e) => {
+        console.log(e);
         if (e.ctrlKey && e.shiftKey && e.keyCode === 1) {
             window.location.href = appDomain + "/admin";
+        }
+
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 17) {
+            window.location.href = appDomain;
         }
     };
 
