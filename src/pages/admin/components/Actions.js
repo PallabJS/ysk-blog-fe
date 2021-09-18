@@ -92,7 +92,7 @@ const Actions = (props) => {
                 confirmHandler={handlePostDelete}
             />
             <div className="dashboard_actions">
-                <h2 className="header">DASHBOARD ACTIONS</h2>
+                <h2 className="header">DASHBOARD</h2>
                 <div className="main">
                     <div className="category_selector">
                         <div

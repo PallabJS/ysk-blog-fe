@@ -264,6 +264,7 @@ const Addpost = (props) => {
                 <div className="category_select">
                     <label>Select a category</label>
                     <select type="category" value={postData.meta.category} onChange={updateMetadata}>
+                        <option value={""}>select category</option>
                         {categories.map((category, index) => {
                             return (
                                 <option key={index} value={category}>
@@ -306,7 +307,7 @@ const Addpost = (props) => {
                     <h3 className="header">BODY LIST</h3>
                     {post.body.list.length === 0 ? (
                         <div>
-                            <h1 style={{ textAlign: "center", marginBottom: "10px" }}>Empty body list</h1>
+                            <h2 style={{ textAlign: "center", marginBottom: "10px" }}>Empty body list</h2>
                             <p style={{ fontSize: "1.2rem", textAlign: "center" }}>
                                 Hit the &nbsp;
                                 <q>

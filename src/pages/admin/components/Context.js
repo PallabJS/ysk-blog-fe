@@ -44,7 +44,7 @@ const Context = (props) => {
                                 Cancel
                             </button>
                         </div>
-                        <Addpost style={{ fontSize: "1.5rem" }} categories={categories} disableButtons={true} />
+                        <Addpost style={{ width: "100%" }} categories={categories} disableButtons={true} />
                     </div>
                 ) : null}
             </div>

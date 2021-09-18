@@ -108,6 +108,8 @@
         flex-direction: column;
 
         & > .ad_container {
+            position: relative;
+            z-index: 1;
             margin: 10px;
             border: 1px solid rgba(196, 192, 192, 0.685);
             border-radius: 5px;

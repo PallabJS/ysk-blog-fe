@@ -63,7 +63,10 @@ const Accessibility = () => {
                         <button
                             className="theme_switcher"
                             onMouseOverCapture={changeButtonText}
-                            onMouseLeave={() => {
+                            // onMouseLeave={() => {
+                            //     setState({ ...state, themeBtnText: app.accessibility.theme.toUpperCase() });
+                            // }}
+                            onTouchEnd={() => {
                                 setState({ ...state, themeBtnText: app.accessibility.theme.toUpperCase() });
                             }}
                             onClick={switchTheme}

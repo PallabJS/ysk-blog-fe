@@ -122,8 +122,6 @@ const App = () => {
                         {!appState.internetConnected ? (
                             <Errormsg title="Oops!" text="Looks like you're offline" />
                         ) : null}
-
-                        <Accessibility />
                         <React.Fragment>
                             {appState.internetConnected && appState.serverActive ? (
                                 <>

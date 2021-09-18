@@ -11,6 +11,7 @@ import "./homepage.scss";
 import { appDomain, isProd, serverUrl } from "../../settings";
 import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
+import Accessibility from "../../components/accesibility/Accessibility";
 
 const Homepage = (props) => {
     const { app, categories } = props;
@@ -34,6 +35,8 @@ const Homepage = (props) => {
                 <title>{utils.getPageTitle()}</title>
                 <link rel="canonical" href={appDomain} />
             </Helmet>
+
+            <Accessibility />
 
             <Navbar app={app} categories={categories} />
             <div className="homepage">
