@@ -1,9 +1,9 @@
 {
     "short_name": "YSK",
-    "name": "You should know",
+    "name": "YSK",
     "icons": [
         {
-            "src": "eyes.png",
+            "src": "pwa_icon_dark.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "any maskable"

@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import parse from "html-react-parser";
 
-import "./homepage.scss";
-
-import { postApi } from "../../api/post/postapi";
-import { utils } from "../../utils";
+import Nodata from "../../components/Nodata";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+
+import "./homepage.scss";
+
 import { appDomain, isProd, serverUrl } from "../../settings";
+import { postApi } from "../../api/post/postapi";
+import { utils } from "../../utils";
 
 const Homepage = (props) => {
     const { app, categories } = props;
@@ -41,6 +43,12 @@ const Homepage = (props) => {
                             <section key={index} className="homepage_category_section">
                                 <h2 className="header">{category.toUpperCase()}</h2>
                                 <div className="content">
+                                    <Nodata
+                                        text="No posts on this category yet"
+                                        style={{
+                                            padding: "10px",
+                                        }}
+                                    />
                                     {data[category].map((post, index) => {
                                         return (
                                             <div key={index} className="homepage_category_post_section_container">

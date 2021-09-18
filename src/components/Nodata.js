@@ -2,7 +2,7 @@ import React from "react";
 
 const Nodata = (props) => {
     return (
-        <div style={{ width: "100%", padding: "20px 10px" }}>
+        <div style={{ width: "100%", padding: "20px 10px", ...props.style }}>
             <header
                 style={{
                     textAlign: "center",

@@ -1,9 +1,12 @@
 body {
-    background-image: url(./light_bg_natural.jpg);
+    /* background-image: url(./light_bg_natural.jpg); */
+    background-color: rgb(247, 244, 232);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-* {
+:root {
+    --bg_light: rgb(247, 244, 232);
+    --bg_dark: rgb(43, 37, 37);
 }

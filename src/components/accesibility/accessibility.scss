@@ -1,0 +1,83 @@
+.accessibility {
+    position: fixed;
+    z-index: 6;
+    bottom: 50px;
+    right: 10px;
+}
+
+.access_option_show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: calc(80vh - 60px) !important;
+}
+.access_options {
+    opacity: 0;
+    visibility: hidden;
+    width: 360px;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: rgb(226, 244, 247);
+    border-radius: 5px;
+    padding-top: 0px;
+    box-shadow: 0 0 5px 1px rgb(32, 113, 151);
+    transition: all 0.3s ease-out 0.2s;
+
+    & > .header {
+        text-align: center;
+        color: white;
+        margin: 0px;
+        padding: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: rgb(82, 127, 163);
+        margin-bottom: 20px;
+    }
+
+    & > .theme_buttons {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 10px 5px;
+
+        background-color: rgb(220, 235, 236);
+
+        & > label {
+            font-weight: 500;
+            color: rgb(94, 124, 221);
+            display: flex;
+            align-items: center;
+        }
+
+        & > button {
+            width: 150px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid rgba(10, 209, 10, 0.911);
+            transition: all 0.2s ease-in-out;
+            opacity: 0.6;
+            font-weight: 500;
+        }
+        & > .theme_switcher {
+            margin-right: 10px;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+.access_button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    align-items: center;
+    font-size: 35px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        font-size: 45px;
+    }
+}

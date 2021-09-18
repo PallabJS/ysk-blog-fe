@@ -19,11 +19,14 @@ const Navbarmobile = (props) => {
         if (e.currentTarget.id === "navbar_mobile_expander") {
             document.body.style.overflowY = navbar.expanded ? "unset" : "hidden";
             setNavbar({ ...navbar, expanded: !navbar.expanded });
+        } else if (e.currentTarget.id === "accessibility_toggler") {
+            // Do nothing for clicks on accessibility_toggler button
+        } else if (e.currentTarget.id === "accessibility_box") {
+            // Do nothing for clicks on accesibility box
         } else {
             setNavbar({ ...navbar, expanded: false });
             document.body.style.overflowY = "unset";
         }
-
         e.stopPropagation();
     };
 

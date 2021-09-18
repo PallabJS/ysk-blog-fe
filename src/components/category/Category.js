@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import Helmet from "react-helmet";
 
 import Pager from "../pager/Pager";
+import Nodata from "../Nodata";
 
 import "./category.scss";
 
@@ -103,12 +104,16 @@ const Category = (props) => {
 
                 {show ? (
                     <>
-                        <Pager
-                            currentPage={state.currentPage}
-                            hasPrevious={state.hasPrevious}
-                            hasNext={state.hasNext}
-                            onClick={clickHandler}
-                        />
+                        {state.currentPage.length > 0 ? (
+                            <Pager
+                                currentPage={state.currentPage}
+                                hasPrevious={state.hasPrevious}
+                                hasNext={state.hasNext}
+                                onClick={clickHandler}
+                            />
+                        ) : (
+                            <Nodata text="No post yet" color="black" />
+                        )}
 
                         <ul className="main-ul">
                             {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
@@ -159,13 +164,15 @@ const Category = (props) => {
                                 );
                             })}
                         </ul>
-                        <Pager
-                            style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
-                            currentPage={state.currentPage}
-                            hasPrevious={state.hasPrevious}
-                            hasNext={state.hasNext}
-                            onClick={clickHandler}
-                        />
+                        {state.currentPage.length > 0 ? (
+                            <Pager
+                                style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
+                                currentPage={state.currentPage}
+                                hasPrevious={state.hasPrevious}
+                                hasNext={state.hasNext}
+                                onClick={clickHandler}
+                            />
+                        ) : null}
                     </>
                 ) : null}
             </div>

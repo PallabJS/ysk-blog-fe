@@ -15,11 +15,20 @@ export const appAction = {
             payload: size,
         };
     },
+    setTheme: (payload) => {
+        return {
+            type: "SET_THEME",
+            payload: payload,
+        };
+    },
 };
 
 const initialState = {
     screenSizeMedium: false, // 150% zoomed
     isMobile: false,
+    accessibility: {
+        theme: "light",
+    },
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -40,6 +49,16 @@ export const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 screenSizeMedium: action.payload,
+            };
+        }
+
+        case "SET_THEME": {
+            return {
+                ...state,
+                accessibility: {
+                    ...state.accessibility,
+                    theme: action.payload,
+                },
             };
         }
         default: {

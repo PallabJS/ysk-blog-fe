@@ -15,6 +15,7 @@ import { categoryAction } from "./redux/reducers/category";
 import { serverUrl } from "./settings";
 import { useDispatch, useSelector } from "react-redux";
 import { appAction } from "./redux/reducers/app";
+import Accessibility from "./components/accesibility/Accessibility";
 
 const App = () => {
     const [showApp, setShowApp] = useState(false);
@@ -103,6 +104,8 @@ const App = () => {
                         {!appState.internetConnected ? (
                             <Errormsg title="Oops!" text="Looks like you're offline" />
                         ) : null}
+
+                        <Accessibility />
                         <React.Fragment>
                             {appState.internetConnected && appState.serverActive ? (
                                 <>
