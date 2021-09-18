@@ -34,7 +34,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer_copyright">
-                <i>youshouldknow.site</i> &copy; {new Date().getFullYear()}
+                <i>youshouldknow.live</i> &copy; {new Date().getFullYear()}
             </div>
 
             {/* <span style={{ color: "lightskyblue", fontWeight: 100, margin: "0px 10px" }}>|</span>
