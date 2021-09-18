@@ -76,4 +76,21 @@ export const postApi = {
             return { error: true, msg: e.message };
         }
     },
+
+    incrementPostView: async (post) => {
+        try {
+            let r = await fetch(`${serverUrl}/increment_view`, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(post),
+            });
+            if (r.ok) return await r.json();
+            else throw new Error(r.statusText);
+        } catch (e) {
+            console.log(e);
+            return { error: true, msg: e.message };
+        }
+    },
 };

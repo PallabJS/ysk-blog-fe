@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Helmet from "react-helmet";
+import { postApi } from "../../api/post/postapi";
 
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import { appDomain } from "../../settings";
@@ -8,6 +9,22 @@ import Postsection from "./Postsection";
 
 const Postpage = (props) => {
     const { post } = props;
+
+    const increasePostView = async () => {
+        console.log("view inc");
+        let res = await postApi.incrementPostView(post);
+        if (res.ok) {
+            console.log(await res.json());
+        }
+    };
+
+    useEffect(() => {
+        if (sessionStorage.getItem("post_viewed") !== "true") {
+            increasePostView();
+        }
+        // Set Page already viewed
+        sessionStorage.setItem("post_viewed", "true");
+    });
 
     return (
         <>
