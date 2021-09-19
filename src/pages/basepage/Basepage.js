@@ -67,6 +67,7 @@ const Basepage = (props) => {
                                 <>
                                     <Postpage className="post_container" post={post} />
                                     <Sidecontent
+                                        admin={admin}
                                         className="sidecontent_container"
                                         currentPostCategory={postInfo.category}
                                         currentPostTitle={postInfo.title}
