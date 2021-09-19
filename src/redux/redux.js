@@ -18,8 +18,14 @@ const mainReducer = combineReducers({
     appState: appReducer,
 });
 
+// Thunk middle ware
+let thunkMiddleware = applyMiddleware(thunk);
+if (process.env.REACT_APP_ENV === "development") {
+    thunkMiddleware = composeWithDevTools(thunkMiddleware);
+}
+
 const persistedReducer = persistReducer({ key: "root", storage: storage }, mainReducer);
-const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(persistedReducer, thunkMiddleware);
 
 const persistedStore = persistStore(store);
 

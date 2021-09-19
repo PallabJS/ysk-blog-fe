@@ -14,7 +14,7 @@ let atOptions = {
 };
 
 const Sidecontent = (props) => {
-    const { currentPostCategory, currentPostTitle, countToDisplay } = props;
+    const { admin, currentPostCategory, currentPostTitle, countToDisplay } = props;
     const [latestPosts, setLatestPosts] = useState([]);
 
     const getLatestPosts = async () => {
@@ -50,7 +50,7 @@ const Sidecontent = (props) => {
                     );
                 })}
             </div>
-            {isProd && (
+            {isProd && !admin.token && (
                 <div className="ads_container">
                     <h3 className="header">Advertisements</h3>
                     <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>

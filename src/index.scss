@@ -11,8 +11,12 @@ body {
 }
 
 * {
+    margin: 0px;
+    outline: none;
     user-select: none;
     box-sizing: border-box;
+    font-family: "Big Shoulders Display", cursive;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p,
@@ -24,10 +28,29 @@ u {
 
 // COMMON STYLING
 a {
-    color: rgb(100, 100, 100);
+    font-style: oblique;
+    color: rgb(223, 28, 28);
     text-decoration: none;
+    text-decoration-color: rgb(235, 18, 18);
+    font-weight: 400;
     &:hover {
         text-decoration: underline;
         cursor: pointer;
     }
+}
+.post_container {
+    ul {
+        margin-top: 10px;
+        li {
+            font-weight: 400;
+            color: rgb(14, 134, 170);
+            padding: 2px 0px;
+        }
+    }
+}
+
+b {
+    color: rgb(65, 63, 63);
+    font-weight: 600;
+    font-style: italic;
 }

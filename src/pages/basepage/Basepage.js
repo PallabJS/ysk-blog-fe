@@ -17,7 +17,7 @@ let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
 
 const Basepage = (props) => {
-    const { app, categories } = props;
+    const { app, categories, admin } = props;
 
     const [postInfo] = useState({
         isPostPage: Boolean(postTitle),
@@ -53,6 +53,7 @@ const Basepage = (props) => {
                     <div className="main_flexbox">
                         <Category app={app} className="category_page" category={postInfo.category} />
                         <Recommendation
+                            admin={admin}
                             className="post_recommandation_category_page"
                             category={postInfo.category}
                             isPostPage={postInfo.isPostPage}
@@ -80,6 +81,7 @@ const Basepage = (props) => {
                 </div>
                 {postInfo.isPostPage ? (
                     <Recommendation
+                        admin={admin}
                         className="post_recommandation"
                         category={postInfo.category}
                         isPostPage={postInfo.isPostPage}

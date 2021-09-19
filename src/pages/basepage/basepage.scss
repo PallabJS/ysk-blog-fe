@@ -16,54 +16,58 @@
             margin-right: 10px;
             padding: 40px;
             background-color: white;
-            & .pagetitle,
-            .section_title {
-                font-family: monospace;
-                font-size: 1.5rem;
-                font-weight: 500;
+
+            .post_section {
                 margin-bottom: 30px;
-                margin-top: 20px;
-                font-family: var(--font-title);
-            }
-            & .section_title {
-                color: var(--info-date);
-                font-size: 1.5rem;
-                font-weight: 700;
-                margin: 10px 0px;
-            }
-            .climax_title {
-                font-size: 1.5rem;
-                margin: 10px 0px;
-                margin-top: 20px;
-            }
+                & .pagetitle,
+                .section_title {
+                    font-family: monospace;
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                    margin-bottom: 30px;
+                    margin-top: 20px;
+                    font-family: var(--font-title);
+                }
+                & .section_title {
+                    color: var(--info-date);
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    margin: 10px 0px;
+                }
+                .climax_title {
+                    font-size: 1.5rem;
+                    margin: 10px 0px;
+                    margin-top: 20px;
+                }
 
-            & .subtitle {
-                font-size: 1.1rem;
-                font-weight: 350;
-                margin-bottom: 10px;
-                font-style: italic;
-            }
+                & .subtitle {
+                    font-size: 1.1rem;
+                    font-weight: 350;
+                    margin-bottom: 10px;
+                    font-style: italic;
+                }
 
-            & .meta_info {
-                display: block;
-                margin-left: 2px;
-                margin-top: 0px;
-                font-size: 0.9rem;
-                font-weight: 400;
-                color: var(--info-date);
-            }
-            & .content {
-                line-height: 1.5rem;
-                text-align: justify;
-                color: var(--content-color);
-                font-family: var(--content-font);
-                font-weight: 300;
-                font-size: 1.05rem;
-            }
-            .img_container {
-                width: 100%;
-                box-sizing: border-box;
-                margin: 30px 0px;
+                & .meta_info {
+                    display: block;
+                    margin-left: 2px;
+                    margin-top: 0px;
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    color: var(--info-date);
+                }
+                & .content {
+                    line-height: 1.5rem;
+                    text-align: justify;
+                    color: var(--content-color);
+                    font-family: var(--content-font);
+                    font-weight: 300;
+                    font-size: 1.05rem;
+                }
+                .img_container {
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin: 30px 0px;
+                }
             }
         }
         & .sidecontent_container {

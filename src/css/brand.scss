@@ -11,17 +11,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
-* {
-    margin: 0px;
-    outline: none;
-    font-family: "Big Shoulders Display", cursive;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: var(--bg-color);
-}
-
 :root {
     // COLORS
     --bg-red: rgba(170, 20, 20, 0.733);

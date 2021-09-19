@@ -15,7 +15,6 @@ import { categoryAction } from "./redux/reducers/category";
 import { appDomain, serverUrl } from "./settings";
 import { useDispatch, useSelector } from "react-redux";
 import { appAction } from "./redux/reducers/app";
-import Accessibility from "./components/accesibility/Accessibility";
 
 const App = () => {
     const [showApp, setShowApp] = useState(false);
@@ -25,6 +24,7 @@ const App = () => {
         platform: "desktop",
         clientIP: null,
     });
+    const admin = useSelector((state) => state.admin);
     const app = useSelector((state) => state.appState);
     const categories = useSelector((state) => state.category.categories);
     const dispatch = useDispatch();
@@ -128,12 +128,12 @@ const App = () => {
                                     <Router>
                                         <Switch>
                                             <Route exact path="/">
-                                                <Homepage app={app} categories={categories} />
+                                                <Homepage app={app} categories={categories} admin={admin} />
                                             </Route>
                                             {categories.map((route, index) => {
                                                 return (
                                                     <Route path={`/${route}`} key={index}>
-                                                        <Basepage app={app} categories={categories} />
+                                                        <Basepage app={app} categories={categories} admin={admin} />
                                                     </Route>
                                                 );
                                             })}

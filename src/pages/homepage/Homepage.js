@@ -14,7 +14,7 @@ import { utils } from "../../utils";
 import Accessibility from "../../components/accesibility/Accessibility";
 
 const Homepage = (props) => {
-    const { app, categories } = props;
+    const { app, categories, admin } = props;
 
     const [data, setData] = useState({});
 
@@ -87,7 +87,7 @@ const Homepage = (props) => {
                     })}
                 </div>
                 <div className="homepage_aside_section">
-                    {isProd && (
+                    {isProd && !admin.token && (
                         <div className="ad_container">
                             <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
                             <div
