@@ -107,6 +107,7 @@ export const utils = {
 
     sliceParsedJSX: (text, length) => {
         let output = "";
+        console.log(text, length);
         if (typeof text === "string") {
             output = text.slice(0, length);
         } else if (Array.isArray(text)) {
@@ -126,6 +127,7 @@ export const utils = {
                     }
                 } else {
                     let rawText = t.props.children;
+                    if (!t.props.children) rawText = "";
                     let availableLength = length - output.length;
                     if (availableLength <= rawText.length) {
                         output = output + rawText.slice(0, availableLength);

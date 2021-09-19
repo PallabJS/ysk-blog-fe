@@ -209,30 +209,25 @@
                 background-color: white;
                 & .pagetitle,
                 .section_title {
-                    font-family: monospace;
-                    font-size: 2rem;
-                    font-weight: 500;
-                    margin-bottom: 30px;
-                    margin-top: 20px;
-                    font-family: var(--font-title);
+                    font-size: 1.5rem !important;
                 }
                 & .section_title {
                     color: var(--info-date);
-                    font-size: 1.5rem;
+                    font-size: 1.2rem !important;
                     font-weight: 700;
                     margin: 10px 0px;
                 }
                 .climax_title {
-                    font-size: 1.5rem;
+                    font-size: 1.2rem !important;
                     margin: 10px 0px;
                     margin-top: 20px;
                 }
 
                 & .subtitle {
-                    font-size: 1.1rem;
+                    margin-top: 5px;
+                    font-size: 1rem !important;
                     font-weight: 350;
                     margin-bottom: 10px;
-                    font-style: italic;
                 }
 
                 & .meta_info {
@@ -247,9 +242,8 @@
                     line-height: 1.5rem;
                     text-align: justify;
                     color: var(--content-color);
-                    font-family: var(--content-font);
-                    font-weight: 300;
-                    font-size: 1.05rem;
+                    font-family: var(--content-font) !important;
+                    font-size: 0.9rem !important;
                 }
                 .img_container {
                     width: 100%;
