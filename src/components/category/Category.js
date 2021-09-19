@@ -111,9 +111,9 @@ const Category = (props) => {
                                 hasNext={state.hasNext}
                                 onClick={clickHandler}
                             />
-                        ) : (
-                            <Nodata text="No post yet" color="black" />
-                        )}
+                        ) : null}
+
+                        {state.entireList.length === 0 && <Nodata text="No post yet" color="black" />}
 
                         <ul className="main-ul">
                             {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {

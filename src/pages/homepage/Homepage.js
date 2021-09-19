@@ -46,12 +46,14 @@ const Homepage = (props) => {
                             <section key={index} className="homepage_category_section">
                                 <h2 className="header">{category.toUpperCase()}</h2>
                                 <div className="content">
-                                    <Nodata
-                                        text="No posts on this category yet"
-                                        style={{
-                                            padding: "10px",
-                                        }}
-                                    />
+                                    {data[category].length === 0 && (
+                                        <Nodata
+                                            text="No posts on this category yet"
+                                            style={{
+                                                padding: "10px",
+                                            }}
+                                        />
+                                    )}
                                     {data[category].map((post, index) => {
                                         return (
                                             <div key={index} className="homepage_category_post_section_container">
