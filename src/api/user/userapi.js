@@ -1,11 +1,11 @@
 import { serverUrl } from "../../settings";
 
-import { userServices } from "../apiurls";
+import { userUrl } from "../apiurls";
 
 export const userApi = {
     addToMailingList: async (data) => {
         try {
-            let r = await fetch(userServices.addToMailingList, {
+            let r = await fetch(serverUrl + "/subscribe", {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",

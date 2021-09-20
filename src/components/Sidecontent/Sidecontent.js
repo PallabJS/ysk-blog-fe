@@ -1,17 +1,9 @@
-import { faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
+import Subscription from "../subscription/Subscription";
 
 import { postApi } from "../../api/post/postapi";
 import { isProd } from "../../settings";
 import { PostCard } from "../postcomponents/Post";
-
-let atOptions = {
-    key: "416a4fdc0fb0ae6d08db33ffd7c4eaca",
-    format: "iframe",
-    height: 250,
-    width: 300,
-    params: {},
-};
 
 const Sidecontent = (props) => {
     const { admin, currentPostCategory, currentPostTitle, countToDisplay } = props;
@@ -33,6 +25,7 @@ const Sidecontent = (props) => {
 
     return (
         <div className={props.className}>
+            <Subscription />
             <h2 className="header">
                 Recent posts in <i>{currentPostCategory}</i>
             </h2>

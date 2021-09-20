@@ -1,6 +1,7 @@
 body {
     /* background-image: url(./light_bg_natural.jpg); */
-    background-color: rgb(247, 244, 232);
+    background-color: rgba(241, 238, 222, 0.521);
+    background: linear-gradient(135deg, rgb(231, 226, 226), rgb(226, 209, 189));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

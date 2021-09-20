@@ -12,6 +12,7 @@ import { appDomain, isProd, serverUrl } from "../../settings";
 import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
 import Accessibility from "../../components/accesibility/Accessibility";
+import Subscription from "../../components/subscription/Subscription";
 
 const Homepage = (props) => {
     const { app, categories, admin } = props;
@@ -36,7 +37,7 @@ const Homepage = (props) => {
                 <link rel="canonical" href={appDomain} />
             </Helmet>
 
-            <Accessibility />
+            {!app.isMobile && <Accessibility />}
 
             <Navbar app={app} categories={categories} />
             <div className="homepage">
@@ -89,15 +90,17 @@ const Homepage = (props) => {
                     })}
                 </div>
                 <div className="homepage_aside_section">
-                    {isProd && !admin.token && (
-                        <div className="ad_container">
-                            <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
-                            <div
+                    <Subscription />
+                    {(isProd && !admin.token) ||
+                        (true && (
+                            <div className="ad_container">
+                                <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
+                                {/* <div
                                 className="homepage_ad_container"
                                 id="container-2aa8bbc42b63894dc8eb1f9ca5478995"
-                            ></div>
-                        </div>
-                    )}
+                            ></div> */}
+                            </div>
+                        ))}
                 </div>
             </div>
             <Footer />

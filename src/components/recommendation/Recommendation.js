@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { postApi } from "../../api/post/postapi";
 import Card from "../card/Card";
-
-import { CATEGORY } from "../../appspecs/routes";
+import Subscription from "../subscription/Subscription";
 
 import "./recommendation.scss";
 import { utils } from "../../utils";
@@ -33,6 +32,7 @@ const Recommendation = (props) => {
 
     return (
         <div className={className}>
+            {!isPostPage && <Subscription />}
             <h2 className="recommandation_header"> Recommended posts </h2>
             {popularPosts.map((post, index) => {
                 return (

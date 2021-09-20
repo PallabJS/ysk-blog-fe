@@ -103,14 +103,24 @@ const App = () => {
             <SnackbarProvider
                 maxSnack={1}
                 autoHideDuration={3000}
-                style={{
-                    fontSize: "1rem",
-                    padding: "0px 10px",
-                    position: "absolute",
-                    bottom: "10px",
-                    left: "10px",
-                    minWidth: "400px",
-                }}
+                translate={"no"}
+                style={
+                    app.isMobile
+                        ? {
+                              position: "absolute",
+                              top: -window.innerHeight + 75,
+                              width: window.innerWidth - 30 + "px",
+                              padding: "0px 10px",
+                          }
+                        : {
+                              fontSize: "1rem",
+                              padding: "0px 10px",
+                              position: "absolute",
+                              bottom: "10px",
+                              left: "10px",
+                              minWidth: "300px",
+                          }
+                }
             >
                 {showApp ? (
                     <React.Fragment>

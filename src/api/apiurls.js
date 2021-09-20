@@ -1,16 +1,16 @@
 import { serverUrl } from "../settings";
 
-const serviceUrl = "/service";
+const userApi = `${serverUrl}/user`;
 
-export const userServices = {
-    addToMailingList: `${serviceUrl}/add_to_mailing_list`,
+export const userUrl = {
+    addToMailingList: `${userApi}/subscribe`,
 };
 
-const adminRoute = "/admin";
+const adminApi = `${serverUrl}/admin`;
 export const adminUrl = {
-    login: `${serverUrl}${adminRoute}/login`,
-    add: `${serverUrl}${adminRoute}/post/add`,
-    delete: `${serverUrl}${adminRoute}/post/delete`,
-    edit: `${serverUrl}${adminRoute}/post/edit`,
-    getDashboard: `${serverUrl}${adminRoute}/get_dashboard_data`,
+    login: `${adminApi}/login`,
+    add: `${adminApi}/post/add`,
+    delete: `${adminApi}/post/delete`,
+    edit: `${adminApi}/post/edit`,
+    getDashboard: `${adminApi}/get_dashboard_data`,
 };
