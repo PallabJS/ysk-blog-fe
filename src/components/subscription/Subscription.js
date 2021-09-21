@@ -42,7 +42,7 @@ const Subscription = (props) => {
         <>
             <div className="subscription_container">
                 <div className="subscription">
-                    <h3 className="header">Get Updated</h3>
+                    <h3 className="header">Subscribe YSK</h3>
                     <p className="intro_text">Drop your email and we will keep you updated on upcomming posts.</p>
                     <span>(Unsubscribe anytime)</span>
                     <div className="input_box">
