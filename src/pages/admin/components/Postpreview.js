@@ -8,6 +8,8 @@ import Sidecontent from "../../../components/Sidecontent/Sidecontent";
 import "../../basepage/basepage.scss";
 
 const Postpreview = (props) => {
+    const { admin } = props;
+
     const post = useSelector((state) => state.post);
 
     console.log("this: ", post.meta);
@@ -70,6 +72,7 @@ const Postpreview = (props) => {
                         ) : null}
                     </article>
                     <Sidecontent
+                        admin={admin}
                         className="sidecontent_container"
                         currentPostCategory={post.meta.category}
                         currentPostTitle={post.title}

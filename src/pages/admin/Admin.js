@@ -71,7 +71,7 @@ const Admin = () => {
                             <Addpost categories={categories} />
                         </Route>
                         <Route path="/admin/preview_post">
-                            <Postpreview className="post_container" />
+                            <Postpreview className="post_container" admin={admin} />
                         </Route>
 
                         <Route path="/admin">
