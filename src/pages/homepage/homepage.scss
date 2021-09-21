@@ -103,6 +103,7 @@
         margin-left: 10px;
         border: 1px solid rgb(201, 218, 223);
         border-radius: 2px;
+        padding: 10px;
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -110,7 +111,6 @@
         & > .ad_container {
             position: relative;
             z-index: 1;
-            margin: 10px;
             border: 1px solid rgba(196, 192, 192, 0.685);
             border-radius: 5px;
             & > .homepage_ad_header {
