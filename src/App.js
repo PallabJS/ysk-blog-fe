@@ -148,7 +148,7 @@ const App = () => {
                                                 <Admin />
                                             </Route>
                                             <Route path="/">
-                                                <Redirect to="/" />
+                                                <Errormsg />
                                             </Route>
                                         </Switch>
                                     </Router>
