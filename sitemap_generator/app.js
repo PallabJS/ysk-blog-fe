@@ -25,11 +25,14 @@ const generate = async () => {
     let posts = await db.collection("posts").find({}).toArray();
     console.log("collected all posts");
     let xml = initialData.replace("</urlset>", "");
+
+    let lastModified = new Date().toISOString();
     posts.forEach((post, index) => {
         if (index !== 0) xml += "\n";
         xml += `\t<url>\
                     \n\t\t<loc>https://youshouldknow.live/${post.meta.category}/${post.title}</loc>\
                     \n\t\t<priority>1.0</priority>\
+                    \n\t\t<lastmod>${lastModified}</lastmod>\
                 \n\t</url>`;
     });
 
