@@ -33,7 +33,7 @@
         "builddev": "env-cmd -f ./development.env react-scripts build",
         "buildprod": "env-cmd -f ./production.env react-scripts build",
         "eject": "react-scripts eject",
-        "deploy": "node sitemap_generator/app.js && git push"
+        "d": "node sitemap_generator/app.js && git add . && git status && echo Run git commit"
     },
     "eslintConfig": {
         "extends": [
