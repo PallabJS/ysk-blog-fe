@@ -34,10 +34,9 @@ const Homepage = (props) => {
         <>
             <Helmet>
                 <title>{utils.getPageTitle()}</title>
-                <link rel="canonical" href={appDomain} />
             </Helmet>
 
-            {!app.isMobile && <Accessibility />}
+            {/* {!app.isMobile && <Accessibility />} */}
 
             <Navbar app={app} categories={categories} />
             <div className="homepage">
@@ -58,19 +57,18 @@ const Homepage = (props) => {
                                     {data[category].map((post, index) => {
                                         return (
                                             <div key={index} className="homepage_category_post_section_container">
-                                                <section
-                                                    className="homepage_category_post_section"
-                                                    onClick={() => {
-                                                        window.location.href = `/${post.meta.category}/${post.title}`;
-                                                    }}
-                                                >
+                                                <section className="homepage_category_post_section">
                                                     <div className="image_container">
                                                         <img
                                                             src={utils.compostImageLink(post.image)}
                                                             alt={utils.noImageLink}
                                                         />
                                                     </div>
-                                                    <h3 className="title">{utils.parseTitle(post.title)}</h3>
+                                                    <h3 className="title">
+                                                        <a href={`/${post.meta.category}/${post.title}`}>
+                                                            {utils.parseTitle(post.title)}
+                                                        </a>
+                                                    </h3>
                                                     <div className="date">
                                                         Post is {utils.getTimeDifference(new Date(post.date))} old
                                                     </div>

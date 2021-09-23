@@ -39,7 +39,7 @@ const App = () => {
 
     // Manage app state
     const initializeAppState = async () => {
-        let isOnline = window.navigator.onLine;
+        let isOnline = window.navigator.onLine || true;
         let isServerRunning = (await getServerState()).success;
         setAppState({
             internetConnected: isOnline,
@@ -81,7 +81,6 @@ const App = () => {
     }, []);
 
     const openAdminPage = (e) => {
-        console.log(e);
         if (e.ctrlKey && e.shiftKey && e.keyCode === 1) {
             window.location.href = appDomain + "/admin";
         }

@@ -12,18 +12,19 @@
         padding: 0px 20px;
         box-sizing: border-box;
         overflow: hidden;
-        cursor: pointer;
-
         transition: background-color 0.1s ease-in-out;
 
         .card_content {
             & > h3 {
-                font-weight: 200;
                 margin: 0px;
                 margin-top: 30px;
-                font-family: var(--post-title);
-                font-size: var(--title-font-size);
-                color: var(--title-color);
+                a {
+                    font-style: normal;
+                    font-weight: 200;
+                    font-family: var(--post-title);
+                    font-size: var(--title-font-size);
+                    color: var(--title-color);
+                }
                 .views {
                     font-weight: 400;
                     font-size: 1.1rem;
@@ -67,11 +68,13 @@
     }
     &:hover {
         background-color: rgb(255, 255, 255);
-        cursor: pointer;
         font-size: 16px;
         border: 1px solid rgb(218, 213, 213);
         & > h3 {
             color: var(--link-hover);
+            a {
+                cursor: pointer;
+            }
             .views {
                 text-decoration: none;
                 font-weight: 500;

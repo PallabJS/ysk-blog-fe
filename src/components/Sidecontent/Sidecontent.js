@@ -31,16 +31,7 @@ const Sidecontent = (props) => {
             </h2>
             <div className="side_cards">
                 {latestPosts.map((post, index) => {
-                    return (
-                        <>
-                            <PostCard
-                                key={index}
-                                className={"post_card"}
-                                post={post}
-                                onClick={() => (window.location.href = `/${currentPostCategory}/${post.title}`)}
-                            />
-                        </>
-                    );
+                    return <PostCard key={index} post={post} />;
                 })}
             </div>
             {isProd && !admin.token && (

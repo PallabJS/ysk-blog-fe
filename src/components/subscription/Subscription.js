@@ -50,8 +50,8 @@ const Subscription = (props) => {
                             type="email"
                             value={state.email}
                             spellCheck="false"
-                            autoComplete={false}
-                            autoSave={false}
+                            autoComplete={"false"}
+                            autoSave={"false"}
                             onChange={(e) => handleInput(e, "email")}
                         />
                         <input type="button" value={"I'M IN"} onClick={handleSubscription} />

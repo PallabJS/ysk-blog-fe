@@ -118,19 +118,7 @@ const Category = (props) => {
                         <ul className="main-ul">
                             {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
                                 return (
-                                    <li
-                                        key={index}
-                                        style={
-                                            app.isMobile
-                                                ? {
-                                                      minHeight: "400px",
-                                                  }
-                                                : {}
-                                        }
-                                        onClick={() => {
-                                            window.location.href = `/${category}/${post.title}`;
-                                        }}
-                                    >
+                                    <li key={index} style={app.isMobile ? { minHeight: "400px" } : {}}>
                                         <div className="list_wrapper">
                                             <div
                                                 className="img_container"
@@ -145,9 +133,11 @@ const Category = (props) => {
                                             </div>
                                             <div className="text">
                                                 <h3 className="post_title">
-                                                    {post.title
-                                                        .replace(/-/g, " ")
-                                                        .replace(post.title[0], post.title[0].toUpperCase())}
+                                                    <a href={`/${category}/${post.title}`}>
+                                                        {post.title
+                                                            .replace(/-/g, " ")
+                                                            .replace(post.title[0], post.title[0].toUpperCase())}
+                                                    </a>
                                                 </h3>
                                                 <span className="text_meta">
                                                     Posted {utils.getTimeDifference(new Date(post.date))} ago

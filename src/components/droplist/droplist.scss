@@ -33,6 +33,16 @@ $listitem-bg-color-hover: rgb(67, 119, 150);
             font-weight: 400;
             color: black;
             background-color: $list-bg-color;
+            a {
+                font-style: normal;
+                text-decoration: none;
+                color: black;
+                font-size: 1rem;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                &:hover {
+                    color: white;
+                }
+            }
             &:hover {
                 color: white;
                 background-color: $listitem-bg-color-hover;

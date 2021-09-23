@@ -7,6 +7,7 @@ import "./droplist.scss";
 import { CATEGORY } from "../../appspecs/routes";
 import { faBinoculars } from "@fortawesome/free-solid-svg-icons";
 import { faMehBlank } from "@fortawesome/free-regular-svg-icons";
+import { appDomain } from "../../settings";
 
 const Droplist = (props) => {
     const { className, style = {}, show, droplist, anchorElement, searchText } = props;
@@ -54,18 +55,15 @@ const Droplist = (props) => {
                             <ul>
                                 {droplist.map((post, index) => {
                                     return (
-                                        <li
-                                            key={index}
-                                            onClick={() => {
-                                                window.location.href = `/${post.meta.category}/${post.title}`;
-                                            }}
-                                        >
-                                            {post.title
-                                                .replace(/-/g, " ")
-                                                .replace(post.title[0], post.title[0].toUpperCase())}
-                                            <span style={{ fontSize: "0.9rem", float: "right" }}>
-                                                &nbsp;({new Date(post.date).toDateString().slice(4)})
-                                            </span>
+                                        <li key={index}>
+                                            <a href={`${appDomain}/${post.meta.category}/${post.title}`}>
+                                                {post.title
+                                                    .replace(/-/g, " ")
+                                                    .replace(post.title[0], post.title[0].toUpperCase())}
+                                                <span style={{ fontSize: "0.9rem", float: "right" }}>
+                                                    &nbsp;({new Date(post.date).toDateString().slice(4)})
+                                                </span>
+                                            </a>
                                         </li>
                                     );
                                 })}

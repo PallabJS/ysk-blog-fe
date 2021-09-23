@@ -43,12 +43,7 @@ const Recommendation = (props) => {
                             subtitle={post.meta.category}
                             image={post.image}
                             text={post.text}
-                            meta={{
-                                views: post.meta.views,
-                            }}
-                            onClick={() => {
-                                window.location.href = `/${post.meta.category}/${post.title}`;
-                            }}
+                            meta={{ views: post.meta.views }}
                         />
                     </React.Fragment>
                 );

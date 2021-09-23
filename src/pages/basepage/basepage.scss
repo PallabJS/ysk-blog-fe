@@ -89,7 +89,6 @@
             & > .side_cards {
                 margin-bottom: 50px;
                 & .post_card {
-                    cursor: pointer;
                     margin: 5px 0px;
                     padding: 30px 10px;
                     padding-top: 10px;
@@ -100,6 +99,9 @@
                     }
                     h3 {
                         margin: 0px !important;
+                        a {
+                            cursor: pointer;
+                        }
                     }
                     p {
                         font-style: italic;
@@ -265,7 +267,6 @@
                     user-select: none;
                 }
                 & .post_card {
-                    cursor: pointer;
                     margin: 5px 0px;
                     padding: 30px 10px;
                     padding-top: 10px;

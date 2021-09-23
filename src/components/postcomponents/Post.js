@@ -68,10 +68,19 @@ export const Postext = (props) => {
 };
 
 export const PostCard = (props) => {
-    const { className, post, onClick } = props;
+    const { className, post } = props;
     return (
-        <div className={className} onClick={onClick}>
-            <h3>{post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}</h3>
+        <div className={className + " post_card"}>
+            <h3>
+                <a
+                    href={`/${post.meta.category}/${post.title}`}
+                    style={{
+                        fontStyle: "normal",
+                    }}
+                >
+                    {post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}
+                </a>
+            </h3>
             <div> ({utils.getTimeDifference(new Date(post.date.replace("at", "")))} ago)</div>
             <p>"{parse(post.text.slice(0, 100))}"</p>
         </div>

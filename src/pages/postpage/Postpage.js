@@ -11,7 +11,6 @@ const Postpage = (props) => {
     const { post } = props;
 
     const increasePostView = async () => {
-        console.log("view inc");
         let res = await postApi.incrementPostView(post);
         if (res.ok) {
             console.log(await res.json());

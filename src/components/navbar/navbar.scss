@@ -45,16 +45,21 @@
             align-items: center;
             height: 100%;
             padding: 0px 10px;
-            font-family: "Big Shoulders Display", cursive;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
             cursor: pointer;
             border-right: 2px solid rgb(7, 122, 7);
-            &:hover {
-                font-size: 1.2rem;
-                letter-spacing: 2px;
-                color: gold;
-                user-select: none;
+            & > a {
+                font-style: normal;
+                text-decoration: none;
+                color: white;
+                font-family: "Big Shoulders Display", cursive;
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+                &:hover {
+                    font-size: 1.2rem;
+                    letter-spacing: 2px;
+                    color: gold;
+                    user-select: none;
+                }
             }
         }
     }

@@ -61,11 +61,14 @@
                 border-left: 2px solid var(--wrapper-border-color);
 
                 & > .post_title {
-                    font-size: 1.2rem;
-                    font-family: var(--post-title);
-                    font-weight: 100;
-                    color: var(--title-color);
-                    font-size: var(--title-font-size);
+                    & > a {
+                        cursor: pointer;
+                        font-family: var(--post-title);
+                        font-weight: 100;
+                        color: var(--title-color);
+                        font-size: var(--title-font-size);
+                        font-style: normal;
+                    }
                 }
                 .text_meta {
                     font-weight: 300;
@@ -84,7 +87,6 @@
                 z-index: 2;
                 background-color: white;
                 box-shadow: -5px -5px 20px 2px var(--white-shadow);
-                cursor: pointer;
                 margin-left: 5px;
                 margin-top: 2px !important;
                 border: 1px solid rgb(219, 219, 219);
@@ -140,7 +142,7 @@
                     padding: 5px;
                     border: none;
 
-                    h3 {
+                    .post_title {
                         font-weight: 500;
                         font-size: 1.1rem;
                     }

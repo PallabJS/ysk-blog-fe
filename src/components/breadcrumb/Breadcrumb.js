@@ -20,11 +20,27 @@ const Breadcrumb = (props) => {
             </a>
             <span key={0}>
                 <GT />
-                <a onClick={() => handleRouting(`/${dirs.slice(0, 0).join("/")}`)}>{dirs[0]}</a>
+                <a
+                    href={`/${dirs.slice(0, 1).join("/")}`}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleRouting(`/${dirs.slice(0, 1).join("/")}`);
+                    }}
+                >
+                    {dirs[0]}
+                </a>
             </span>
             <span key={1}>
                 <GT />
-                <a onClick={() => handleRouting(`/${dirs.slice(0, 1).join("/")}`)}>{dirs[1].slice(0, 15) + "..."}</a>
+                <span
+                // href={`/${dirs.slice(0, 2).join("/")}`}
+                // onClick={(e) => {
+                //     e.preventDefault();
+                //     handleRouting(`/${dirs.slice(0, 2).join("/")}`);
+                // }}
+                >
+                    {dirs[1].slice(0, 15) + "..."}
+                </span>
             </span>
         </div>
     );

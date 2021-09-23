@@ -10,6 +10,7 @@ import { postApi } from "../../api/post/postapi";
 
 import { utils } from "../../utils";
 import Navbarmobile from "./Navbarmobile";
+import { appDomain } from "../../settings";
 
 const Navbar = (props) => {
     const { app, categories } = props;
@@ -119,7 +120,7 @@ const Navbar = (props) => {
                     <nav className="navbar">
                         <ul className="navlist">
                             <li style={{ width: "80px" }} className="nav-list-item" onClick={() => handleRouting("/")}>
-                                Home
+                                <a href={`${appDomain}/home`}>Home</a>
                             </li>
                             {categories.map((categoryName, index) => {
                                 return (
@@ -127,9 +128,16 @@ const Navbar = (props) => {
                                         style={{ width: categoryName.length * 15 + "px" }}
                                         key={index}
                                         className="nav-list-item"
-                                        onClick={() => handleRouting(`/${categoryName}`)}
                                     >
-                                        {utils.parseTitle(categoryName)}
+                                        <a
+                                            href={`${appDomain}/${categoryName}`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleRouting(`/${categoryName}`);
+                                            }}
+                                        >
+                                            {utils.parseTitle(categoryName)}
+                                        </a>
                                     </li>
                                 );
                             })}
