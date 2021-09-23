@@ -4,6 +4,7 @@ import parse from "html-react-parser";
 import "./card.scss";
 import { utils } from "../../utils";
 import { useSelector } from "react-redux";
+import { appDomain } from "../../settings";
 
 const Card = (props) => {
     const app = useSelector((state) => state.appState);
@@ -19,7 +20,7 @@ const Card = (props) => {
                 )}
                 <div className="card_content">
                     <h3>
-                        <a href={`/${subtitle}/${title}`}>
+                        <a href={`${appDomain}/${subtitle}/${title}`}>
                             {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
                             {!isNaN(meta.views) ? <span className="views"> ({meta.views} views)</span> : null}
                         </a>

@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 
-import Navbar from "./components/navbar/Navbar";
 import Homepage from "./pages/homepage/Homepage";
 import Basepage from "./pages/basepage/Basepage";
-import Footer from "./components/footer/Footer";
 import Errormsg from "./components/offline/Errormsg";
 
 import Admin from "./pages/admin/Admin";

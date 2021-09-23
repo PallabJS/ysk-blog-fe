@@ -2,6 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 
 import { utils } from "../../utils";
+import { appDomain } from "../../settings";
 
 export const Posttitle = (props) => {
     const { title, subtitle, date, className } = props;
@@ -73,7 +74,7 @@ export const PostCard = (props) => {
         <div className={className + " post_card"}>
             <h3>
                 <a
-                    href={`/${post.meta.category}/${post.title}`}
+                    href={`${appDomain}/${post.meta.category}/${post.title}`}
                     style={{
                         fontStyle: "normal",
                     }}

@@ -21,7 +21,6 @@ const generate = async () => {
     console.log("Initial xml string collected");
 
     // Game on
-
     let posts = await db.collection("posts").find({}).toArray();
     console.log("collected all posts");
     let xml = initialData.replace("</urlset>", "");

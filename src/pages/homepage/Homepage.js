@@ -65,7 +65,7 @@ const Homepage = (props) => {
                                                         />
                                                     </div>
                                                     <h3 className="title">
-                                                        <a href={`/${post.meta.category}/${post.title}`}>
+                                                        <a href={`${appDomain}/${post.meta.category}/${post.title}`}>
                                                             {utils.parseTitle(post.title)}
                                                         </a>
                                                     </h3>
@@ -93,10 +93,10 @@ const Homepage = (props) => {
                         (true && (
                             <div className="ad_container">
                                 <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
-                                {/* <div
-                                className="homepage_ad_container"
-                                id="container-2aa8bbc42b63894dc8eb1f9ca5478995"
-                            ></div> */}
+                                <div
+                                    className="homepage_ad_container"
+                                    id="container-2aa8bbc42b63894dc8eb1f9ca5478995"
+                                ></div>
                             </div>
                         ))}
                 </div>

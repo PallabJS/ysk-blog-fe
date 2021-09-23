@@ -133,7 +133,7 @@ const Category = (props) => {
                                             </div>
                                             <div className="text">
                                                 <h3 className="post_title">
-                                                    <a href={`/${category}/${post.title}`}>
+                                                    <a href={`${appDomain}/${category}/${post.title}`}>
                                                         {post.title
                                                             .replace(/-/g, " ")
                                                             .replace(post.title[0], post.title[0].toUpperCase())}

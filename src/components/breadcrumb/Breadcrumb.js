@@ -1,4 +1,5 @@
 import React from "react";
+import { appDomain } from "../../settings";
 
 import "./breadcrumb.scss";
 
@@ -21,7 +22,7 @@ const Breadcrumb = (props) => {
             <span key={0}>
                 <GT />
                 <a
-                    href={`/${dirs.slice(0, 1).join("/")}`}
+                    href={`${appDomain}/${dirs.slice(0, 1).join("/")}`}
                     onClick={(e) => {
                         e.preventDefault();
                         handleRouting(`/${dirs.slice(0, 1).join("/")}`);
