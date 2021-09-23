@@ -1,1 +1,7 @@
+User-agent: Googlebot
+Disallow: /admin
+
+User-agent: *
+Allow: /
+
 Sitemap: https://youshouldknow.live/sitemap.xml
