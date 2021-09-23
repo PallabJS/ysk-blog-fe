@@ -1,0 +1,17 @@
+{
+    "name": "sitemap_generator",
+    "version": "1.0.0",
+    "description": "generates websitemap for ysk project",
+    "type": "module",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Pallab JS",
+    "license": "ISC",
+    "dependencies": {
+        "fs": "*",
+        "mongodb": "^4.1.2"
+    }
+}
