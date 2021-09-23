@@ -9,11 +9,11 @@ export const Posttitle = (props) => {
     return (
         <React.Fragment>
             {title ? (
-                <header className={className}>
+                <h1 className={className}>
                     {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
                     <Subtitle subtitle={subtitle} className="subtitle" />
                     <Postdate date={date} className="meta_info" />
-                </header>
+                </h1>
             ) : null}
         </React.Fragment>
     );

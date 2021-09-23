@@ -34,13 +34,29 @@ const Homepage = (props) => {
         <>
             <Helmet>
                 <title>{utils.getPageTitle()}</title>
+                <meta
+                    name="description"
+                    content="A place for non-aliens where information about many aspects like technology, science, howto's and much more is delivered and discussed. We know that people love to learn with support and simplicity, and that is one big 'why' youshouldknow started existing."
+                />
+                <link rel="canonical" href={`${appDomain}`} />
             </Helmet>
 
             {/* {!app.isMobile && <Accessibility />} */}
 
             <Navbar app={app} categories={categories} />
+
             <div className="homepage">
                 <div className="main">
+                    <div className="page_header">
+                        <img src="pwa_icon_dark.png" />
+                        <h1 className="header">
+                            A new-born <q>open</q> blog for <q>anyone</q> who love to read and learn new <q>cool</q>
+                            stuffs.
+                            <br />
+                            <span>We deliver contents - that you love to read.</span>
+                        </h1>
+                    </div>
+
                     {Object.keys(data).map((category, index) => {
                         return (
                             <section key={index} className="homepage_category_section">

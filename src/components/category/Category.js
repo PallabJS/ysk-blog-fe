@@ -100,7 +100,7 @@ const Category = (props) => {
             </Helmet>
 
             <div className={className} ref={categoryPage}>
-                <h3 className="header"> Latest topics on {category} </h3>
+                <h1 className="header"> Latest topics on {category} </h1>
 
                 {show ? (
                     <>
