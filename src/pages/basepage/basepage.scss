@@ -196,7 +196,7 @@
     .basepage_container {
         width: 100%;
         margin: 30px auto;
-        padding: 30px 10px;
+        padding: 0px;
         min-height: calc(100vh - 40px - 40px - 20px);
         position: relative;
         box-sizing: border-box;
@@ -246,8 +246,8 @@
                     line-height: 1.5rem;
                     text-align: justify;
                     color: var(--content-color);
-                    font-family: var(--content-font) !important;
-                    font-size: 0.9rem !important;
+                    font-family: var(--content-font);
+                    font-size: 1rem !important;
                 }
                 .img_container {
                     width: 100%;

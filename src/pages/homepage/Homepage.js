@@ -50,9 +50,21 @@ const Homepage = (props) => {
                     <div className="page_header">
                         <img src="pwa_icon_dark.png" />
                         <h1 className="header">
-                            A new-born <q>open</q> blog for <q>anyone</q> who love to read and learn new <q>cool</q>
-                            stuffs.
-                            <br />
+                            {app.isMobile ? (
+                                <>
+                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read and learn new
+                                    <q>cool</q>
+                                    stuffs.
+                                    <br />
+                                </>
+                            ) : (
+                                <>
+                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read and learn new
+                                    <q>cool</q>
+                                    stuffs.
+                                    <br />
+                                </>
+                            )}
                             <span>We deliver contents - that you love to read.</span>
                         </h1>
                     </div>
