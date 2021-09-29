@@ -120,7 +120,7 @@ const Navbar = (props) => {
                     <nav className="navbar">
                         <ul className="navlist">
                             <li style={{ width: "80px" }} className="nav-list-item" onClick={() => handleRouting("/")}>
-                                <a href={`${appDomain}/home`}>Home</a>
+                                <a href={`${appDomain}`}>Home</a>
                             </li>
                             {categories.map((categoryName, index) => {
                                 return (
