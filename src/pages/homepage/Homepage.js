@@ -88,7 +88,7 @@ const Homepage = (props) => {
                                                 <section className="homepage_category_post_section">
                                                     <div className="image_container">
                                                         <img
-                                                            src={utils.compostImageLink(post.image)}
+                                                            src={utils.composeImageLink(post.image)}
                                                             alt={utils.noImageLink}
                                                         />
                                                     </div>

@@ -46,7 +46,7 @@ export const utils = {
         return composedTitle;
     },
 
-    compostImageLink: (link) => {
+    composeImageLink: (link) => {
         let app = getApp();
         return link.replace(".png", "l.png");
 

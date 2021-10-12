@@ -53,7 +53,7 @@ export const Postimage = (props) => {
             {url ? (
                 <div className={className}>
                     <img
-                        src={utils.compostImageLink(url)}
+                        src={utils.composeImageLink(url)}
                         alt={utils.noImageLink}
                         style={{ width: "100%", height: "auto" }}
                     />

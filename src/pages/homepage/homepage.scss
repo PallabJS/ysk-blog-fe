@@ -85,14 +85,20 @@
                     margin: 10px;
                     border: 1px solid rgb(240, 218, 218);
                     & > .homepage_category_post_section {
+                        cursor: pointer;
                         background-color: white;
+                        border: 1px solid rgb(226, 225, 225);
                         width: 100%;
                         height: 100%;
                         box-sizing: border-box;
                         padding: 10px 20px;
                         font-size: 1rem;
-                        transition: box-shadow 0.5s ease-in-out, width 0.1s ease-in-out, height 0.1s ease-in-out,
-                            margin-left 0.2s ease-in-out, border-width 2s ease-in-out;
+
+                        &::selection {
+                            display: none !important;
+                        }
+
+                        transition: all 0.2s ease-in-out;
                         & > .title {
                             margin-top: 10px;
                             line-height: 25px;
@@ -129,17 +135,10 @@
                             position: relative;
                             z-index: 2;
                             box-shadow: 0px -10px 10px 2px var(--white-shadow);
-                            border: 1px solid rgb(189, 188, 188);
-                            width: 105%;
-                            height: 105%;
-                            & > .title {
-                                a {
-                                    font-size: 1.3rem;
-                                }
-                            }
-                            & > .text {
-                                font-size: 1.05rem;
-                            }
+                            border: 2px solid rgb(226, 225, 225);
+                            height: calc(100% + 5px);
+                            margin-left: 5px;
+                            margin-top: 5px;
                         }
                     }
                 }
@@ -284,17 +283,16 @@
                         margin: 0px !important;
                         padding: 20px 0px;
                         margin-bottom: 10px !important;
+
                         & > .homepage_category_post_section {
                             background-color: white;
-                            width: 100%;
-                            height: 100%;
+                            border: none;
                             box-sizing: border-box;
                             padding: 10px 20px;
                             font-size: 1rem;
-                            transition: box-shadow 0.3s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out,
-                                margin-left 0.2s ease-in-out, font-size 0.1s ease-in-out;
-                            & > .title {
-                                font-size: var(--title-font-size);
+
+                            & > .title > a {
+                                font-size: var(--title-font-size) !important;
                                 font-family: var(--post-title);
                                 text-decoration: underline 1px rgba(228, 82, 15, 0.616);
                                 text-underline-offset: 1px;
@@ -329,17 +327,11 @@
                             &:hover {
                                 position: relative;
                                 z-index: 2;
-                                cursor: pointer;
-                                box-shadow: none !important;
-                                border: none !important;
-                                width: 100% !important;
-                                height: 100% !important;
-                                & > .title {
-                                    font-size: var(--title-font-size) !important;
-                                }
-                                & > .text {
-                                    font-size: 1rem;
-                                }
+                                box-shadow: none;
+                                border: none;
+                                height: calc(100% + 5px);
+                                margin-left: 0px;
+                                margin-top: 0px;
                             }
                         }
                     }
