@@ -2,14 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 	<url>
-		<loc>
-			https://youshouldknow.live
-		</loc>
-		<lastmod>
-			2021-09-23T13:00:47+00:00
-		</lastmod>
+		<loc>https://youshouldknow.live</loc>
+		<lastmod>2021-09-23T13:00:47+00:00</lastmod>
 	</url>
-
 	<url>                    
 		<loc>https://youshouldknow.live/tech/skills-to-learn-in-2022-as-a-full-stack-developer</loc>                    
 		<priority>1.0</priority>                    
