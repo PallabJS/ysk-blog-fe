@@ -89,14 +89,18 @@ export const utils = {
                 returnTime = `${parseInt(days)} day`;
             } else if (weeks <= 4) {
                 returnTime = `${parseInt(weeks)} week`;
+            } else if (months <= 12) {
+                returnTime = `${parseInt(months)} month`;
             } else if (years <= 12) {
                 returnTime = `${parseInt(years)} year`;
+            } else {
             }
 
             // Put plural measure
             if (returnTime === null) {
                 returnTime = `${fromDate.toISOString().slice(0, 10)} at ${fromDate.toLocaleTimeString()}`;
             } else if (Number(returnTime.split(" ")[0]) > 1) {
+                console.log(returnTime);
                 returnTime = returnTime + "s";
             }
             return returnTime;
