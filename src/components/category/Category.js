@@ -129,7 +129,7 @@ const Category = (props) => {
                                                     {}
                                                 }
                                             >
-                                                <img src={utils.compostImageLink(post.image)} alt={utils.noImageLink} />
+                                                <img src={utils.composeImageLink(post.image)} alt={utils.noImageLink} />
                                             </div>
                                             <div className="text">
                                                 <h3 className="post_title">
