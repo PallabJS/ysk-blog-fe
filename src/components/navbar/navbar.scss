@@ -38,7 +38,7 @@
 
         & > .nav-list-item {
             min-width: fit-content;
-            width: 140px;
+            width: 200px;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -52,12 +52,12 @@
                 text-decoration: none;
                 color: white;
                 font-family: "Big Shoulders Display", cursive;
-                font-size: 0.9rem;
-                letter-spacing: 3px;
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+                // transition: all 0.1s ease-in-out;
                 &:hover {
-                    font-size: 1.2rem;
-                    letter-spacing: 2px;
-                    color: gold;
+                    font-size: 1.3rem;
+                    color: rgb(243, 243, 87);
                     user-select: none;
                 }
             }
@@ -94,17 +94,17 @@
         height: 90%;
         width: 100px;
         padding: 0px 20px;
-        border-radius: 12px;
+        border-radius: 5px;
         letter-spacing: 1px;
         font-size: 1rem;
         text-align: center;
-        transition: width 0.2s ease-in-out;
+        border: none;
+        transition: all 0.2s ease-in-out;
         &::placeholder {
             font-size: 0.9rem;
         }
         &:focus {
             width: 300px;
-            border-radius: 10px;
         }
     }
 }
@@ -134,7 +134,8 @@
             letter-spacing: 1px;
             font-size: 1rem;
             text-align: center;
-            transition: width 0.5s cubic-bezier(0.19, 0.43, 0.36, 0.92), border-radius 0.3s ease-in-out;
+            transition: width 0.5s cubic-bezier(0.19, 0.43, 0.36, 0.92),
+                border-radius 0.3s ease-in-out;
             &::placeholder {
                 font-size: 0.9rem;
             }

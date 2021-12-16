@@ -52,14 +52,16 @@ const Homepage = (props) => {
                         <h1 className="header">
                             {app.isMobile ? (
                                 <>
-                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read and learn new
+                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read
+                                    and learn new
                                     <q>cool</q>
                                     stuffs.
                                     <br />
                                 </>
                             ) : (
                                 <>
-                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read and learn new
+                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read
+                                    and learn new
                                     <q>cool</q>
                                     stuffs.
                                     <br />
@@ -84,7 +86,10 @@ const Homepage = (props) => {
                                     )}
                                     {data[category].map((post, index) => {
                                         return (
-                                            <div key={index} className="homepage_category_post_section_container">
+                                            <div
+                                                key={index}
+                                                className="homepage_category_post_section_container"
+                                            >
                                                 <section className="homepage_category_post_section">
                                                     <div className="image_container">
                                                         <img
@@ -93,17 +98,29 @@ const Homepage = (props) => {
                                                         />
                                                     </div>
                                                     <h3 className="title">
-                                                        <a href={`${appDomain}/${post.meta.category}/${post.title}`}>
+                                                        <a
+                                                            href={`${appDomain}/${post.meta.category}/${post.title}`}
+                                                        >
                                                             {utils.parseTitle(post.title)}
                                                         </a>
                                                     </h3>
                                                     <div className="date">
-                                                        Post is {utils.getTimeDifference(new Date(post.date))} old
+                                                        Post is{" "}
+                                                        {utils.getTimeDifference(
+                                                            new Date(post.date)
+                                                        )}{" "}
+                                                        old
                                                     </div>
                                                     <p className="text">
                                                         {app.isMobile
-                                                            ? utils.sliceParsedJSX(parse(post.text), 200)
-                                                            : utils.sliceParsedJSX(parse(post.text), 80)}
+                                                            ? utils.sliceParsedJSX(
+                                                                  parse(post.text),
+                                                                  200
+                                                              )
+                                                            : utils.sliceParsedJSX(
+                                                                  parse(post.text),
+                                                                  80
+                                                              )}
                                                         . . .
                                                     </p>
                                                 </section>

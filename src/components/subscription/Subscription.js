@@ -35,7 +35,10 @@ const Subscription = (props) => {
         if (!res.error) {
             enqueueSnackbar("You have been Subscribed", { variant: "success" });
             setState({ email: "" });
-        } else enqueueSnackbar("There was a problem adding now, but your email will be added", { variant: "info" });
+        } else
+            enqueueSnackbar("There was a problem adding now, but your email will be added", {
+                variant: "info",
+            });
     };
 
     return (
@@ -43,7 +46,9 @@ const Subscription = (props) => {
             <div className="subscription_container">
                 <div className="subscription">
                     <h3 className="header">Subscribe YSK</h3>
-                    <p className="intro_text">Drop your email and we will keep you updated on upcomming posts.</p>
+                    <p className="intro_text">
+                        Drop your email and we will keep you updated on upcomming posts.
+                    </p>
                     <span>(Unsubscribe anytime)</span>
                     <div className="input_box">
                         <input

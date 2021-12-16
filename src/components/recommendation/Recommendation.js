@@ -52,7 +52,10 @@ const Recommendation = (props) => {
             {isProd && !isPostPage && !admin.token && (
                 <div className="ads_container" style={{ marginTop: "50px" }}>
                     <h3 className="header">Advertisements</h3>
-                    <div className="ad_container" id="container-2aa8bbc42b63894dc8eb1f9ca5478995"></div>
+                    <div
+                        className="ad_container"
+                        id="container-2aa8bbc42b63894dc8eb1f9ca5478995"
+                    ></div>
                 </div>
             )}
         </div>

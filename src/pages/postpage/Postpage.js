@@ -65,7 +65,14 @@ const Postpage = (props) => {
                 {post.body && post.body.list ? (
                     <section className="post_body_wrapper">
                         {post.body.list.map((post, index) => {
-                            return <Postsection type="body" post={post} index={index + 1} key={index} />;
+                            return (
+                                <Postsection
+                                    type="body"
+                                    post={post}
+                                    index={index + 1}
+                                    key={index}
+                                />
+                            );
                         })}
                     </section>
                 ) : null}

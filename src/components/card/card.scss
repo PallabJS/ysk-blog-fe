@@ -1,11 +1,11 @@
 .card_wrapper {
     width: 30%;
-    height: 350px;
+    height: 380px;
     box-sizing: border-box;
     float: left;
 
     & > .card {
-        border: 1px white solid;
+        border: 1px solid var(--white-shadow);
         border-radius: 3px;
         width: 100%;
         height: 100%;

@@ -7,17 +7,19 @@
     padding: 20px;
     padding-bottom: 20px;
     background-color: white;
-    border: 2px solid var(--wrapper-border-color);
+    border-radius: 15px;
     overflow: auto;
     clear: both;
     .recommandation_header {
         font-weight: 500;
         margin-bottom: 10px;
-        border-radius: 3px;
+        border-radius: 5px 5px 0 0;
         color: white;
         text-align: center;
-        background-color: var(--bg-red);
+        background-color: var(--brand-bg) !important;
         padding: 5px 10px;
+        opacity: 0.9;
+        font-size: var(--header-font-size);
     }
 
     & > .card_wrapper {
@@ -25,11 +27,11 @@
         height: fit-content;
         margin: 0px !important;
         margin-bottom: 5px !important;
-        background-color: var(--card-bg-color);
     }
     .card {
         width: 100%;
         padding: 20px;
+        border-radius: 10px;
         .card_content {
             & > h3 {
                 margin: 0px;
@@ -58,6 +60,14 @@
         & > .ad_container {
             width: 80%;
             margin: 0px auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .post_recommandation_category_page {
+        & > .card_wrapper {
+            padding: 0px !important;
         }
     }
 }

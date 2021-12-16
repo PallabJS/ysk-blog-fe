@@ -1,5 +1,5 @@
 .basepage_container {
-    width: 1200px;
+    width: 1300px;
     margin: 0px auto;
     margin-top: 45px;
 
@@ -12,7 +12,7 @@
         display: flex;
         & > .post_container {
             flex: 0.7;
-            border: 2px solid rgb(235, 235, 235);
+            border-radius: 15px;
             margin-right: 10px;
             padding: 40px;
             background-color: white;
@@ -76,14 +76,15 @@
             flex: 0.4;
             padding: 10px;
             background-color: white;
-            border: 2px solid rgb(235, 235, 235);
+            border-radius: 15px;
 
             .header {
                 padding: 5px 10px;
                 font-size: var(--header-font-size);
                 text-align: center;
                 color: ghostwhite;
-                background-color: var(--bg-red);
+                background-color: var(--brand-bg);
+                opacity: 0.8;
                 border-radius: 3px;
                 user-select: none;
             }
@@ -147,16 +148,18 @@
         padding: 30px;
         padding-bottom: 100px;
         background-color: white;
-        border: 2px solid var(--wrapper-border-color);
+        border-radius: 15px;
         overflow: auto;
         clear: both;
         & > .recommandation_header {
             font-weight: 500;
-            margin: 20px 5px;
+            margin: 20px 0px;
             border-radius: 3px;
             color: white;
-            background-color: var(--bg-red);
+            background-color: var(--brand-bg);
+            opacity: 0.8;
             padding: 5px 10px;
+            padding-left: 20px;
         }
         & > .recommandation_ad_container {
             clear: both;

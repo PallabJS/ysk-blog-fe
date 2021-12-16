@@ -51,7 +51,11 @@ const Basepage = (props) => {
             <main className="basepage_container">
                 {!postInfo.isPostPage ? (
                     <div className="main_flexbox">
-                        <Category app={app} className="category_page" category={postInfo.category} />
+                        <Category
+                            app={app}
+                            className="category_page"
+                            category={postInfo.category}
+                        />
                         <Recommendation
                             admin={admin}
                             className="post_recommandation_category_page"

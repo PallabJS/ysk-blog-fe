@@ -88,7 +88,11 @@ const Navbar = (props) => {
     return (
         <>
             <header className="head-container">
-                {app.isMobile ? <span className="logo">YSK</span> : <span className="logo">You Should Know</span>}
+                {app.isMobile ? (
+                    <span className="logo">YSK</span>
+                ) : (
+                    <span className="logo">You Should Know</span>
+                )}
                 <div className="search-box-container" ref={searchBox}>
                     <div id="search-nav-label" onClick={searchButtonClick}>
                         <FontAwesomeIcon icon={faSearch} size="lg" spin={state.searchTriggered} />
@@ -119,13 +123,17 @@ const Navbar = (props) => {
                 ) : (
                     <nav className="navbar">
                         <ul className="navlist">
-                            <li style={{ width: "80px" }} className="nav-list-item" onClick={() => handleRouting("/")}>
+                            <li
+                                style={{ width: "80px" }}
+                                className="nav-list-item"
+                                onClick={() => handleRouting("/")}
+                            >
                                 <a href={`${appDomain}`}>Home</a>
                             </li>
                             {categories.map((categoryName, index) => {
                                 return (
                                     <li
-                                        style={{ width: categoryName.length * 15 + "px" }}
+                                        style={{ width: categoryName.length * 20 + "px" }}
                                         key={index}
                                         className="nav-list-item"
                                     >

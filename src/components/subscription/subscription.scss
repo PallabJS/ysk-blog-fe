@@ -6,23 +6,27 @@ $green_hover: rgb(29, 129, 88);
 
     & > .subscription {
         padding-bottom: 20px;
-        box-shadow: 0 0 1px 1px rgba(100, 100, 100, 0.3);
+        box-shadow: 0px 2px 0px 0px rgba(180, 178, 178, 0.3);
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        border-radius: 5px;
 
         & > .header {
-            margin-bottom: 10px;
-            padding: 5px 10px;
+            margin-bottom: 10px !important;
+            padding: 5px 10px !important;
             color: white;
-            background-color: rgb(50, 204, 140) !important;
+            background-color: $green !important;
             text-align: center;
+            font-size: 1.3rem;
+            border-radius: 5px 5px 0px 0px !important;
         }
 
         & > .intro_text {
             text-align: justify;
             padding: 10px;
             color: rgb(17, 146, 51);
-            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+                Arial, sans-serif;
             margin-bottom: 20px;
         }
 
