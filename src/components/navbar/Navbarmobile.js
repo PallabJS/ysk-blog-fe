@@ -48,7 +48,10 @@ const Navbarmobile = (props) => {
                 )}
             </div>
 
-            <ul className="navbar_mobile_list" style={navbar.expanded ? { opacity: 1, marginRight: "0px" } : {}}>
+            <ul
+                className="navbar_mobile_list"
+                style={navbar.expanded ? { opacity: 1, marginRight: "0px" } : {}}
+            >
                 <label>Category</label>
                 <li className="navbar_mobile_list_item" onClick={() => handleRouting("/")}>
                     Home

@@ -10,7 +10,9 @@ export const Posttitle = (props) => {
         <React.Fragment>
             {title ? (
                 <h1 className={className}>
-                    {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
+                    <div className="title_text">
+                        {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
+                    </div>
                     <Subtitle subtitle={subtitle} className="subtitle" />
                     <Postdate date={date} className="meta_info" />
                 </h1>
@@ -24,7 +26,8 @@ export const Subtitle = ({ subtitle, className }) => {
         <>
             {subtitle ? (
                 <div className={className}>
-                    &nbsp; - {subtitle.replace(/-/g, " ").replace(subtitle[0], subtitle[0].toUpperCase())}
+                    &nbsp; -{" "}
+                    {subtitle.replace(/-/g, " ").replace(subtitle[0], subtitle[0].toUpperCase())}
                 </div>
             ) : null}
         </>
@@ -79,7 +82,9 @@ export const PostCard = (props) => {
                         fontStyle: "normal",
                     }}
                 >
-                    {post.title.replace(/-/g, " ").replace(post.title[0], post.title[0].toUpperCase())}
+                    {post.title
+                        .replace(/-/g, " ")
+                        .replace(post.title[0], post.title[0].toUpperCase())}
                 </a>
             </h3>
             <div> ({utils.getTimeDifference(new Date(post.date.replace("at", "")))} ago)</div>

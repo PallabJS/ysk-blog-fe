@@ -22,7 +22,9 @@ const Card = (props) => {
                     <h3>
                         <a href={`${appDomain}/${subtitle}/${title}`}>
                             {title.replace(/-/g, " ").replace(title[0], title[0].toUpperCase())}
-                            {!isNaN(meta.views) ? <span className="views"> ({meta.views} views)</span> : null}
+                            {!isNaN(meta.views) ? (
+                                <span className="views"> ({meta.views} views)</span>
+                            ) : null}
                         </a>
                     </h3>
                     {subtitle ? <span className="subtitle">&nbsp;- {subtitle}</span> : null}

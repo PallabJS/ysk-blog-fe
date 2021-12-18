@@ -19,6 +19,16 @@
 
             .post_section {
                 margin-bottom: 30px;
+                & .pagetitle {
+                    border-radius: 5px;
+                    & > .title_text {
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                        color: rgb(37, 60, 115);
+                        background-color: rgb(215, 234, 243);
+                    }
+                }
+
                 & .pagetitle,
                 .section_title {
                     font-family: monospace;
@@ -49,7 +59,7 @@
 
                 & .meta_info {
                     display: block;
-                    margin-left: 2px;
+                    margin-left: 22px;
                     margin-top: 0px;
                     font-size: 0.9rem;
                     font-weight: 400;
@@ -161,6 +171,7 @@
             padding: 5px 10px;
             padding-left: 20px;
         }
+
         & > .recommandation_ad_container {
             clear: both;
             & > .header {
@@ -203,16 +214,17 @@
         min-height: calc(100vh - 40px - 40px - 20px);
         position: relative;
         box-sizing: border-box;
+        margin-bottom: 0px;
         .main_flexbox {
             display: flex;
             flex-direction: column;
 
             & > .post_container {
                 flex: 0.7;
-                border: 2px solid rgb(235, 235, 235);
-                margin-right: 00px;
+                margin-right: 0px;
+                margin-bottom: 10px;
                 padding: 20px;
-                padding-top: 30px;
+                padding-top: 50px;
                 background-color: white;
                 & .pagetitle,
                 .section_title {
@@ -262,12 +274,10 @@
                 flex: 0.4;
                 padding: 10px;
                 background-color: white;
-                border: 2px solid rgb(235, 235, 235);
 
                 .header {
                     padding: 5px 10px;
                     color: ghostwhite;
-                    background-color: var(--bg-red);
                     border-radius: 3px;
                     user-select: none;
                 }
@@ -302,7 +312,6 @@
             padding: 00px;
             padding-bottom: 100px;
             background-color: white;
-            border: 2px solid var(--wrapper-border-color);
             overflow: auto;
             clear: both;
             .recommandation_header {
@@ -311,7 +320,6 @@
                 margin: 20px 5px;
                 border-radius: 3px;
                 color: white;
-                background-color: var(--bg-red);
                 padding: 5px 10px;
             }
             & > .recommandation_ad_container {

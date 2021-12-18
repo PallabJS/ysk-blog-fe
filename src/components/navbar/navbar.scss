@@ -46,17 +46,17 @@
             height: 100%;
             padding: 0px 10px;
             cursor: pointer;
-            border-right: 2px solid rgb(7, 122, 7);
+            border-right: 1px solid rgba(253, 253, 253, 0.194);
             & > a {
                 font-style: normal;
                 text-decoration: none;
                 color: white;
                 font-family: "Big Shoulders Display", cursive;
-                font-size: 1.2rem;
+                font-size: 1rem;
                 letter-spacing: 2px;
                 // transition: all 0.1s ease-in-out;
                 &:hover {
-                    font-size: 1.3rem;
+                    font-size: 1.2rem;
                     color: rgb(243, 243, 87);
                     user-select: none;
                 }
@@ -128,14 +128,12 @@
             height: 80%;
             width: 100px;
             padding: 0px 20px;
-            border-radius: 0px;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 10px;
+            border-radius: 10px;
             letter-spacing: 1px;
             font-size: 1rem;
             text-align: center;
-            transition: width 0.5s cubic-bezier(0.19, 0.43, 0.36, 0.92),
-                border-radius 0.3s ease-in-out;
+            transition: width 0.2s cubic-bezier(0.19, 0.43, 0.36, 0.92),
+                border-radius 0.2s ease-in-out;
             &::placeholder {
                 font-size: 0.9rem;
             }

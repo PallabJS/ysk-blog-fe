@@ -19,7 +19,7 @@
         margin-right: -200px;
         right: 0px;
         background-color: rgb(45, 49, 45);
-        transition: opacity 0.3s ease-in-out, margin-right 0.3s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         & > label {
             display: block;
@@ -38,7 +38,7 @@
             height: 30px;
             color: rgb(224, 224, 224);
             font-weight: 200;
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, font-size 0.2s ease-in-out;
+            transition: all 0.3s ease-in-out;
 
             &:hover {
                 cursor: pointer;
@@ -91,8 +91,6 @@
                 color: rgb(224, 224, 224);
                 font-weight: 200;
                 font-size: 1.3rem;
-                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, font-size 0.2s ease-in-out;
-
                 &:hover {
                     cursor: pointer;
                     font-size: 0.9rem;
