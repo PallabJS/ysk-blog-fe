@@ -52,7 +52,7 @@ const Homepage = (props) => {
             <div className="homepage">
                 <div className="main">
                     <div className="page_header">
-                        <img src="pwa_icon_dark.png" />
+                        <img width={"100%"} height={"100%"} src="pwa_icon_dark.png" />
                         <h1 className="header">
                             {app.isMobile ? (
                                 <>
