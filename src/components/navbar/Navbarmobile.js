@@ -52,10 +52,14 @@ const Navbarmobile = (props) => {
                 className="navbar_mobile_list"
                 style={navbar.expanded ? { opacity: 1, marginRight: "0px" } : {}}
             >
-                <label>Category</label>
                 <li className="navbar_mobile_list_item" onClick={() => handleRouting("/")}>
                     Home
                 </li>
+
+                <li className="section_item">
+                    <label>Categories</label>
+                </li>
+
                 {categories.map((categoryName, index) => {
                     return (
                         <li
@@ -67,7 +71,9 @@ const Navbarmobile = (props) => {
                         </li>
                     );
                 })}
-                <Version />
+                <li>
+                    <Version />
+                </li>
             </ul>
         </nav>
     );

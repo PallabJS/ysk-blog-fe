@@ -56,6 +56,8 @@ export const Postimage = (props) => {
             {url ? (
                 <div className={className}>
                     <img
+                        width={"100%"}
+                        height={"auto"}
                         src={utils.composeImageLink(url)}
                         alt={utils.noImageLink}
                         style={{ width: "100%", height: "auto" }}
@@ -68,7 +70,7 @@ export const Postimage = (props) => {
 
 export const Postext = (props) => {
     const { text, className } = props;
-    return <>{text ? <p className={className}>{parse(text)}</p> : null}</>;
+    return <>{text ? <div className={className}>{parse(text)}</div> : ""}</>;
 };
 
 export const PostCard = (props) => {

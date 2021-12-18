@@ -45,13 +45,14 @@ const Subscription = (props) => {
         <>
             <div className="subscription_container">
                 <div className="subscription">
-                    <h3 className="header">Subscribe YSK</h3>
+                    <h2 className="header">Subscribe YSK</h2>
                     <p className="intro_text">
                         Drop your email and we will keep you updated on upcomming posts.
                     </p>
                     <span>(Unsubscribe anytime)</span>
                     <div className="input_box">
                         <input
+                            aria-label="subscription email id"
                             type="email"
                             value={state.email}
                             spellCheck="false"
