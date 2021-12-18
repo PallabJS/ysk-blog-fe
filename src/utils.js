@@ -98,9 +98,10 @@ export const utils = {
 
             // Put plural measure
             if (returnTime === null) {
-                returnTime = `${fromDate.toISOString().slice(0, 10)} at ${fromDate.toLocaleTimeString()}`;
+                returnTime = `${fromDate
+                    .toISOString()
+                    .slice(0, 10)} at ${fromDate.toLocaleTimeString()}`;
             } else if (Number(returnTime.split(" ")[0]) > 1) {
-                console.log(returnTime);
                 returnTime = returnTime + "s";
             }
             return returnTime;

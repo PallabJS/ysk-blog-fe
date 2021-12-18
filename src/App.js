@@ -79,7 +79,7 @@ const App = () => {
     }, []);
 
     const openAdminPage = (e) => {
-        if (e.ctrlKey && e.shiftKey && e.keyCode === 1) {
+        if (e.shiftKey && e.keyCode === 65) {
             window.location.href = appDomain + "/admin";
         }
 
@@ -124,7 +124,10 @@ const App = () => {
                         {!appState.internetConnected ? (
                             <Errormsg title="Oops!" text="Looks like you're offline" />
                         ) : appState.serverActive ? null : (
-                            <Errormsg title="" text="Server is under maintainence, it will be back online soon!" />
+                            <Errormsg
+                                title=""
+                                text="Server is under maintainence, it will be back online soon!"
+                            />
                         )}
                         {!appState.internetConnected ? (
                             <Errormsg title="Oops!" text="Looks like you're offline" />
@@ -135,12 +138,20 @@ const App = () => {
                                     <Router>
                                         <Switch>
                                             <Route exact path="/">
-                                                <Homepage app={app} categories={categories} admin={admin} />
+                                                <Homepage
+                                                    app={app}
+                                                    categories={categories}
+                                                    admin={admin}
+                                                />
                                             </Route>
                                             {categories.map((route, index) => {
                                                 return (
                                                     <Route path={`/${route}`} key={index}>
-                                                        <Basepage app={app} categories={categories} admin={admin} />
+                                                        <Basepage
+                                                            app={app}
+                                                            categories={categories}
+                                                            admin={admin}
+                                                        />
                                                     </Route>
                                                 );
                                             })}

@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
+
+// Custom hooks
+import useScreenSize from "../../hooks/useScreenSize";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Droplist from "../droplist/Droplist";
@@ -24,6 +28,8 @@ const Navbar = (props) => {
     const [searchText, setSearchText] = useState("");
 
     const searchBox = useRef();
+
+    const screenSize = useScreenSize();
 
     const handleTextInput = async (e) => {
         let value = e.target.value;
@@ -88,7 +94,7 @@ const Navbar = (props) => {
     return (
         <>
             <header className="head-container">
-                {app.isMobile ? (
+                {app.isMobile || screenSize === "xs" ? (
                     <span className="logo">YSK</span>
                 ) : (
                     <span className="logo">You Should Know</span>

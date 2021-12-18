@@ -13,15 +13,19 @@ import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
 import Accessibility from "../../components/accesibility/Accessibility";
 import Subscription from "../../components/subscription/Subscription";
+import Loader from "../../components/loader/Loader";
 
 const Homepage = (props) => {
     const { app, categories, admin } = props;
+
+    const [appLoader, setApploader] = useState(true);
 
     const [data, setData] = useState({});
 
     const loadHomepage = async () => {
         let res = await postApi.getHomepageData(6);
         if (!res.error) {
+            setApploader(false);
             setData(res.data);
         }
     };
@@ -71,66 +75,74 @@ const Homepage = (props) => {
                         </h1>
                     </div>
 
-                    {Object.keys(data).map((category, index) => {
-                        return (
-                            <section key={index} className="homepage_category_section">
-                                <h2 className="header">{category.toUpperCase()}</h2>
-                                <div className="content">
-                                    {data[category].length === 0 && (
-                                        <Nodata
-                                            text="No posts on this category yet"
-                                            style={{
-                                                padding: "10px",
-                                            }}
-                                        />
-                                    )}
-                                    {data[category].map((post, index) => {
-                                        return (
-                                            <div
-                                                key={index}
-                                                className="homepage_category_post_section_container"
-                                            >
-                                                <section className="homepage_category_post_section">
-                                                    <div className="image_container">
-                                                        <img
-                                                            src={utils.composeImageLink(post.image)}
-                                                            alt={utils.noImageLink}
-                                                        />
+                    <div className="homepage_category_section_container">
+                        {appLoader ? (
+                            <Loader className="homepage_category_section_container" />
+                        ) : (
+                            Object.keys(data).map((category, index) => {
+                                return (
+                                    <section key={index} className="homepage_category_section">
+                                        <h2 className="header">{category.toUpperCase()}</h2>
+                                        <div className="content">
+                                            {data[category].length === 0 && (
+                                                <Nodata
+                                                    text="No posts on this category yet"
+                                                    style={{
+                                                        padding: "10px",
+                                                    }}
+                                                />
+                                            )}
+                                            {data[category].map((post, index) => {
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        className="homepage_category_post_section_container"
+                                                    >
+                                                        <section className="homepage_category_post_section">
+                                                            <div className="image_container">
+                                                                <img
+                                                                    src={utils.composeImageLink(
+                                                                        post.image
+                                                                    )}
+                                                                    alt={utils.noImageLink}
+                                                                />
+                                                            </div>
+                                                            <h3 className="title">
+                                                                <a
+                                                                    href={`${appDomain}/${post.meta.category}/${post.title}`}
+                                                                >
+                                                                    {utils.parseTitle(post.title)}
+                                                                </a>
+                                                            </h3>
+                                                            <div className="date">
+                                                                Post is{" "}
+                                                                {utils.getTimeDifference(
+                                                                    new Date(post.date)
+                                                                )}{" "}
+                                                                old
+                                                            </div>
+                                                            <p className="text">
+                                                                {app.isMobile
+                                                                    ? utils.sliceParsedJSX(
+                                                                          parse(post.text),
+                                                                          200
+                                                                      )
+                                                                    : utils.sliceParsedJSX(
+                                                                          parse(post.text),
+                                                                          80
+                                                                      )}
+                                                                . . .
+                                                            </p>
+                                                        </section>
                                                     </div>
-                                                    <h3 className="title">
-                                                        <a
-                                                            href={`${appDomain}/${post.meta.category}/${post.title}`}
-                                                        >
-                                                            {utils.parseTitle(post.title)}
-                                                        </a>
-                                                    </h3>
-                                                    <div className="date">
-                                                        Post is{" "}
-                                                        {utils.getTimeDifference(
-                                                            new Date(post.date)
-                                                        )}{" "}
-                                                        old
-                                                    </div>
-                                                    <p className="text">
-                                                        {app.isMobile
-                                                            ? utils.sliceParsedJSX(
-                                                                  parse(post.text),
-                                                                  200
-                                                              )
-                                                            : utils.sliceParsedJSX(
-                                                                  parse(post.text),
-                                                                  80
-                                                              )}
-                                                        . . .
-                                                    </p>
-                                                </section>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </section>
-                        );
-                    })}
+                                                );
+                                            })}
+                                        </div>
+                                    </section>
+                                );
+                            })
+                        )}
+                    </div>
                 </div>
                 <div className="homepage_aside_section">
                     <Subscription />

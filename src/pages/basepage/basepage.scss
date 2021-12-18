@@ -10,75 +10,80 @@
     box-sizing: border-box;
     .main_flexbox {
         display: flex;
-        & > .post_container {
-            flex: 0.7;
-            border-radius: 15px;
-            margin-right: 10px;
-            padding: 40px;
-            background-color: white;
 
-            .post_section {
-                margin-bottom: 30px;
-                & .pagetitle {
-                    border-radius: 5px;
-                    & > .title_text {
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        color: rgb(37, 60, 115);
-                        background-color: rgb(215, 234, 243);
-                    }
-                }
+        & .post_page_body {
+            display: flex;
+            width: 100%;
+            & .post_container {
+                flex: 0.8;
+                border-radius: 15px;
+                margin-right: 10px;
+                padding: 40px;
+                background-color: white;
 
-                & .pagetitle,
-                .section_title {
-                    font-family: monospace;
-                    font-size: 1.6rem;
-                    font-weight: 500;
+                .post_section {
                     margin-bottom: 30px;
-                    margin-top: 20px;
-                    font-family: var(--font-title);
-                }
-                & .section_title {
-                    color: var(--info-date);
-                    font-size: 1.3rem;
-                    font-weight: 500;
-                    margin: 10px 0px;
-                }
-                .climax_title {
-                    font-size: 1.5rem;
-                    margin: 10px 0px;
-                    margin-top: 20px;
-                }
+                    & .pagetitle {
+                        border-radius: 5px;
+                        & > .title_text {
+                            border-radius: 5px;
+                            padding: 5px 10px;
+                            color: rgb(37, 60, 115);
+                            background-color: rgb(215, 234, 243);
+                        }
+                    }
 
-                & .subtitle {
-                    font-size: 1.1rem;
-                    font-weight: 350;
-                    margin-bottom: 10px;
-                    font-style: italic;
-                }
+                    & .pagetitle,
+                    .section_title {
+                        font-family: monospace;
+                        font-size: 1.6rem;
+                        font-weight: 500;
+                        margin-bottom: 30px;
+                        margin-top: 20px;
+                        font-family: var(--font-title);
+                    }
+                    & .section_title {
+                        color: var(--info-date);
+                        font-size: 1.3rem;
+                        font-weight: 500;
+                        margin: 10px 0px;
+                    }
+                    .climax_title {
+                        font-size: 1.5rem;
+                        margin: 10px 0px;
+                        margin-top: 20px;
+                    }
 
-                & .meta_info {
-                    display: block;
-                    margin-left: 22px;
-                    margin-top: 0px;
-                    font-size: 0.9rem;
-                    font-weight: 400;
-                    color: var(--info-date);
-                }
-                & .content {
-                    line-height: 1.5rem;
-                    text-align: justify;
-                    color: var(--content-color);
-                    font-family: var(--content-font);
-                    font-weight: 300;
-                    font-size: 1.05rem;
-                }
-                .img_container {
-                    padding: 5px;
-                    box-shadow: 0 0 5px 1px rgba(194, 194, 194, 0.541);
-                    width: 100%;
-                    box-sizing: border-box;
-                    margin: 30px 0px;
+                    & .subtitle {
+                        font-size: 1.1rem;
+                        font-weight: 350;
+                        margin-bottom: 10px;
+                        font-style: italic;
+                    }
+
+                    & .meta_info {
+                        display: block;
+                        margin-left: 22px;
+                        margin-top: 0px;
+                        font-size: 0.9rem;
+                        font-weight: 400;
+                        color: var(--info-date);
+                    }
+                    & .content {
+                        line-height: 1.5rem;
+                        text-align: justify;
+                        color: var(--content-color);
+                        font-family: var(--content-font);
+                        font-weight: 300;
+                        font-size: 1.05rem;
+                    }
+                    .img_container {
+                        padding: 5px;
+                        box-shadow: 0 0 5px 1px rgba(194, 194, 194, 0.541);
+                        width: 100%;
+                        box-sizing: border-box;
+                        margin: 30px 0px;
+                    }
                 }
             }
         }

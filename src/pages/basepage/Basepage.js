@@ -12,6 +12,7 @@ import "./basepage.scss";
 import Category from "../../components/category/Category";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import Loader from "../../components/loader/Loader";
 
 let path = window.location.pathname;
 let [category, postTitle] = path.slice(1).split("/");
@@ -66,7 +67,8 @@ const Basepage = (props) => {
                 ) : null}
                 <div className="main_flexbox">
                     {postInfo.isPostPage ? (
-                        <>
+                        <div className="post_page_body">
+                            {!post.show && <Loader className="post_container" />}
                             {post.show && post.valid ? (
                                 <>
                                     <Postpage className="post_container" post={post} />
@@ -81,7 +83,7 @@ const Basepage = (props) => {
                             ) : post.show && !post.valid ? (
                                 <Page404 />
                             ) : null}
-                        </>
+                        </div>
                     ) : null}
                 </div>
                 {postInfo.isPostPage ? (

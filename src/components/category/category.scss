@@ -2,9 +2,11 @@
     position: relative;
     background-color: white;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     flex: 1;
     border-radius: 15px;
-    .header {
+    & .header {
         margin-bottom: 10px;
         color: rgb(255, 255, 255);
         font-size: var(--header-font-size);
@@ -14,6 +16,9 @@
         font-size: var(--header-font-size);
         background-color: var(--brand-bg);
         opacity: 0.9;
+    }
+    & .category_page_body {
+        flex: 1;
     }
 }
 

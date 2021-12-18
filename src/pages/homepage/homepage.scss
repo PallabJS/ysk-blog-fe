@@ -7,6 +7,9 @@
     margin-top: 60px;
     & > .main {
         flex: 0.75;
+
+        display: flex;
+        flex-direction: column;
         // background-color: white;
         // padding: 10px !important;
 
@@ -53,95 +56,98 @@
             background: linear-gradient(rgb(240, 239, 239), rgb(150, 200, 160));
         }
 
-        & > .homepage_category_section {
+        & .homepage_category_section_container {
             flex: 1;
-            margin-bottom: 50px;
-            &:last-child {
-                margin-bottom: 0px;
-            }
+            & > .homepage_category_section {
+                flex: 1;
+                margin-bottom: 50px;
+                &:last-child {
+                    margin-bottom: 0px;
+                }
 
-            & > .header {
-                padding: 5px 20px;
-                border-left: 4px solid var(--red-hl);
-                color: var(--white-text);
-                border-radius: 5px 5px 0 0;
-                color: white;
-                font-weight: 300;
-                background-color: var(--brand-bg);
-                opacity: 0.7;
-                font-size: var(--header-font-size);
-                font-family: var(--funky-header);
-            }
+                & > .header {
+                    padding: 5px 20px;
+                    border-left: 4px solid var(--red-hl);
+                    color: var(--white-text);
+                    border-radius: 5px 5px 0 0;
+                    color: white;
+                    font-weight: 300;
+                    background-color: var(--brand-bg);
+                    opacity: 0.7;
+                    font-size: var(--header-font-size);
+                    font-family: var(--funky-header);
+                }
 
-            & > .content {
-                padding: 20px;
-                padding-bottom: 50px;
-                background-color: white;
-                overflow: auto;
-                border-radius: 0 0 15px 15px;
+                & > .content {
+                    padding: 20px;
+                    padding-bottom: 50px;
+                    background-color: white;
+                    overflow: auto;
+                    border-radius: 0 0 15px 15px;
 
-                & > .homepage_category_post_section_container {
-                    width: 30.5%;
-                    float: left;
-                    height: 380px;
-                    margin: 10px;
-                    & > .homepage_category_post_section {
-                        overflow: hidden;
-                        cursor: pointer;
-                        background-color: white;
-                        border: 1px solid rgb(227, 227, 227);
-                        border-radius: 30px;
-                        width: 100%;
-                        height: 100%;
-                        box-sizing: border-box;
-                        padding: 10px 20px;
-                        padding-top: 20px;
-                        font-size: 1rem;
-
-                        &::selection {
-                            display: none !important;
-                        }
-
-                        transition: all 0.1s ease-in-out;
-                        & > .title {
-                            margin-top: 10px;
-                            line-height: 25px;
-                            a {
-                                font-style: var(--title-font-size);
-                                font-family: var(--post-title);
-                                transition: font-size 0.2s ease-in-out;
-                                font-weight: 100;
-                                color: var(--title-color);
-                                cursor: pointer;
-                            }
-                        }
-                        & > .date {
-                            font-size: var(--meta-font-size);
-                            margin-bottom: 5px;
-                            color: rgb(123, 132, 138);
-                        }
-                        & > .image_container {
-                            width: 100%;
-                            height: 40%;
+                    & > .homepage_category_post_section_container {
+                        width: 30.5%;
+                        float: left;
+                        height: 380px;
+                        margin: 10px;
+                        & > .homepage_category_post_section {
                             overflow: hidden;
-                            img {
-                                width: 100%;
-                                height: auto;
-                            }
-                        }
-                        & > .text {
-                            font-size: var(--text-font-size);
-                            color: var(--card-text-color);
-                            transition: font-size 0.2s ease-in-out;
-                        }
+                            cursor: pointer;
+                            background-color: white;
+                            border: 1px solid rgb(227, 227, 227);
+                            border-radius: 30px;
+                            width: 100%;
+                            height: 100%;
+                            box-sizing: border-box;
+                            padding: 10px 20px;
+                            padding-top: 20px;
+                            font-size: 1rem;
 
-                        &:hover {
-                            position: relative;
-                            z-index: 2;
-                            box-shadow: -2px -5px 5px 2px var(--white-shadow);
-                            height: calc(100% + 5px);
-                            margin-left: 5px;
-                            margin-top: 5px;
+                            &::selection {
+                                display: none !important;
+                            }
+
+                            transition: all 0.1s ease-in-out;
+                            & > .title {
+                                margin-top: 10px;
+                                line-height: 25px;
+                                a {
+                                    font-style: var(--title-font-size);
+                                    font-family: var(--post-title);
+                                    transition: font-size 0.2s ease-in-out;
+                                    font-weight: 100;
+                                    color: var(--title-color);
+                                    cursor: pointer;
+                                }
+                            }
+                            & > .date {
+                                font-size: var(--meta-font-size);
+                                margin-bottom: 5px;
+                                color: rgb(123, 132, 138);
+                            }
+                            & > .image_container {
+                                width: 100%;
+                                height: 40%;
+                                overflow: hidden;
+                                img {
+                                    width: 100%;
+                                    height: auto;
+                                }
+                            }
+                            & > .text {
+                                font-size: var(--text-font-size);
+                                color: var(--card-text-color);
+                                transition: font-size 0.2s ease-in-out;
+                            }
+
+                            &:hover {
+                                position: relative;
+                                z-index: 2;
+                                box-shadow: -2px -5px 5px 2px var(--white-shadow);
+                                height: calc(100% + 5px);
+                                margin-left: 5px;
+                                margin-top: 5px;
+                            }
                         }
                     }
                 }

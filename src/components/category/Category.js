@@ -11,19 +11,22 @@ import { postApi } from "../../api/post/postapi";
 
 import { utils } from "../../utils";
 import { appDomain } from "../../settings";
+import Loader from "../loader/Loader";
 
 let postPerPage = 10;
 
 const Category = (props) => {
     const { app, className, category } = props;
 
-    const [show, setShow] = useState(false);
+    const [appLoader, setApploader] = useState(true);
 
     const categoryPage = useRef();
 
     const [state, setState] = useState({
         entireList: [],
-        currentPage: sessionStorage.getItem("currentpage") ? parseInt(sessionStorage.getItem("currentpage")) : 1,
+        currentPage: sessionStorage.getItem("currentpage")
+            ? parseInt(sessionStorage.getItem("currentpage"))
+            : 1,
         hasNext: true,
         hasPrevious: false,
     });
@@ -45,7 +48,8 @@ const Category = (props) => {
                 return false;
             }
         }
-        let updatedCurrentPage = action === "next" ? parseInt(state.currentPage) + 1 : parseInt(state.currentPage) - 1;
+        let updatedCurrentPage =
+            action === "next" ? parseInt(state.currentPage) + 1 : parseInt(state.currentPage) - 1;
         let remainingPostOnNextPage = state.entireList.length - updatedCurrentPage * postPerPage;
         setState({
             ...state,
@@ -62,30 +66,29 @@ const Category = (props) => {
 
     const getUpdatedList = (mainList, currentPage, length) => {
         let currentPageIndex = currentPage - 1;
-        let tempCurrentLlist = mainList.slice(currentPageIndex * length, currentPageIndex * length + length);
+        let tempCurrentLlist = mainList.slice(
+            currentPageIndex * length,
+            currentPageIndex * length + length
+        );
         return tempCurrentLlist;
     };
 
     const getAllPostAndSetStartList = () => {
-        // getting entire list
-
-        setTimeout(() => {
-            postApi.getLatestPosts(category).then((res) => {
-                if (!res.error) {
-                    let dateSortedList = res.data.sort((posta, postb) => {
-                        return new Date(postb.date) - new Date(posta.date);
-                    });
-                    // page initialization
-                    setState({
-                        ...state,
-                        entireList: dateSortedList,
-                        hasNext: !(state.currentPage * postPerPage + postPerPage > res.data.length),
-                        hasPrevious: !(state.currentPage === 1),
-                    });
-                    setShow(true);
-                }
-            });
-        }, 1000);
+        postApi.getLatestPosts(category).then((res) => {
+            if (!res.error) {
+                let dateSortedList = res.data.sort((posta, postb) => {
+                    return new Date(postb.date) - new Date(posta.date);
+                });
+                // page initialization
+                setState({
+                    ...state,
+                    entireList: dateSortedList,
+                    hasNext: !(state.currentPage * postPerPage + postPerPage > res.data.length),
+                    hasPrevious: !(state.currentPage === 1),
+                });
+                setApploader(false);
+            }
+        });
     };
 
     useEffect(() => {
@@ -102,69 +105,98 @@ const Category = (props) => {
             <div className={className} ref={categoryPage}>
                 <h1 className="header"> Latest topics on {category} </h1>
 
-                {show ? (
-                    <>
-                        {state.currentPage.length > 0 ? (
-                            <Pager
-                                currentPage={state.currentPage}
-                                hasPrevious={state.hasPrevious}
-                                hasNext={state.hasNext}
-                                onClick={clickHandler}
-                            />
-                        ) : null}
+                <div className="category_page_body">
+                    {appLoader ? (
+                        <Loader className="category_page_body" />
+                    ) : (
+                        <>
+                            {state.currentPage.length > 0 ? (
+                                <Pager
+                                    currentPage={state.currentPage}
+                                    hasPrevious={state.hasPrevious}
+                                    hasNext={state.hasNext}
+                                    onClick={clickHandler}
+                                />
+                            ) : null}
 
-                        {state.entireList.length === 0 && <Nodata text="No post yet" color="black" />}
+                            {state.entireList.length === 0 && (
+                                <Nodata text="No post yet" color="black" />
+                            )}
 
-                        <ul className="main-ul">
-                            {getUpdatedList(state.entireList, state.currentPage, postPerPage).map((post, index) => {
-                                return (
-                                    <li key={index} style={app.isMobile ? { minHeight: "400px" } : {}}>
-                                        <div className="list_wrapper">
-                                            <div
-                                                className="img_container"
-                                                style={
-                                                    (app.isMobile && {
-                                                        width: "100%",
-                                                    }) ||
-                                                    {}
-                                                }
-                                            >
-                                                <img src={utils.composeImageLink(post.image)} alt={utils.noImageLink} />
+                            <ul className="main-ul">
+                                {getUpdatedList(
+                                    state.entireList,
+                                    state.currentPage,
+                                    postPerPage
+                                ).map((post, index) => {
+                                    return (
+                                        <li
+                                            key={index}
+                                            style={app.isMobile ? { minHeight: "400px" } : {}}
+                                        >
+                                            <div className="list_wrapper">
+                                                <div
+                                                    className="img_container"
+                                                    style={
+                                                        (app.isMobile && {
+                                                            width: "100%",
+                                                        }) ||
+                                                        {}
+                                                    }
+                                                >
+                                                    <img
+                                                        src={utils.composeImageLink(post.image)}
+                                                        alt={utils.noImageLink}
+                                                    />
+                                                </div>
+                                                <div className="text">
+                                                    <h3 className="post_title">
+                                                        <a
+                                                            href={`${appDomain}/${category}/${post.title}`}
+                                                        >
+                                                            {post.title
+                                                                .replace(/-/g, " ")
+                                                                .replace(
+                                                                    post.title[0],
+                                                                    post.title[0].toUpperCase()
+                                                                )}
+                                                        </a>
+                                                    </h3>
+                                                    <span className="text_meta">
+                                                        Posted{" "}
+                                                        {utils.getTimeDifference(
+                                                            new Date(post.date)
+                                                        )}{" "}
+                                                        ago
+                                                    </span>
+                                                    <p className="text_body">
+                                                        {app.isMobile
+                                                            ? parse(post.text.slice(0, 100))
+                                                            : parse(post.text.slice(0, 150))}
+                                                        ...
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div className="text">
-                                                <h3 className="post_title">
-                                                    <a href={`${appDomain}/${category}/${post.title}`}>
-                                                        {post.title
-                                                            .replace(/-/g, " ")
-                                                            .replace(post.title[0], post.title[0].toUpperCase())}
-                                                    </a>
-                                                </h3>
-                                                <span className="text_meta">
-                                                    Posted {utils.getTimeDifference(new Date(post.date))} ago
-                                                </span>
-                                                <p className="text_body">
-                                                    {app.isMobile
-                                                        ? parse(post.text.slice(0, 100))
-                                                        : parse(post.text.slice(0, 150))}
-                                                    ...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        {state.currentPage.length > 0 ? (
-                            <Pager
-                                style={{ position: "absolute", width: "calc(100% - 40px)", bottom: "20px" }}
-                                currentPage={state.currentPage}
-                                hasPrevious={state.hasPrevious}
-                                hasNext={state.hasNext}
-                                onClick={clickHandler}
-                            />
-                        ) : null}
-                    </>
-                ) : null}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                            {state.currentPage.length > 0 ? (
+                                <Pager
+                                    style={{
+                                        position: "absolute",
+                                        width: "calc(100% - 40px)",
+                                        bottom: "20px",
+                                    }}
+                                    currentPage={state.currentPage}
+                                    hasPrevious={state.hasPrevious}
+                                    hasNext={state.hasNext}
+                                    onClick={clickHandler}
+                                />
+                            ) : null}
+                        </>
+                    )}
+                </div>
             </div>
         </>
     );
