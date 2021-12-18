@@ -68,21 +68,19 @@ const Basepage = (props) => {
                 <div className="main_flexbox">
                     {postInfo.isPostPage ? (
                         <div className="post_page_body">
-                            {!post.show && <Loader className="post_container" />}
+                            {post.show && <Loader className="post_container" />}
                             {post.show && post.valid ? (
-                                <>
-                                    <Postpage className="post_container" post={post} />
-                                    <Sidecontent
-                                        admin={admin}
-                                        className="sidecontent_container"
-                                        currentPostCategory={postInfo.category}
-                                        currentPostTitle={postInfo.title}
-                                        countToDisplay={10}
-                                    />
-                                </>
+                                <Postpage className="post_container" post={post} />
                             ) : post.show && !post.valid ? (
                                 <Page404 />
                             ) : null}
+                            <Sidecontent
+                                admin={admin}
+                                className="sidecontent_container"
+                                currentPostCategory={postInfo.category}
+                                currentPostTitle={postInfo.title}
+                                countToDisplay={10}
+                            />
                         </div>
                     ) : null}
                 </div>

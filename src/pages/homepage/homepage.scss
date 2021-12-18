@@ -192,10 +192,12 @@
     .homepage {
         width: 100%;
         & > .main {
-            & > .homepage_category_section {
-                & > .content {
-                    & > .homepage_category_post_section_container {
-                        width: 45%;
+            & .homepage_category_section_container {
+                & > .homepage_category_section {
+                    & > .content {
+                        & > .homepage_category_post_section_container {
+                            width: 45%;
+                        }
                     }
                 }
             }
@@ -265,80 +267,82 @@
                 background: linear-gradient(rgb(240, 239, 239), rgb(150, 200, 160));
             }
 
-            & > .homepage_category_section {
-                flex: 1;
-                margin-bottom: 5px;
-                &:last-child {
-                    margin-bottom: 0px !important;
-                }
-                & > .header {
-                    padding: 5px 20px;
-                    border-left: 4px solid var(--red-hl);
-                    color: white;
-                    font-size: var(--header-font-size);
-                }
+            & .homepage_category_section_container {
+                & > .homepage_category_section {
+                    flex: 1;
+                    margin-bottom: 5px;
+                    &:last-child {
+                        margin-bottom: 0px !important;
+                    }
+                    & > .header {
+                        padding: 5px 20px;
+                        border-left: 4px solid var(--red-hl);
+                        color: white;
+                        font-size: var(--header-font-size);
+                    }
 
-                & > .content {
-                    padding: 0px;
-                    background-color: white;
-                    overflow: auto;
-                    border: none;
+                    & > .content {
+                        padding: 0px;
+                        background-color: white;
+                        overflow: auto;
+                        border: none;
 
-                    & > .homepage_category_post_section_container {
-                        width: 100%;
-                        height: fit-content;
-                        margin: 0px !important;
-                        padding: 20px 0px;
-                        margin-bottom: 10px !important;
+                        & > .homepage_category_post_section_container {
+                            width: 100%;
+                            height: fit-content;
+                            margin: 0px !important;
+                            padding: 20px 0px;
+                            margin-bottom: 10px !important;
 
-                        & > .homepage_category_post_section {
-                            background-color: white;
-                            border: none;
-                            box-sizing: border-box;
-                            padding: 10px 20px;
-                            font-size: 1rem;
-
-                            & > .title > a {
-                                font-size: var(--title-font-size) !important;
-                                font-family: var(--post-title);
-                                text-decoration: underline 1px rgba(228, 82, 15, 0.616);
-                                text-underline-offset: 1px;
-                                color: var(--title-color);
-                                padding-top: 10px;
-                                padding-bottom: 0px;
-                            }
-
-                            & > .date {
-                                font-size: var(--meta-font-size);
-                                margin-bottom: 5px;
-                                color: rgb(123, 132, 138);
-                            }
-
-                            & > .image_container {
-                                display: flex;
-                                align-items: flex-end;
-                                width: 100%;
-                                height: 35%;
-                                overflow: hidden;
-                                & > img {
-                                    width: 100%;
-                                    height: auto;
-                                }
-                            }
-                            & > .text {
-                                color: var(--card-text-color);
-                                text-indent: 10px;
-                                text-align: justify;
-                            }
-
-                            &:hover {
-                                position: relative;
-                                z-index: 2;
-                                box-shadow: none;
+                            & > .homepage_category_post_section {
+                                background-color: white;
                                 border: none;
-                                height: calc(100% + 5px);
-                                margin-left: 0px;
-                                margin-top: 0px;
+                                box-sizing: border-box;
+                                padding: 10px 20px;
+                                font-size: 1rem;
+
+                                & > .title > a {
+                                    font-size: var(--title-font-size) !important;
+                                    font-family: var(--post-title);
+                                    text-decoration: underline 1px rgba(228, 82, 15, 0.616);
+                                    text-underline-offset: 1px;
+                                    color: var(--title-color);
+                                    padding-top: 10px;
+                                    padding-bottom: 0px;
+                                }
+
+                                & > .date {
+                                    font-size: var(--meta-font-size);
+                                    margin-bottom: 5px;
+                                    color: rgb(123, 132, 138);
+                                }
+
+                                & > .image_container {
+                                    display: flex;
+                                    align-items: flex-end;
+                                    width: 100%;
+                                    height: 35%;
+                                    overflow: hidden;
+                                    & > img {
+                                        width: 100%;
+                                        height: auto;
+                                    }
+                                }
+                                & > .text {
+                                    color: var(--card-text-color);
+                                    text-indent: 10px;
+                                    text-align: justify;
+                                }
+
+                                &:hover {
+                                    position: relative;
+                                    z-index: 2;
+                                    box-shadow: none;
+                                    border: none;
+                                    height: calc(100% + 5px);
+                                    margin-left: 0px;
+                                    margin-top: 0px;
+                                }
                             }
                         }
                     }

@@ -224,55 +224,59 @@
             display: flex;
             flex-direction: column;
 
-            & > .post_container {
-                flex: 0.7;
-                margin-right: 0px;
-                margin-bottom: 10px;
-                padding: 20px;
-                padding-top: 50px;
-                background-color: white;
-                & .pagetitle,
-                .section_title {
-                    font-size: 1.5rem !important;
-                }
-                & .section_title {
-                    color: var(--info-date);
-                    font-size: 1.2rem !important;
-                    font-weight: 700;
-                    margin: 10px 0px;
-                }
-                .climax_title {
-                    font-size: 1.2rem !important;
-                    margin: 10px 0px;
-                    margin-top: 20px;
-                }
+            & .post_page_body {
+                flex-direction: column;
 
-                & .subtitle {
-                    margin-top: 5px;
-                    font-size: 1rem !important;
-                    font-weight: 350;
+                & > .post_container {
+                    flex: 0.7;
+                    margin-right: 0px;
                     margin-bottom: 10px;
-                }
+                    padding: 20px;
+                    padding-top: 50px;
+                    background-color: white;
+                    & .pagetitle,
+                    .section_title {
+                        font-size: 1.5rem !important;
+                    }
+                    & .section_title {
+                        color: var(--info-date);
+                        font-size: 1.2rem !important;
+                        font-weight: 700;
+                        margin: 10px 0px;
+                    }
+                    .climax_title {
+                        font-size: 1.2rem !important;
+                        margin: 10px 0px;
+                        margin-top: 20px;
+                    }
 
-                & .meta_info {
-                    display: block;
-                    margin-left: 2px;
-                    margin-top: 0px;
-                    font-size: 0.9rem;
-                    font-weight: 400;
-                    color: var(--info-date);
-                }
-                & .content {
-                    line-height: 1.5rem;
-                    text-align: justify;
-                    color: var(--content-color);
-                    font-family: var(--content-font);
-                    font-size: 1rem !important;
-                }
-                .img_container {
-                    width: 100%;
-                    box-sizing: border-box;
-                    margin: 30px 0px;
+                    & .subtitle {
+                        margin-top: 5px;
+                        font-size: 1rem !important;
+                        font-weight: 350;
+                        margin-bottom: 10px;
+                    }
+
+                    & .meta_info {
+                        display: block;
+                        margin-left: 2px;
+                        margin-top: 0px;
+                        font-size: 0.9rem;
+                        font-weight: 400;
+                        color: var(--info-date);
+                    }
+                    & .content {
+                        line-height: 1.5rem;
+                        text-align: justify;
+                        color: var(--content-color);
+                        font-family: var(--content-font);
+                        font-size: 1rem !important;
+                    }
+                    .img_container {
+                        width: 100%;
+                        box-sizing: border-box;
+                        margin: 30px 0px;
+                    }
                 }
             }
             & .sidecontent_container {
@@ -326,6 +330,10 @@
                 border-radius: 3px;
                 color: white;
                 padding: 5px 10px;
+            }
+
+            .card_wrapper {
+                margin: 0px 0px 10px 0px;
             }
             & > .recommandation_ad_container {
                 clear: both;
