@@ -68,7 +68,7 @@ const Basepage = (props) => {
                 <div className="main_flexbox">
                     {postInfo.isPostPage ? (
                         <div className="post_page_body">
-                            {post.show && <Loader className="post_container" />}
+                            {!post.show && <Loader className="post_container" />}
                             {post.show && post.valid ? (
                                 <Postpage className="post_container" post={post} />
                             ) : post.show && !post.valid ? (
