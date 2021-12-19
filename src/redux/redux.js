@@ -20,7 +20,7 @@ const mainReducer = combineReducers({
 
 // Thunk middle ware
 let thunkMiddleware = applyMiddleware(thunk);
-if (process.env.REACT_APP_ENV === "development" || true) {
+if (process.env.REACT_APP_ENV === "development") {
     thunkMiddleware = composeWithDevTools(thunkMiddleware);
 }
 

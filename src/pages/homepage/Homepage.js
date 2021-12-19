@@ -106,6 +106,8 @@ const Homepage = (props) => {
                                                         <section className="homepage_category_post_section">
                                                             <div className="image_container">
                                                                 <img
+                                                                    width={"1000%"}
+                                                                    height={"100%"}
                                                                     src={utils.composeImageLink(
                                                                         post.image
                                                                     )}

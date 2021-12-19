@@ -15,7 +15,7 @@ const Card = (props) => {
             <div className={"card " + (animation ? "card_animation" : "")}>
                 {!app.isMobile && (
                     <div className="image_container">
-                        <img src={image} alt="" />
+                        <img width={"100%"} height={"100%"} src={image} alt="" />
                     </div>
                 )}
                 <div className="card_content">
