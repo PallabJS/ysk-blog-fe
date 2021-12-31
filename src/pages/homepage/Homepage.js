@@ -61,22 +61,24 @@ const Homepage = (props) => {
                         <h1 className="header">
                             {app.isMobile ? (
                                 <>
-                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read
+                                    {/* A new-born <q>open</q> blog for <q>anyone</q> who love to read
                                     and learn new
                                     <q>cool</q>
-                                    stuffs.
+                                    stuffs. */}
+                                    YSK is a spot for readers and learners
                                     <br />
                                 </>
                             ) : (
                                 <>
-                                    A new-born <q>open</q> blog for <q>anyone</q> who love to read
+                                    {/* A new-born <q>open</q> blog for <q>anyone</q> who love to read
                                     and learn new
                                     <q>cool</q>
-                                    stuffs.
+                                    stuffs. */}
+                                    YSK is a spot for readers and learners
                                     <br />
                                 </>
                             )}
-                            <span>We deliver contents - that you love to read.</span>
+                            <span> Find and read just the right content you needed </span>
                         </h1>
                     </div>
 
