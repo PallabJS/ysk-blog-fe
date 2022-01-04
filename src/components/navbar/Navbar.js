@@ -15,9 +15,12 @@ import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
 import Navbarmobile from "./Navbarmobile";
 import { appDomain } from "../../settings";
+import { useLocation } from "react-router-dom";
 
 const Navbar = (props) => {
     const { app, categories } = props;
+    const url = useLocation();
+
     const [state, setState] = useState({
         searchText: "",
         searchTriggered: false,
@@ -94,70 +97,97 @@ const Navbar = (props) => {
     return (
         <>
             <header className="head-container">
-                {app.isMobile || screenSize === "xs" ? (
-                    <span className="logo">YSK</span>
-                ) : (
-                    <span className="logo">You Should Know</span>
-                )}
-                <div className="search-box-container" ref={searchBox}>
-                    <div id="search-nav-label" onClick={searchButtonClick}>
-                        <FontAwesomeIcon icon={faSearch} size="lg" spin={state.searchTriggered} />
-                    </div>
-                    <input
-                        id="search-nav"
-                        type="text"
-                        autoComplete="false"
-                        autoSave="false"
-                        spellCheck={false}
-                        placeholder={"Press '/'"}
-                        value={searchText}
-                        onChange={handleTextInput}
-                        onKeyUp={checkForEnterKey}
-                        onFocus={(e) => {
-                            e.target.setAttribute("placeholder", "Just give me the 'term' buddy");
-                        }}
-                        onBlur={(e) => {
-                            e.target.setAttribute("placeholder", "Press '/'");
-                            setTimeout(() => {
-                                setState({ ...setState, droplist: [], showDropList: false });
-                            }, 200);
-                        }}
-                    />
-                </div>
-                {app.screenSizeMedium ? (
-                    <Navbarmobile categories={categories} handleRouting={handleRouting} />
-                ) : (
-                    <nav className="navbar">
-                        <ul className="navlist">
-                            <li
-                                style={{ width: "80px" }}
-                                className="nav-list-item"
-                                onClick={() => handleRouting("/")}
-                            >
-                                <a href={`${appDomain}`}>Home</a>
-                            </li>
-                            {categories.map((categoryName, index) => {
-                                return (
-                                    <li
-                                        style={{ width: categoryName.length * 20 + "px" }}
-                                        key={index}
-                                        className="nav-list-item"
-                                    >
-                                        <a
-                                            href={`${appDomain}/${categoryName}`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                handleRouting(`/${categoryName}`);
-                                            }}
-                                        >
-                                            {utils.parseTitle(categoryName)}
-                                        </a>
-                                    </li>
+                <div className="nav-wrapper">
+                    {app.isMobile || screenSize === "xs" ? (
+                        <span className="logo">YSK</span>
+                    ) : (
+                        <span className="logo">Y S K</span>
+                    )}
+                    <div
+                        className="search-box-container"
+                        ref={searchBox}
+                        style={{ display: "none" }}
+                    >
+                        <div id="search-nav-label" onClick={searchButtonClick}>
+                            <FontAwesomeIcon
+                                icon={faSearch}
+                                size="lg"
+                                spin={state.searchTriggered}
+                            />
+                        </div>
+                        <input
+                            id="search-nav"
+                            type="text"
+                            autoComplete="false"
+                            autoSave="false"
+                            spellCheck={false}
+                            placeholder={"Press '/'"}
+                            value={searchText}
+                            onChange={handleTextInput}
+                            onKeyUp={checkForEnterKey}
+                            onFocus={(e) => {
+                                e.target.setAttribute(
+                                    "placeholder",
+                                    "Just give me the 'term' buddy"
                                 );
-                            })}
-                        </ul>
-                    </nav>
-                )}
+                            }}
+                            onBlur={(e) => {
+                                e.target.setAttribute("placeholder", "Press '/'");
+                                setTimeout(() => {
+                                    setState({ ...setState, droplist: [], showDropList: false });
+                                }, 200);
+                            }}
+                        />
+                    </div>
+                    {app.screenSizeMedium ? (
+                        <Navbarmobile categories={categories} handleRouting={handleRouting} />
+                    ) : (
+                        <nav className="navbar">
+                            <ul className="navlist">
+                                <li
+                                    style={{ width: "80px" }}
+                                    className="nav-list-item"
+                                    onClick={() => handleRouting("/")}
+                                >
+                                    <a
+                                        href={`${appDomain}`}
+                                        style={{
+                                            ...(url.pathname === "/" && {
+                                                borderBottom: "2px solid red",
+                                            }),
+                                        }}
+                                    >
+                                        Home
+                                    </a>
+                                </li>
+                                {categories.map((categoryName, index) => {
+                                    return (
+                                        <li
+                                            style={{ width: categoryName.length * 20 + "px" }}
+                                            key={index}
+                                            className="nav-list-item"
+                                        >
+                                            <a
+                                                href={`${appDomain}/${categoryName}`}
+                                                style={{
+                                                    ...(url.pathname.slice(1) === categoryName && {
+                                                        borderBottom: "2px solid red",
+                                                    }),
+                                                }}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    handleRouting(`/${categoryName}`);
+                                                }}
+                                            >
+                                                {utils.parseTitle(categoryName)}
+                                            </a>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </nav>
+                    )}
+                </div>
             </header>
             <Droplist
                 show={state.showDropList}

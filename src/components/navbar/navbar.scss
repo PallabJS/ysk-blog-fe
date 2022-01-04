@@ -2,34 +2,59 @@
 
 :root {
     --nav-bar-height: 45px;
+
+    --navitem-color: rgb(9, 5, 5);
+
+    --navitem-hover-color: black;
+
+    --logotext: rgba(74, 117, 140, 0.75);
+
+    --search-text-bg: rgba(181, 194, 200, 0.319);
 }
 
 .head-container {
-    display: flex;
+    background-color: var(--nav-bg);
     position: fixed;
     z-index: 5;
     top: 0px;
     width: 100%;
     height: var(--nav-bar-height);
-    background-color: var(--nav-bg);
-    box-shadow: 0 0px 1px 1px rgba(177, 177, 177, 0.89);
-    color: white;
+    display: flex;
+    justify-content: center;
+
+    & > .nav-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: 100%;
+        color: white;
+        background-color: rgba(245, 222, 179, 0);
+    }
 }
+
 .logo {
     display: flex;
     align-items: center;
-    margin-top: -2px;
+    margin-top: -4px;
     margin-left: 10px;
+    margin-right: 30px;
     padding: 0px 10px;
     height: 100%;
+    color: var(--logotext);
     font-family: "Monofett", cursive;
-    font-size: 2.2rem;
-    font-weight: lighter;
+    font-size: 2.7rem;
     user-select: none;
+    line-break: strict !important;
+    word-break: keep-all;
+    @media screen and (max-width: 600px) {
+        letter-spacing: 2px;
+    }
 }
 
 .navbar {
     margin-left: auto;
+    width: fit-content;
+
     & > .navlist {
         display: flex;
         justify-content: center;
@@ -50,14 +75,14 @@
             & > a {
                 font-style: normal;
                 text-decoration: none;
-                color: white;
+                color: var(--navitem-color);
                 font-family: "Big Shoulders Display", cursive;
                 font-size: 1rem;
                 letter-spacing: 2px;
-                // transition: all 0.1s ease-in-out;
+                padding: 0px 2px 2px 4px;
                 &:hover {
-                    font-size: 1.2rem;
-                    color: rgb(243, 243, 87);
+                    font-size: 1.1rem;
+                    color: var(--navitem-hover-color);
                     user-select: none;
                 }
             }
@@ -66,24 +91,23 @@
 }
 
 .search-box-container {
-    margin-left: 50px;
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    // border: 1px solid red;
 
     & > #search-nav-label {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 10px;
+        margin-right: 20px;
         height: 100%;
-        width: 30px;
+        width: 0px;
         cursor: pointer;
+        color: var(--navitem-color);
         transition: font-size 0.1s ease-in-out;
         &:hover {
             color: red;
-            font-size: 1.2rem;
+            font-size: 1.1em;
         }
         &:active {
             font-size: 0.8rem;
@@ -92,19 +116,31 @@
 
     & > #search-nav {
         height: 90%;
-        width: 100px;
+        width: 200px;
         padding: 0px 20px;
-        border-radius: 5px;
+        border-radius: 3px;
         letter-spacing: 1px;
         font-size: 1rem;
         text-align: center;
         border: none;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.4s ease-in-out;
+
+        background-color: var(--search-text-bg);
         &::placeholder {
             font-size: 0.9rem;
         }
         &:focus {
-            width: 300px;
+            border-radius: 20px;
+            width: 400px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .head-container {
+        height: 50px;
+        & > .nav-wrapper {
+            width: 100%;
         }
     }
 }
@@ -113,6 +149,10 @@
 @media screen and (max-width: 900px) {
     .head-container {
         height: 50px;
+    }
+    .logo {
+        margin-right: 0px;
+        padding-left: 0px;
     }
     .search-box-container {
         margin-left: 0px;
@@ -123,20 +163,13 @@
         & > #search-nav-label {
             display: none;
         }
+    }
+}
 
+@media screen and (max-width: 600px) {
+    .search-box-container {
         & > #search-nav {
-            height: 80%;
             width: 100px;
-            padding: 0px 20px;
-            border-radius: 10px;
-            letter-spacing: 1px;
-            font-size: 1rem;
-            text-align: center;
-            transition: width 0.2s cubic-bezier(0.19, 0.43, 0.36, 0.92),
-                border-radius 0.2s ease-in-out;
-            &::placeholder {
-                font-size: 0.9rem;
-            }
             &:focus {
                 width: 200px;
                 border-radius: 15px;

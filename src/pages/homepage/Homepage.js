@@ -13,6 +13,7 @@ import { postApi } from "../../api/post/postapi";
 import { utils } from "../../utils";
 import Accessibility from "../../components/accesibility/Accessibility";
 import Subscription from "../../components/subscription/Subscription";
+import Recommandation from "../../components/recommendation/Recommendation";
 import Loader from "../../components/loader/Loader";
 
 const Homepage = (props) => {
@@ -155,7 +156,13 @@ const Homepage = (props) => {
                 </div>
                 <div className="homepage_aside_section">
                     <Subscription />
-                    {isProd && (
+                    {/* <Recommandation
+                        admin={admin}
+                        className="post_recommandation"
+                        category={}
+                        isPostPage={postInfo.isPostPage}
+                    /> */}
+                    {/* {isProd && (
                         <div className="ad_container">
                             <h3 className="homepage_ad_header">ADVERTISEMENTS</h3>
                             <div
@@ -163,7 +170,7 @@ const Homepage = (props) => {
                                 id="container-2aa8bbc42b63894dc8eb1f9ca5478995"
                             ></div>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
             <Footer />

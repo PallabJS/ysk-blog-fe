@@ -24,6 +24,8 @@ if (process.env.REACT_APP_ENV === "development") {
     thunkMiddleware = composeWithDevTools(thunkMiddleware);
 }
 
+thunkMiddleware = composeWithDevTools(thunkMiddleware);
+
 const persistedReducer = persistReducer({ key: "root", storage: storage }, mainReducer);
 const store = createStore(persistedReducer, thunkMiddleware);
 

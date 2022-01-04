@@ -8,9 +8,7 @@ import "./recommendation.scss";
 import { utils } from "../../utils";
 import { isProd } from "../../settings";
 
-const Recommendation = (props) => {
-    const { className, category, isPostPage, admin } = props;
-
+const Recommendation = ({ className, category, isPostPage, admin, ...props }) => {
     // These stores un-categorized posts
     const [popularPosts, setPopularPosts] = useState([]);
 
