@@ -1,3 +1,5 @@
+@use "../../css/brand" as brand;
+
 .category_page {
     position: relative;
     background-color: white;
@@ -8,13 +10,13 @@
     border-radius: 15px;
     & .header {
         margin-bottom: 10px;
-        color: rgb(255, 255, 255);
+        color: brand.$header-color;
         font-size: var(--header-font-size);
         font-weight: 500;
-        padding: 5px 10px;
+        padding: 7px 10px;
         border-radius: 5px 5px 0 0;
         font-size: var(--header-font-size);
-        background-color: var(--brand-bg);
+        background-color: brand.$header-bgcolor;
         opacity: 0.9;
     }
     & .category_page_body {
@@ -111,9 +113,13 @@
 
     .main-ul {
         margin: 0px;
+
         & > li {
             margin: 2px 0px;
             height: 400px;
+            &:last-child {
+                margin: 0px !important;
+            }
             & > .list_wrapper {
                 flex-direction: column;
                 align-items: flex-start;

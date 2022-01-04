@@ -1,3 +1,5 @@
+@use "../../css/brand" as brand;
+
 .post_recommandation_category_page {
     display: flex;
     flex: 0.5;
@@ -14,9 +16,9 @@
         font-weight: 500;
         margin-bottom: 10px;
         border-radius: 5px 5px 0 0;
-        color: white;
+        color: brand.$header-color !important;
         text-align: center;
-        background-color: var(--brand-bg) !important;
+        background-color: brand.$header-bgcolor !important;
         padding: 5px 10px;
         opacity: 0.9;
         font-size: var(--header-font-size);
@@ -51,8 +53,8 @@
             font-size: var(--title-font-size);
             font-weight: 300;
             font-family: var(--funky-header);
-            color: white;
-            background-color: var(--bg-header-black);
+            color: brand.$header-color;
+            background-color: brand.$header-bgcolor;
             padding: 5px 0px;
             margin-bottom: 20px;
             text-align: center;

@@ -1,6 +1,12 @@
+$category-header-color: rgb(94, 89, 89);
+$category-header-bgcolor: rgb(243, 243, 243);
+
+// container-border-radius
+$cbr: 10px;
+
 .homepage {
     display: flex;
-    width: 80%;
+    width: 1200px;
     align-items: stretch;
     min-height: calc(100vh - 60px - 40px - 45px);
     margin: 45px auto;
@@ -10,8 +16,6 @@
 
         display: flex;
         flex-direction: column;
-        // background-color: white;
-        // padding: 10px !important;
 
         & > .page_header {
             display: flex;
@@ -60,7 +64,10 @@
             flex: 1;
             & > .homepage_category_section {
                 flex: 1;
-                margin-bottom: 50px;
+                margin-bottom: 20px;
+                &:first-child {
+                    margin-top: 10px;
+                }
                 &:last-child {
                     margin-bottom: 0px;
                 }
@@ -69,11 +76,10 @@
                     padding: 5px 20px;
                     border-left: 4px solid var(--red-hl);
                     color: var(--white-text);
-                    border-radius: 5px 5px 0 0;
-                    color: white;
+                    border-radius: $cbr $cbr 0 0;
+                    color: $category-header-color;
+                    background-color: $category-header-bgcolor;
                     font-weight: 300;
-                    background-color: var(--brand-bg);
-                    opacity: 0.7;
                     font-size: var(--header-font-size);
                     font-family: var(--funky-header);
                 }
@@ -83,7 +89,7 @@
                     padding-bottom: 50px;
                     background-color: white;
                     overflow: auto;
-                    border-radius: 0 0 15px 15px;
+                    border-radius: 0 0 $cbr $cbr;
 
                     & > .homepage_category_post_section_container {
                         width: 30.5%;
@@ -190,7 +196,7 @@
 
 @media screen and (max-width: 1200px) {
     .homepage {
-        width: 100%;
+        width: 98%;
         & > .main {
             & .homepage_category_section_container {
                 & > .homepage_category_section {
@@ -218,7 +224,6 @@
 
 @media screen and (max-width: 1024px) {
     .homepage {
-        width: 100%;
         & > .main {
             & .homepage_category_section_container {
                 & > .homepage_category_section {
@@ -251,7 +256,7 @@
         flex-direction: column;
         margin-top: 55px;
         margin-bottom: 50px;
-        width: 100%;
+        width: 99%;
         align-items: stretch;
         border-radius: 10px;
         & > .main {
@@ -310,14 +315,9 @@
                 & > .homepage_category_section {
                     flex: 1;
                     margin-bottom: 5px;
-                    &:last-child {
-                        margin-bottom: 0px !important;
-                    }
                     & > .header {
                         padding: 5px 20px;
                         border-left: 4px solid var(--red-hl);
-                        color: white;
-                        font-size: var(--header-font-size);
                     }
 
                     & > .content {

@@ -1,13 +1,15 @@
+@use "../../css/brand" as brand;
+
 .basepage_container {
     width: 1300px;
     margin: 0px auto;
     margin-top: 45px;
 
-    padding-top: 80px;
-    margin-bottom: 40px;
+    padding: 40px 0px;
     min-height: calc(100vh - 90px - 35px);
     position: relative;
     box-sizing: border-box;
+
     .main_flexbox {
         display: flex;
 
@@ -28,8 +30,7 @@
                         & > .title_text {
                             border-radius: 5px;
                             padding: 5px 10px;
-                            color: rgb(37, 60, 115);
-                            background-color: rgb(215, 234, 243);
+                            color: rgb(79, 135, 168);
                         }
                     }
 
@@ -97,15 +98,15 @@
                 padding: 5px 10px;
                 font-size: var(--header-font-size);
                 text-align: center;
-                color: ghostwhite;
-                background-color: var(--brand-bg);
+                color: brand.$header-color;
+                background-color: brand.$header-bgcolor;
                 opacity: 0.8;
                 border-radius: 3px;
                 user-select: none;
             }
 
             & > .side_cards {
-                margin-bottom: 50px;
+                margin-bottom: 10px;
                 & .post_card {
                     margin: 5px 0px;
                     padding: 30px 10px;
@@ -143,7 +144,6 @@
                 & > .header {
                     font-size: var(--title-font-size);
                     font-family: var(--funky-header);
-                    background-color: var(--bg-header-black);
                     font-weight: 300;
                     padding: 5px 0px;
                     margin-bottom: 20px;
@@ -170,8 +170,8 @@
             font-weight: 500;
             margin: 20px 0px;
             border-radius: 3px;
-            color: white;
-            background-color: var(--brand-bg);
+            color: brand.$header-color;
+            background-color: brand.$header-bgcolor;
             opacity: 0.8;
             padding: 5px 10px;
             padding-left: 20px;
@@ -180,9 +180,8 @@
         & > .recommandation_ad_container {
             clear: both;
             & > .header {
-                background-color: rgb(185, 147, 21);
                 padding: 5px 20px;
-                color: white;
+                color: brand.$header-color;
                 margin-top: 50px !important;
                 font-size: 1.4rem;
                 margin-bottom: 10px;
@@ -198,24 +197,23 @@
 
 @media screen and (max-width: 1280px) {
     .basepage_container {
-        width: 100%;
-        padding: 50px 100px;
+        width: 95%;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .basepage_container {
-        width: 100%;
-        padding: 30px 40px;
+        width: 95%;
     }
 }
 
 // SCREEN SIZE 900x
 @media screen and (max-width: 900px) {
     .basepage_container {
-        width: 100%;
+        width: 99%;
         margin: 30px auto;
-        padding: 0px;
+        padding: 10px 0px;
+        margin-top: 45px;
         min-height: calc(100vh - 40px - 40px - 20px);
         position: relative;
         box-sizing: border-box;
@@ -286,7 +284,6 @@
 
                 .header {
                     padding: 5px 10px;
-                    color: ghostwhite;
                     border-radius: 3px;
                     user-select: none;
                 }
@@ -320,15 +317,16 @@
             margin: 10px 0px;
             padding: 00px;
             padding-bottom: 100px;
-            background-color: white;
+            background-color: brand.$header-bgcolor;
             overflow: auto;
             clear: both;
+            display: none;
             .recommandation_header {
                 text-align: center;
                 font-weight: 500;
                 margin: 20px 5px;
                 border-radius: 3px;
-                color: white;
+                color: brand.$header-color;
                 padding: 5px 10px;
             }
 
@@ -338,9 +336,9 @@
             & > .recommandation_ad_container {
                 clear: both;
                 & > .header {
-                    background-color: rgb(185, 147, 21);
+                    background-color: brand.$header-bgcolor;
                     padding: 5px 20px;
-                    color: white;
+                    color: brand.$header-color;
                     font-size: 1.4rem;
                     margin-bottom: 10px;
                     text-align: left;

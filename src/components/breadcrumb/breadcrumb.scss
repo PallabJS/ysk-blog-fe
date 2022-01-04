@@ -1,5 +1,7 @@
+@use "../../css/brand" as brand;
+
 .breadcrumb {
-    background-color: var(--bg-green);
+    background-color: brand.$header-bgcolor;
     padding: 10px;
     font-size: 1rem;
     border-radius: 20px;

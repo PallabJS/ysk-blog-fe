@@ -1,8 +1,9 @@
-$green: rgb(44, 175, 120);
-$green_hover: rgb(29, 129, 88);
+@use "../../css/brand" as brand;
+
+$text-color: rgb(163, 169, 163);
 
 .subscription_container {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 
     & > .subscription {
         padding-bottom: 20px;
@@ -14,8 +15,8 @@ $green_hover: rgb(29, 129, 88);
         & > .header {
             margin-bottom: 10px !important;
             padding: 5px 10px !important;
-            color: white;
-            background-color: $green !important;
+            color: brand.$header-color;
+            background-color: brand.$header-bgcolor !important;
             text-align: center;
             font-size: 1.3rem;
             border-radius: 5px 5px 0px 0px !important;
@@ -24,20 +25,19 @@ $green_hover: rgb(29, 129, 88);
         & > .intro_text {
             text-align: justify;
             padding: 10px;
-            color: rgb(17, 146, 51);
-            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-                Arial, sans-serif;
-            margin-bottom: 20px;
+            color: $text-color;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            margin-bottom: 0px;
         }
 
         & > span {
             display: block;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 30px;
             margin-bottom: 10px;
             font-family: fantasy;
             font-size: 1rem;
-            color: gray;
+            color: $text-color;
         }
 
         & > .input_box {
@@ -49,12 +49,13 @@ $green_hover: rgb(29, 129, 88);
                 padding: 5px 10px;
                 width: 70%;
                 font-size: 1rem;
-                border: 2px solid rgb(229, 235, 229);
+                border: none;
+                outline: 1px solid rgb(224, 224, 224);
                 border-radius: 3px;
-                transition: all 0.3s ease-in-out;
+                transition: all 0.1s ease-in-out;
 
                 &:focus {
-                    background-color: rgb(245, 253, 234);
+                    outline: 1px solid rgb(79, 148, 171);
                 }
             }
             & > input[type="button"] {
@@ -63,13 +64,13 @@ $green_hover: rgb(29, 129, 88);
                 color: white;
                 border: 1px solid white;
                 border-radius: 5px;
-                background-color: $green;
+                background-color: $text-color;
                 font-weight: 700;
-                transition: all 0.3s ease-in-out;
+                transition: all 0.1s ease-in-out;
 
                 &:hover {
                     cursor: pointer;
-                    background-color: $green_hover;
+                    background-color: rgb(104, 185, 104);
                     transition: all 0.1s ease-in-out;
 
                     &:active {
@@ -84,6 +85,5 @@ $green_hover: rgb(29, 129, 88);
 @media screen and (max-width: 900px) {
     .subscription_container {
         margin: 5px;
-        margin-bottom: 50px;
     }
 }
