@@ -52,7 +52,7 @@ const Homepage = (props) => {
 
             <div className="homepage">
                 <div className="main">
-                    <div className="page_header">
+                    <div className="page_header" style={{ background: "url(headerimg.jpg)" }}>
                         <img
                             width={"100%"}
                             height={"100%"}
@@ -66,7 +66,7 @@ const Homepage = (props) => {
                                     and learn new
                                     <q>cool</q>
                                     stuffs. */}
-                                    YSK is a spot for readers and learners
+                                    A perfect spot for readers
                                     <br />
                                 </>
                             ) : (
@@ -79,7 +79,7 @@ const Homepage = (props) => {
                                     <br />
                                 </>
                             )}
-                            <span> Find and read just the right content you needed </span>
+                            {/* <span> Find and read just the right content you needed </span> */}
                         </h1>
                     </div>
 

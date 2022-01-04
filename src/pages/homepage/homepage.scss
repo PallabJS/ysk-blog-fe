@@ -28,6 +28,8 @@ $cbr: 10px;
                 margin-top: 10px;
                 width: 120px;
                 height: auto;
+
+                filter: drop-shadow(-5px -5px 70px rgb(23, 117, 185));
             }
             & > .header {
                 flex: 1;
@@ -35,8 +37,9 @@ $cbr: 10px;
                 padding-left: 30px;
 
                 font-size: 2.5rem;
-                font-weight: 200;
-                color: rgb(11, 65, 128);
+                font-weight: 100;
+                color: rgb(46, 102, 162);
+                filter: drop-shadow(5px 5px 4px rgb(88, 183, 231));
                 & > q {
                     font-size: 1.5rem;
                     font-variant: small-caps;
@@ -57,7 +60,13 @@ $cbr: 10px;
             }
             margin-bottom: 10px;
             padding-bottom: 30px;
-            background: linear-gradient(rgb(243, 243, 243), rgb(189, 226, 196));
+            background-color: rgb(179, 221, 246) !important;
+            background-blend-mode: lighten !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            filter: saturate(0);
+
+            box-shadow: -10px 0px 10px -1px rgb(205, 205, 207), 10px 0px 5px -1px rgb(205, 205, 207);
         }
 
         & .homepage_category_section_container {
@@ -256,7 +265,7 @@ $cbr: 10px;
         flex-direction: column;
         margin-top: 55px;
         margin-bottom: 50px;
-        width: 99%;
+        width: 95%;
         align-items: stretch;
         border-radius: 10px;
         & > .main {
@@ -270,6 +279,7 @@ $cbr: 10px;
                 align-items: center;
                 justify-content: center;
                 padding: 10px;
+                height: 150px;
                 & > img {
                     margin-right: auto;
                     margin-left: 20px;
