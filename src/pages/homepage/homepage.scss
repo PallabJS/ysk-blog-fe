@@ -6,7 +6,7 @@ $cbr: 10px;
 
 .homepage {
     display: flex;
-    width: 1200px;
+    width: 1300px;
     align-items: stretch;
     min-height: calc(100vh - 60px - 40px - 45px);
     margin: 45px auto;
@@ -57,7 +57,7 @@ $cbr: 10px;
             }
             margin-bottom: 10px;
             padding-bottom: 30px;
-            background: linear-gradient(rgb(240, 239, 239), rgb(150, 200, 160));
+            background: linear-gradient(rgb(243, 243, 243), rgb(189, 226, 196));
         }
 
         & .homepage_category_section_container {
