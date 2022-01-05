@@ -1,5 +1,7 @@
 import { serverUrl } from "../../settings";
 
+console.log(serverUrl);
+
 export const postApi = {
     getPost: async (category, postTitle) => {
         try {
